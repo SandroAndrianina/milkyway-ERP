@@ -1,0 +1,112 @@
+ERROR - 2026-08-26 15:54:43 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MySQLi/Connection.php(201): mysqli->real_connect('localhost', '', Object(SensitiveParameterValue), '', 3306, '', 0)
+#1 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(1706): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#4 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(1726): CodeIgniter\Database\BaseConnection->listTables()
+#5 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MigrationRunner.php(821): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MigrationRunner.php(173): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Commands/Database/Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CLI/SignalTrait.php(245): CodeIgniter\Commands\Database\Migrate::{closure:CodeIgniter\Commands\Database\Migrate::run():88}()
+#9 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Commands/Database/Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+#10 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CLI/Commands.php(72): CodeIgniter\Commands\Database\Migrate->run(Array)
+#11 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#12 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Boot.php(444): CodeIgniter\CLI\Console->run()
+#13 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#14 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#15 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(1706): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#3 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(1726): CodeIgniter\Database\BaseConnection->listTables()
+#4 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MigrationRunner.php(821): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#5 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MigrationRunner.php(173): CodeIgniter\Database\MigrationRunner->ensureTable()
+#6 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Commands/Database/Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CLI/SignalTrait.php(245): CodeIgniter\Commands\Database\Migrate::{closure:CodeIgniter\Commands\Database\Migrate::run():88}()
+#8 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Commands/Database/Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+#9 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CLI/Commands.php(72): CodeIgniter\Commands\Database\Migrate->run(Array)
+#10 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#11 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Boot.php(444): CodeIgniter\CLI\Console->run()
+#12 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#13 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#14 {main}
+ERROR - 2026-08-26 15:55:44 --> Error connecting to the database: mysqli_sql_exception: No such file or directory in /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MySQLi/Connection.php(201): mysqli->real_connect('localhost', 'root', Object(SensitiveParameterValue), 'milky_way', 3306, '', 0)
+#1 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(1706): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#4 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(1726): CodeIgniter\Database\BaseConnection->listTables()
+#5 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MigrationRunner.php(821): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#6 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MigrationRunner.php(173): CodeIgniter\Database\MigrationRunner->ensureTable()
+#7 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Commands/Database/Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CLI/SignalTrait.php(245): CodeIgniter\Commands\Database\Migrate::{closure:CodeIgniter\Commands\Database\Migrate::run():88}()
+#9 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Commands/Database/Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+#10 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CLI/Commands.php(72): CodeIgniter\Commands\Database\Migrate->run(Array)
+#11 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#12 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Boot.php(444): CodeIgniter\CLI\Console->run()
+#13 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#14 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#15 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: No such file or directory in /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(1706): CodeIgniter\Database\BaseConnection->query('SHOW TABLES FRO...')
+#3 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(1726): CodeIgniter\Database\BaseConnection->listTables()
+#4 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MigrationRunner.php(821): CodeIgniter\Database\BaseConnection->tableExists('migrations')
+#5 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MigrationRunner.php(173): CodeIgniter\Database\MigrationRunner->ensureTable()
+#6 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Commands/Database/Migrate.php(89): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CLI/SignalTrait.php(245): CodeIgniter\Commands\Database\Migrate::{closure:CodeIgniter\Commands\Database\Migrate::run():88}()
+#8 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Commands/Database/Migrate.php(88): CodeIgniter\Commands\Database\Migrate->withSignalsBlocked(Object(Closure))
+#9 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CLI/Commands.php(72): CodeIgniter\Commands\Database\Migrate->run(Array)
+#10 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CLI/Console.php(47): CodeIgniter\CLI\Commands->run('migrate', Array)
+#11 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Boot.php(444): CodeIgniter\CLI\Console->run()
+#12 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Boot.php(166): CodeIgniter\Boot::runCommand(Object(CodeIgniter\CLI\Console))
+#13 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/spark(87): CodeIgniter\Boot::bootSpark(Object(Config\Paths))
+#14 {main}
+CRITICAL - 2026-08-26 19:31:42 --> Error: Class "App\Services\DlcService" not found
+[Method: POST, Route: api/dlc/calculer]
+in APPPATH/Controllers/Api/DlcController.php on line 12.
+ 1 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\DlcController->calculer()
+ 2 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\DlcController))
+ 3 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/public/index.php')
+CRITICAL - 2026-08-26 19:31:48 --> Error: Class "App\Services\DlcService" not found
+[Method: POST, Route: api/dlc/calculer]
+in APPPATH/Controllers/Api/DlcController.php on line 12.
+ 1 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\DlcController->calculer()
+ 2 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\DlcController))
+ 3 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/public/index.php')
+CRITICAL - 2026-08-26 19:32:54 --> Error: Class "App\Services\DlcService" not found
+[Method: POST, Route: api/dlc/calculer]
+in APPPATH/Controllers/Api/DlcController.php on line 12.
+ 1 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\DlcController->calculer()
+ 2 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\DlcController))
+ 3 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/public/index.php')
+CRITICAL - 2026-08-26 19:34:38 --> Error: Class "App\Services\DlcService" not found
+[Method: POST, Route: api/dlc/calculer]
+in APPPATH/Controllers/Api/DlcController.php on line 12.
+ 1 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\DlcController->calculer()
+ 2 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\DlcController))
+ 3 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH/rewrite.php(44): require_once('/Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/public/index.php')

@@ -1,0 +1,21 @@
+body {
+    background-color: #F9F6F0; /* Creamy White Base */
+}
+.material-symbols-outlined {
+    font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+.card-shadow {
+    box-shadow: 0 4px 14px 0 rgba(8, 67, 101, 0.1);
+}
+
+/* Supprimer la flèche native de tous les selects */
+select {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+    appearance: none !important;
+}
+
+/* Optionnel : ajuster le padding pour compenser */
+select {
+    padding-right: 2.5rem; /* pour éviter que le texte chevauche l'icône */
+}
