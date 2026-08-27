@@ -4,17 +4,10 @@ namespace App\Controllers\Api;
 
 use App\Controllers\BaseController;
 use App\Models\ProduitModel;
-use App\Services\DlcService;  // ← importer le service
+use App\Services\DlcService;
 
 class DlcController extends BaseController
 {
-    protected $dlcService;
-
-    public function __construct(DlcService $dlcService)
-    {
-        $this->dlcService = $dlcService;
-    }
-
     public function calculer()
     {
         try {
@@ -35,8 +28,9 @@ class DlcController extends BaseController
                     ->setJSON(['error' => 'Produit introuvable']);
             }
 
-            // ✅ Appel du service
-            $date_peremption = $this->dlcService->calculerPeremption(
+            // ✅ Appel du service (instanciation manuelle)
+            $dlcService = new DlcService();
+            $date_peremption = $dlcService->calculerPeremption(
                 (int) $produit['duree_conservation'],
                 $date_creation
             );
