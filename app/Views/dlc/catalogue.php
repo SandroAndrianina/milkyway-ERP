@@ -38,11 +38,6 @@
                     <span class="material-symbols-outlined text-[20px]">calculate</span>
                     Calculer DLC
                 </button>
-                <button class="bg-primary text-on-primary font-label-md text-label-md px-6 py-3 rounded-lg shadow-[0_4px_12px_rgba(8,67,101,0.15)] hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-95 duration-150 flex items-center gap-2 min-h-[48px]" 
-                        onclick="openAddModal()">
-                    <span class="material-symbols-outlined text-[20px]">add</span>
-                    Ajouter un produit
-                </button>
             </div>
         </div>
 
@@ -89,11 +84,6 @@
         <div class="p-6 overflow-y-auto">
             <form id="product-form" class="space-y-6">
                 <input type="hidden" id="product-id" value="">
-                <div>
-                    <label class="block font-label-md text-label-md text-on-surface mb-2" for="product-name">Nom du produit</label>
-                    <input class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface focus:ring-2 focus:ring-primary focus:border-primary shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] transition-all font-body-md" 
-                           id="product-name" placeholder="Ex: Yaourt à boire" type="text" required>
-                </div>
                 <div>
                     <label class="block font-label-md text-label-md text-on-surface mb-2" for="shelf-life">Durée de conservation (jours)</label>
                     <div class="relative">

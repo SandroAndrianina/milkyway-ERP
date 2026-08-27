@@ -12,7 +12,7 @@ class ProduitModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nom', 'duree_conservation'];
+    protected $allowedFields    = ['nom', 'duree_conservation',  'prix_vente'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -43,4 +43,31 @@ class ProduitModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+        // Utilisé par Écoulement : création complète
+    public function creerProduit(array $data): int
+    {
+        $this->insert([
+            'nom' => $data['nom'],
+            'duree_conservation' => $data['duree_conservation'],
+            'prix_vente' => $data['prix_vente'],
+        ]);
+        return $this->getInsertID();
+    }
+
+    // Utilisé par Écoulement : modif complète
+    public function modifierProduitEcoulement(int $id, array $data): bool
+    {
+        return $this->update($id, [
+            'nom' => $data['nom'],
+            'duree_conservation' => $data['duree_conservation'],
+            'prix_vente' => $data['prix_vente'],
+        ]);
+    }
+
+    // Utilisé par DLC : modif restreinte, durée uniquement
+    public function modifierDureeDlc(int $id, int $dureeConservation): bool
+    {
+        return $this->update($id, ['duree_conservation' => $dureeConservation]);
+    }
 }

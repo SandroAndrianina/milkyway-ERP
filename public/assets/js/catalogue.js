@@ -40,9 +40,6 @@ function loadProducts() {
                             <button class="edit-btn w-8 h-8 rounded-full hover:bg-primary/10 text-primary transition-colors flex items-center justify-center" data-id="${prod.id}">
                                 <span class="material-symbols-outlined text-[20px]">edit</span>
                             </button>
-                            <button class="delete-btn w-8 h-8 rounded-full hover:bg-error-container text-error transition-colors flex items-center justify-center" data-id="${prod.id}">
-                                <span class="material-symbols-outlined text-[20px]">delete</span>
-                            </button>
                         </div>
                     </td>
                 `;
@@ -83,7 +80,6 @@ function openEditModal(id) {
         .then(prod => {
             console.log('📦 Produit récupéré :', prod);
             productId.value = prod.id;
-            productName.value = prod.nom;
             shelfLife.value = prod.duree_conservation;
             modalTitle.textContent = 'Modifier un produit';
             modal.classList.remove('hidden');
@@ -109,7 +105,6 @@ form.addEventListener('submit', function(e) {
     console.log('📤 Formulaire soumis');
 
     const data = {
-        nom: productName.value,
         duree_conservation: parseInt(shelfLife.value)
     };
     console.log('📦 Données :', data);
