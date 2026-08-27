@@ -30,6 +30,7 @@ $routes->group('api', function($routes) {
     $routes->post('ecoulement/clients', 'Api\ClientController::create');
     $routes->put('ecoulement/clients/(:num)', 'Api\ClientController::update/$1');
     $routes->delete('ecoulement/clients/(:num)', 'Api\ClientController::delete/$1');
+    $routes->get('ecoulement/clients/(:num)/achats', 'Api\ClientController::achats/$1');
 
 });
 
@@ -40,3 +41,4 @@ $routes->get('dlc/calculateur', 'Dlc::calculateur');
 //ecoulement
 $routes->get('produits-ecoulement', 'EcoulementProduit::index');
 $routes->get('clients', 'Clients::index');
+$routes->get('clients/details/(:num)', 'Clients::details/$1');

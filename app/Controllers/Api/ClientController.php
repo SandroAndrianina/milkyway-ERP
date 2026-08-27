@@ -74,4 +74,75 @@ class ClientController extends BaseController
         $this->model->delete($id);
         return $this->response->setJSON(['status' => 'ok']);
     }
+
+public function achats($clientId)
+{
+    try {
+        $page = (int) ($this->request->getGet('page') ?? 1);
+        $perPage = (int) ($this->request->getGet('perPage') ?? 10);
+        $period = $this->request->getGet('period') ?? 'month';
+        $dateDebut = $this->request->getGet('date_debut');
+        $dateFin = $this->request->getGet('date_fin');
+
+        $dateFilter = '';
+        if ($period === 'week') {
+            $dateFilter = date('Y-m-d', strtotime('-7 days'));
+        } elseif ($period === 'month') {
+            $dateFilter = date('Y-m-d', strtotime('-30 days'));
+        }
+
+        $db = \Config\Database::connect();
+        $builder = $db->table('mouvements')
+                    ->select('mouvements.*, produits.nom as produit_nom, produits.prix_vente')
+                    ->join('produits', 'produits.id = mouvements.produit_id')
+                    ->where('mouvements.client_id', $clientId)
+                    ->where('mouvements.type', 'sortie')
+                    ->where('mouvements.cause', 'vente')
+                    ->where('mouvements.deleted_at', null);
+
+        // Priorité : si des dates personnalisées sont fournies, on ignore 'period'
+        if ($dateDebut) {
+            $builder->where('mouvements.date_mouvement >=', $dateDebut);
+        } elseif ($dateFin) {
+            $builder->where('mouvements.date_mouvement <=', $dateFin);
+        } elseif ($dateFilter && !$dateDebut && !$dateFin) {
+            // Sinon on applique le filtre de période
+            $builder->where('mouvements.date_mouvement >=', $dateFilter);
+        }
+
+        $total = $builder->countAllResults(false);
+        $data = $builder->orderBy('mouvements.date_mouvement', 'DESC')
+                        ->limit($perPage, ($page - 1) * $perPage)
+                        ->get()
+                        ->getResultArray();
+
+        // Calculer le total acheté
+        $totalAchete = 0;
+        $result = [];
+        foreach ($data as $mvt) {
+            $prixUnitaire = $mvt['prix_vente'] ?? 0;
+            $totalLigne = $mvt['quantite'] * $prixUnitaire;
+            $totalAchete += $totalLigne;
+
+            $result[] = [
+                'date'          => date('d M Y', strtotime($mvt['date_mouvement'])),
+                'produit_nom'   => $mvt['produit_nom'] ?? 'Produit inconnu',
+                'quantite'      => $mvt['quantite'],
+                'prix_unitaire' => $prixUnitaire,
+                'total'         => $totalLigne,
+            ];
+        }
+
+        return $this->response->setJSON([
+            'data'  => $result,
+            'total' => $total,
+            'total_achete' => $totalAchete,
+        ]);
+
+    } catch (\Exception $e) {
+        log_message('error', 'Erreur achats client: ' . $e->getMessage());
+        return $this->response->setStatusCode(500)
+            ->setJSON(['error' => 'Erreur serveur: ' . $e->getMessage()]);
+    }
+}
 }

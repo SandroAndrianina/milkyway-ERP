@@ -8,4 +8,9 @@ class Clients extends BaseController
     {
         return view('ecoulement/clients');
     }
+
+    public function details($id)
+    {
+        return view('ecoulement/client_details', ['clientId' => $id]);
+    }
 }

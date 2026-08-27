@@ -21,4 +21,7 @@ php spark make:controller Api/MouvementController
 # créer un controller séparé pour Écoulement (création/gestion complète)
 php spark make:controller Api/EcoulementProduitController
 
+# creation de seeders 
 php spark make:seeder ProduitSeeder
+php spark make:seeder ClientSeeder
+php spark make:seeder MouvementSeeder

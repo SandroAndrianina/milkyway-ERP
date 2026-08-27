@@ -92,6 +92,9 @@ function renderTable(clients) {
         tdActions.className = 'p-4 text-center whitespace-nowrap';
         tdActions.innerHTML = `
             <div class="flex items-center justify-center gap-2">
+                <button class="details-btn p-2 text-on-surface-variant hover:text-primary hover:bg-primary-fixed rounded-lg transition-colors" data-id="${client.id}" title="Détails">
+                    <span class="material-symbols-outlined text-[20px]">visibility</span>
+                </button>
                 <button class="edit-btn p-2 text-on-surface-variant hover:text-primary hover:bg-primary-fixed rounded-lg transition-colors" data-id="${client.id}" title="Modifier">
                     <span class="material-symbols-outlined text-[20px]">edit</span>
                 </button>
@@ -114,6 +117,13 @@ function renderTable(clients) {
             deleteClient(this.dataset.id);
         });
     });
+
+    document.querySelectorAll('.details-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            window.location.href = `/clients/details/${this.dataset.id}`;
+        });
+    });
+    
     document.querySelectorAll('.edit-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             openEditModal(this.dataset.id);

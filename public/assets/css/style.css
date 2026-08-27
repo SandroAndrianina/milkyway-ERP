@@ -19,3 +19,13 @@ select {
 select {
     padding-right: 2.5rem; /* pour éviter que le texte chevauche l'icône */
 }
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px -1px rgba(8, 67, 101, 0.1), 0 2px 4px -1px rgba(8, 67, 101, 0.06);
+}
+.table-row-hover:hover {
+    background-color: rgba(8, 67, 101, 0.04);
+}
