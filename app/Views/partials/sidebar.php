@@ -15,15 +15,18 @@
 
     <!-- Navigation Links -->
     <ul class="flex flex-col flex-1 gap-2">
+        <!-- Tableau de bord -->
         <li>
             <a class="flex items-center gap-4 text-primary-fixed-dim opacity-70 hover:opacity-100 px-8 py-3 transition-all hover:bg-primary-container/20 cursor-pointer" href="#">
                 <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
                 <span class="font-body-md text-body-md">Tableau de bord</span>
             </a>
         </li>
+
+        <!-- Gestion DLC -->
         <li>
             <?php 
-                $currentUri = service('uri')->getSegment(1); // 'dlc' ou autre
+                $currentUri = service('uri')->getSegment(1);
                 $isActive = ($currentUri === 'dlc'); 
             ?>
             <a class="flex items-center gap-4 <?= $isActive ? 'bg-surface-container-lowest text-primary font-bold rounded-l-full ml-4 pl-4 py-3 shadow-sm' : 'text-primary-fixed-dim opacity-70 hover:opacity-100 px-8 py-3 hover:bg-primary-container/20' ?> transition-all cursor-pointer" 
@@ -32,13 +35,74 @@
                 <span class="font-body-md text-body-md">Gestion DLC</span>
             </a>
         </li>
+
+        <!-- Section Écoulement -->
+        <li class="px-8 pt-4 pb-2">
+            <span class="text-primary-fixed-dim text-xs uppercase tracking-wider opacity-50 font-bold">Écoulement</span>
+        </li>
+
         <li>
-            <a class="flex items-center gap-4 text-primary-fixed-dim opacity-70 hover:opacity-100 px-8 py-3 transition-all hover:bg-primary-container/20 cursor-pointer" href="#">
+            <?php 
+                $currentUri2 = service('uri')->getSegment(1);
+                $isProdActive = ($currentUri2 === 'produits-ecoulement'); 
+            ?>
+            <a class="flex items-center gap-4 <?= $isProdActive ? 'bg-surface-container-lowest text-primary font-bold rounded-l-full ml-4 pl-4 py-3 shadow-sm' : 'text-primary-fixed-dim opacity-70 hover:opacity-100 px-8 py-3 hover:bg-primary-container/20' ?> transition-all cursor-pointer pl-8" 
+               href="/produits-ecoulement">
                 <span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
-                <span class="font-body-md text-body-md">Inventaire</span>
+                <span class="font-body-md text-body-md">Produits</span>
             </a>
         </li>
+
         <li>
+            <?php 
+                $currentUri3 = service('uri')->getSegment(1);
+                $isClientActive = ($currentUri3 === 'clients'); 
+            ?>
+            <a class="flex items-center gap-4 <?= $isClientActive ? 'bg-surface-container-lowest text-primary font-bold rounded-l-full ml-4 pl-4 py-3 shadow-sm' : 'text-primary-fixed-dim opacity-70 hover:opacity-100 px-8 py-3 hover:bg-primary-container/20' ?> transition-all cursor-pointer pl-8" 
+               href="/clients">
+                <span class="material-symbols-outlined" data-icon="group">group</span>
+                <span class="font-body-md text-body-md">Clients</span>
+            </a>
+        </li>
+
+        <li>
+            <?php 
+                $currentUri4 = service('uri')->getSegment(1);
+                $isMvtActive = ($currentUri4 === 'mouvements'); 
+            ?>
+            <a class="flex items-center gap-4 <?= $isMvtActive ? 'bg-surface-container-lowest text-primary font-bold rounded-l-full ml-4 pl-4 py-3 shadow-sm' : 'text-primary-fixed-dim opacity-70 hover:opacity-100 px-8 py-3 hover:bg-primary-container/20' ?> transition-all cursor-pointer pl-8" 
+               href="/mouvements">
+                <span class="material-symbols-outlined" data-icon="swap_horiz">swap_horiz</span>
+                <span class="font-body-md text-body-md">Mouvements de Stock</span>
+            </a>
+        </li>
+
+        <li>
+            <?php 
+                $currentUri5 = service('uri')->getSegment(1);
+                $isStockActive = ($currentUri5 === 'etat-stock'); 
+            ?>
+            <a class="flex items-center gap-4 <?= $isStockActive ? 'bg-surface-container-lowest text-primary font-bold rounded-l-full ml-4 pl-4 py-3 shadow-sm' : 'text-primary-fixed-dim opacity-70 hover:opacity-100 px-8 py-3 hover:bg-primary-container/20' ?> transition-all cursor-pointer pl-8" 
+               href="/etat-stock">
+                <span class="material-symbols-outlined" data-icon="assessment">assessment</span>
+                <span class="font-body-md text-body-md">État de Stock Actuel</span>
+            </a>
+        </li>
+
+        <li>
+            <?php 
+                $currentUri6 = service('uri')->getSegment(1);
+                $isRecapActive = ($currentUri6 === 'recapitulation'); 
+            ?>
+            <a class="flex items-center gap-4 <?= $isRecapActive ? 'bg-surface-container-lowest text-primary font-bold rounded-l-full ml-4 pl-4 py-3 shadow-sm' : 'text-primary-fixed-dim opacity-70 hover:opacity-100 px-8 py-3 hover:bg-primary-container/20' ?> transition-all cursor-pointer pl-8" 
+               href="/recapitulation">
+                <span class="material-symbols-outlined" data-icon="summarize">summarize</span>
+                <span class="font-body-md text-body-md">Récapitulation</span>
+            </a>
+        </li>
+
+        <!-- Paramètres (gardé) -->
+        <li class="mt-4">
             <a class="flex items-center gap-4 text-primary-fixed-dim opacity-70 hover:opacity-100 px-8 py-3 transition-all hover:bg-primary-container/20 cursor-pointer" href="#">
                 <span class="material-symbols-outlined" data-icon="settings">settings</span>
                 <span class="font-body-md text-body-md">Paramètres</span>
