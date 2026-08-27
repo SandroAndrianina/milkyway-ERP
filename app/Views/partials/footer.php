@@ -15,7 +15,8 @@ if ($segment1 === 'dlc' && $segment2 === 'catalogue') : ?>
     <script src="/assets/js/calculateur.js"></script>
 <?php elseif ($segment1 === 'produits-ecoulement') : ?>
     <script src="/assets/js/ecoulement-produits.js"></script>
+<?php elseif ($segment1 === 'clients') : ?>
+    <script src="/assets/js/ecoulement-clients.js"></script>
 <?php endif; ?>
-
 </body>
 </html>
