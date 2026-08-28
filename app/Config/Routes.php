@@ -15,7 +15,7 @@ $routes->group('api', function($routes) {
     $routes->delete('produits/(:num)', 'Api\ProduitController::delete/$1');
     $routes->post('dlc/calculer', 'Api\DlcController::calculer');
 
-    //ecoulement
+    //ECOULEMENT
 
     //produits
     $routes->get('ecoulement/produits', 'Api\EcoulementProduitController::index');
@@ -24,7 +24,7 @@ $routes->group('api', function($routes) {
     $routes->put('ecoulement/produits/(:num)', 'Api\EcoulementProduitController::update/$1');
     $routes->delete('ecoulement/produits/(:num)', 'Api\EcoulementProduitController::delete/$1');
 
-    // Clients
+    //Clients
     $routes->get('ecoulement/clients', 'Api\ClientController::index');
     $routes->get('ecoulement/clients/(:num)', 'Api\ClientController::show/$1');
     $routes->post('ecoulement/clients', 'Api\ClientController::create');
@@ -39,6 +39,18 @@ $routes->group('api', function($routes) {
     $routes->get('ecoulement/clients/(:num)/achats/export-preview', 'Api\ClientController::exportAchatsPreview/$1');
     $routes->get('ecoulement/clients/(:num)/achats/export/csv', 'Api\ClientController::exportAchatsCsv/$1');
     $routes->get('ecoulement/clients/(:num)/achats/export/pdf', 'Api\ClientController::exportAchatsPdf/$1');
+
+    // Mouvements
+    $routes->get('ecoulement/mouvements', 'Api\MouvementController::index');
+    $routes->get('ecoulement/mouvements/chart', 'Api\MouvementController::chart');
+    $routes->post('ecoulement/mouvements', 'Api\MouvementController::create');
+    $routes->post('ecoulement/mouvements/batch', 'Api\MouvementController::createBatch');
+    $routes->get('ecoulement/mouvements/(:num)', 'Api\MouvementController::show/$1');
+
+    // Export mouvements
+    $routes->get('ecoulement/mouvements/export-preview', 'Api\MouvementController::exportPreview');
+    $routes->get('ecoulement/mouvements/export/csv', 'Api\MouvementController::exportCsv');
+    $routes->get('ecoulement/mouvements/export/pdf', 'Api\MouvementController::exportPdf');
 });
 
 //DLC
@@ -49,3 +61,4 @@ $routes->get('dlc/calculateur', 'Dlc::calculateur');
 $routes->get('produits-ecoulement', 'EcoulementProduit::index');
 $routes->get('clients', 'Clients::index');
 $routes->get('clients/details/(:num)', 'Clients::details/$1');
+$routes->get('mouvements', 'Mouvements::index');

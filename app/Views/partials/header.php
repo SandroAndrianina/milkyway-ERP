@@ -108,6 +108,7 @@
     </script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="flex flex-row min-h-screen text-on-surface font-body-md">
     <!-- Sidebar en premier -->

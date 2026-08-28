@@ -178,7 +178,4 @@
     </div>
 </div>
 </main>
-
-<!-- JS spécifique -->
-<script src="/assets/js/ecoulement-client-details.js"></script>
 <?= $this->endSection() ?>

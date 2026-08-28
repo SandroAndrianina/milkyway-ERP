@@ -11,98 +11,166 @@ class MouvementModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
-    protected $protectFields    = true;
     protected $allowedFields    = ['produit_id', 'client_id', 'type', 'cause', 'quantite', 'date_mouvement'];
+    protected $useTimestamps    = true;
+    protected $createdField     = 'created_at';
+    protected $updatedField     = 'updated_at';
+    protected $deletedField     = 'deleted_at';
 
-    protected bool $allowEmptyInserts = false;
-    protected bool $updateOnlyChanged = true;
-
-    protected array $casts = [];
-    protected array $castHandlers = [];
-
-    // Dates
-    protected $useTimestamps = true;
-    protected $dateFormat    = 'datetime';
-    protected $createdField  = 'created_at';
-    protected $updatedField  = 'updated_at';
-    protected $deletedField  = 'deleted_at';
-
-    // Validation
-    protected $validationRules      = [];
-    protected $validationMessages   = [];
-    protected $skipValidation       = false;
-    protected $cleanValidationRules = true;
-
-    // Callbacks
-    protected $allowCallbacks = true;
-    protected $beforeInsert   = [];
-    protected $afterInsert    = [];
-    protected $beforeUpdate   = [];
-    protected $afterUpdate    = [];
-    protected $beforeFind     = [];
-    protected $afterFind      = [];
-    protected $beforeDelete   = [];
-    protected $afterDelete    = [];
-
-    //operation
     /**
-     * Récupère les achats d'un client avec pagination et filtres
+     * Récupère la liste des mouvements avec filtres et pagination
      */
-    public function getAchatsClient(int $clientId, array $filters = [], int $page = 1, int $perPage = 10): array
+    public function getMouvements(array $filters = [], int $page = 1, int $perPage = 10): array
     {
         $builder = $this->db->table('mouvements')
-            ->select('mouvements.*, produits.nom as produit_nom, produits.prix_vente')
-            ->join('produits', 'produits.id = mouvements.produit_id')
-            ->where('mouvements.client_id', $clientId)
-            ->where('mouvements.type', 'sortie')
-            ->where('mouvements.cause', 'vente')
+            ->select('mouvements.*, produits.nom as produit_nom, clients.nom as client_nom')
+            ->join('produits', 'produits.id = mouvements.produit_id', 'left')
+            ->join('clients', 'clients.id = mouvements.client_id', 'left')
             ->where('mouvements.deleted_at', null);
 
-        // Appliquer les filtres de dates
-        if (!empty($filters['date_debut'])) {
-            $builder->where('mouvements.date_mouvement >=', $filters['date_debut']);
-        }
-        if (!empty($filters['date_fin'])) {
-            $builder->where('mouvements.date_mouvement <=', $filters['date_fin']);
-        }
+        $this->applyMouvementFilters($builder, $filters);
 
-        // Compter le total
         $total = $builder->countAllResults(false);
 
-        // Récupérer la page
         $data = $builder->orderBy('mouvements.date_mouvement', 'DESC')
-            ->limit($perPage, ($page - 1) * $perPage)
-            ->get()
-            ->getResultArray();
+                        ->orderBy('mouvements.id', 'DESC')
+                        ->limit($perPage, ($page - 1) * $perPage)
+                        ->get()
+                        ->getResultArray();
+
+        return ['data' => $data, 'total' => $total];
+    }
+
+    /**
+     * Récupère les données pour le graphique (agrégé par jour)
+     */
+    public function getChartData(array $filters = []): array
+    {
+        $builder = $this->db->table('mouvements')
+            ->select("
+                DATE(date_mouvement) as date,
+                SUM(CASE WHEN type = 'entree' THEN quantite ELSE 0 END) as entree,
+                SUM(CASE WHEN type = 'sortie' THEN quantite ELSE 0 END) as sortie
+            ")
+            ->where('mouvements.deleted_at', null);
+
+        $this->applyMouvementFilters($builder, $filters);
+
+        $builder->groupBy('DATE(date_mouvement)')
+                ->orderBy('date', 'ASC');
+
+        $results = $builder->get()->getResultArray();
+        // Formater pour Chart.js (labels + datasets)
+        $labels = array_column($results, 'date');
+        $entrees = array_column($results, 'entree');
+        $sorties = array_column($results, 'sortie');
 
         return [
-            'data'  => $data,
-            'total' => $total,
+            'labels' => $labels,
+            'entree' => $entrees,
+            'sortie' => $sorties,
         ];
     }
 
     /**
-     * Calcule le total des achats d'un client sur une période
+     * Applique les filtres au builder
      */
-    public function getTotalAchatsClient(int $clientId, array $filters = []): int
+    private function applyMouvementFilters(&$builder, array $filters): void
     {
-        $builder = $this->db->table('mouvements')
-            ->select('SUM(mouvements.quantite * produits.prix_vente) as total')
-            ->join('produits', 'produits.id = mouvements.produit_id')
-            ->where('mouvements.client_id', $clientId)
-            ->where('mouvements.type', 'sortie')
-            ->where('mouvements.cause', 'vente')
-            ->where('mouvements.deleted_at', null);
-
         if (!empty($filters['date_debut'])) {
             $builder->where('mouvements.date_mouvement >=', $filters['date_debut']);
         }
         if (!empty($filters['date_fin'])) {
             $builder->where('mouvements.date_mouvement <=', $filters['date_fin']);
         }
-
-        $result = $builder->get()->getRowArray();
-        return (int) ($result['total'] ?? 0);
+        if (!empty($filters['type']) && $filters['type'] !== 'tous') {
+            $builder->where('mouvements.type', $filters['type']);
+        }
+        if (!empty($filters['cause']) && $filters['cause'] !== 'toutes') {
+            $builder->where('mouvements.cause', $filters['cause']);
+        }
+        if (!empty($filters['produit_id'])) {
+            $builder->where('mouvements.produit_id', $filters['produit_id']);
+        }
+        if (!empty($filters['client_id'])) {
+            $builder->where('mouvements.client_id', $filters['client_id']);
+        }
     }
+
+    /**
+ * Récupère les achats d'un client avec pagination et filtres
+ */
+public function getAchatsClient(int $clientId, array $filters = [], int $page = 1, int $perPage = 10): array
+{
+    $builder = $this->db->table('mouvements')
+        ->select('mouvements.*, produits.nom as produit_nom, produits.prix_vente')
+        ->join('produits', 'produits.id = mouvements.produit_id')
+        ->where('mouvements.client_id', $clientId)
+        ->where('mouvements.type', 'sortie')
+        ->where('mouvements.cause', 'vente')
+        ->where('mouvements.deleted_at', null);
+
+    if (!empty($filters['date_debut'])) {
+        $builder->where('mouvements.date_mouvement >=', $filters['date_debut']);
+    }
+    if (!empty($filters['date_fin'])) {
+        $builder->where('mouvements.date_mouvement <=', $filters['date_fin']);
+    }
+
+    $total = $builder->countAllResults(false);
+    $data = $builder->orderBy('mouvements.date_mouvement', 'DESC')
+                    ->limit($perPage, ($page - 1) * $perPage)
+                    ->get()
+                    ->getResultArray();
+
+    return ['data' => $data, 'total' => $total];
+}
+
+/**
+ * Calcule le total des achats d'un client sur une période
+ */
+public function getTotalAchatsClient(int $clientId, array $filters = []): int
+{
+    $builder = $this->db->table('mouvements')
+        ->select('SUM(mouvements.quantite * produits.prix_vente) as total')
+        ->join('produits', 'produits.id = mouvements.produit_id')
+        ->where('mouvements.client_id', $clientId)
+        ->where('mouvements.type', 'sortie')
+        ->where('mouvements.cause', 'vente')
+        ->where('mouvements.deleted_at', null);
+
+    if (!empty($filters['date_debut'])) {
+        $builder->where('mouvements.date_mouvement >=', $filters['date_debut']);
+    }
+    if (!empty($filters['date_fin'])) {
+        $builder->where('mouvements.date_mouvement <=', $filters['date_fin']);
+    }
+
+    $result = $builder->get()->getRowArray();
+    return (int) ($result['total'] ?? 0);
+}
+
+/**
+ * Calcule le stock actuel d'un produit à une date donnée (ou aujourd'hui)
+ */
+public function getStockActuel(int $produitId, ?string $date = null): float
+{
+    $date = $date ?? date('Y-m-d');
+    
+    // On prend tous les mouvements jusqu'à cette date (inclus)
+    $builder = $this->db->table('mouvements')
+        ->select("
+            SUM(CASE WHEN type = 'entree' THEN quantite ELSE 0 END) as total_entree,
+            SUM(CASE WHEN type = 'sortie' THEN quantite ELSE 0 END) as total_sortie
+        ")
+        ->where('produit_id', $produitId)
+        ->where('deleted_at', null)
+        ->where('date_mouvement <=', $date);
+
+    $result = $builder->get()->getRowArray();
+    $entree = (float) ($result['total_entree'] ?? 0);
+    $sortie = (float) ($result['total_sortie'] ?? 0);
+    return $entree - $sortie;
+}
 
 }

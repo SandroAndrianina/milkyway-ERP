@@ -105,7 +105,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         currentPeriod = '';
-        currentPage = 1;
         loadHistorique(1, '', debut, fin);
     });
 
@@ -113,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
         dateDebut.value = '';
         dateFin.value = '';
         currentPeriod = 'month';
-        currentPage = 1;
         document.querySelectorAll('.period-btn').forEach(b => {
             b.classList.remove('bg-primary', 'text-on-primary');
             b.classList.add('border', 'border-outline-variant', 'text-on-surface');
@@ -139,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
             dateDebut.value = '';
             dateFin.value = '';
             currentPeriod = this.dataset.period;
-            currentPage = 1;
+
             loadHistorique(1, currentPeriod);
         });
     });

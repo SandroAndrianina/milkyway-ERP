@@ -19,6 +19,8 @@ if ($segment1 === 'dlc' && $segment2 === 'catalogue') : ?>
     <script src="/assets/js/ecoulement-client-details.js"></script>
 <?php elseif ($segment1 === 'clients' && empty($segment2)) : ?>
     <script src="/assets/js/ecoulement-clients.js"></script>
+<?php elseif ($segment1 === 'mouvements') : ?>
+    <script src="/assets/js/ecoulement-mouvements.js"></script>
 <?php endif; ?>
 </body>
 </html>
