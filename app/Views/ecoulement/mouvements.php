@@ -64,18 +64,21 @@
                     <label class="block font-label-sm text-on-surface-variant mb-1">Produit</label>
                     <select class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-sm text-on-surface" id="filter-produit">
                         <option value="">Tous</option>
-                        <!-- Rempli par JS -->
                     </select>
                 </div>
                 <div>
                     <label class="block font-label-sm text-on-surface-variant mb-1">Client</label>
                     <select class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-sm text-on-surface" id="filter-client">
                         <option value="">Tous</option>
-                        <!-- Rempli par JS -->
                     </select>
                 </div>
             </div>
-            <div class="flex justify-end mt-4">
+            
+            <!-- Boutons de période rapide -->
+            <div class="flex flex-wrap items-center gap-3 mt-4 pt-4 border-t border-surface-variant">
+
+                
+                <div class="flex-1"></div>
                 <button class="bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md px-6 py-2 rounded-lg shadow-sm transition-all duration-200 flex items-center gap-2" id="btnFilter">
                     <span class="material-symbols-outlined text-[20px]">filter_list</span>
                     Filtrer
@@ -85,6 +88,10 @@
 
         <!-- Graphique -->
         <div class="bg-surface rounded-xl shadow-[0_4px_20px_rgba(8,67,101,0.05)] p-4 mb-6 border border-surface-container">
+                            <span class="font-label-sm text-on-surface-variant">Période :</span>
+                <button class="period-btn px-4 py-1.5 rounded-full border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container-low transition-colors whitespace-nowrap" data-period="week">Cette semaine</button>
+                <button class="period-btn px-4 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm transition-colors whitespace-nowrap" data-period="month">Ce mois</button>
+                <button class="period-btn px-4 py-1.5 rounded-full border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container-low transition-colors whitespace-nowrap" data-period="all">Tout</button>
             <canvas id="mouvementChart" height="200"></canvas>
         </div>
 

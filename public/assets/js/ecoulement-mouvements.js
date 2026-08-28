@@ -485,11 +485,53 @@ document.addEventListener('DOMContentLoaded', function() {
     // ===== INIT =====
     const today = new Date().toISOString().split('T')[0];
     const firstDay = new Date(new Date().getFullYear(), new Date().getMonth(), 1).toISOString().split('T')[0];
-    filterDateDebut.value = firstDay;
-    filterDateFin.value = today;
+    document.getElementById('filter-date-debut').value = firstDay;
+    document.getElementById('filter-date-fin').value = today;
     document.getElementById('modal-date').value = today;
     document.getElementById('batch-date').value = today;
 
+    // Activer le bouton "Ce mois" par défaut
+    document.querySelector('.period-btn[data-period="month"]')?.classList.add('bg-primary', 'text-on-primary');
+
     loadMouvements(1);
     loadChart();
+
+        // === BOUTONS PÉRIODE RAPIDE ===
+    const periodBtns = document.querySelectorAll('.period-btn');
+    periodBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            // Désactiver tous les boutons
+            periodBtns.forEach(b => {
+                b.classList.remove('bg-primary', 'text-on-primary');
+                b.classList.add('border', 'border-outline-variant', 'text-on-surface');
+            });
+            // Activer celui-ci
+            this.classList.remove('border', 'border-outline-variant', 'text-on-surface');
+            this.classList.add('bg-primary', 'text-on-primary');
+
+            const period = this.dataset.period;
+            const today = new Date();
+            let dateDebut = '';
+            let dateFin = today.toISOString().split('T')[0];
+
+            if (period === 'week') {
+                const debut = new Date(today);
+                debut.setDate(today.getDate() - 7);
+                dateDebut = debut.toISOString().split('T')[0];
+            } else if (period === 'month') {
+                const debut = new Date(today.getFullYear(), today.getMonth(), 1);
+                dateDebut = debut.toISOString().split('T')[0];
+            } else if (period === 'all') {
+                dateDebut = '';
+                dateFin = '';
+            }
+
+            document.getElementById('filter-date-debut').value = dateDebut;
+            document.getElementById('filter-date-fin').value = dateFin;
+
+            // Recharger instantanément (ne touche pas aux autres filtres)
+            loadMouvements(1);
+            loadChart();
+        });
+    });
 });
