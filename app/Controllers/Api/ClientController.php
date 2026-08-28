@@ -75,29 +75,42 @@ class ClientController extends BaseController
         return $this->response->setJSON(['status' => 'ok']);
     }
 
-    public function achats($clientId)
-    {
-        try {
-            $service = new \App\Services\ClientService();
+public function achats($clientId)
+{
+    try {
+        $service = new \App\Services\ClientService();
 
-            $filters = [
-                'date_debut' => $this->request->getGet('date_debut'),
-                'date_fin'   => $this->request->getGet('date_fin'),
-            ];
-            $page = (int) ($this->request->getGet('page') ?? 1);
-            $perPage = (int) ($this->request->getGet('perPage') ?? 10);
+        $dateDebut = $this->request->getGet('date_debut');
+        $dateFin   = $this->request->getGet('date_fin');
+        $period    = $this->request->getGet('period') ?? 'month';
+        $page      = (int) ($this->request->getGet('page') ?? 1);
+        $perPage   = (int) ($this->request->getGet('perPage') ?? 10);
 
-            $result = $service->getClientWithAchats($clientId, $filters, $page, $perPage);
-
-            return $this->response->setJSON([
-                'data'          => $result['achats'],
-                'total'         => $result['total_achats'],
-                'total_achete'  => $result['total_achete'],
-            ]);
-
-        } catch (\Exception $e) {
-            return $this->response->setStatusCode(500)
-                ->setJSON(['error' => $e->getMessage()]);
+        // ⚠️ Si pas de dates personnalisées, on applique le period
+        if (empty($dateDebut) && empty($dateFin)) {
+            if ($period === 'week') {
+                $dateDebut = date('Y-m-d', strtotime('-7 days'));
+            } elseif ($period === 'month') {
+                $dateDebut = date('Y-m-d', strtotime('-30 days'));
+            }
+            // 'all' → pas de filtre
         }
+
+        $filters = [];
+        if ($dateDebut) $filters['date_debut'] = $dateDebut;
+        if ($dateFin)   $filters['date_fin']   = $dateFin;
+
+        $result = $service->getClientWithAchats($clientId, $filters, $page, $perPage);
+
+        return $this->response->setJSON([
+            'data'          => $result['achats'],
+            'total'         => $result['total_achats'],
+            'total_achete'  => $result['total_achete'],
+        ]);
+
+    } catch (\Exception $e) {
+        return $this->response->setStatusCode(500)
+            ->setJSON(['error' => $e->getMessage()]);
     }
+}
 }
