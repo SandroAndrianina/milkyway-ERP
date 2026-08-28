@@ -1,3 +1,9 @@
+// === Déclarations globales ===
+let currentPage = 1;
+let perPage = 10;
+let totalPages = 0;
+let allClients = [];
+
 document.addEventListener('DOMContentLoaded', function() {
     const tbody = document.getElementById('client-tbody');
     const modal = document.getElementById('client-modal');
@@ -18,13 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const nextBtn = document.getElementById('next-page');
     const paginationNumbers = document.getElementById('pagination-numbers');
 
-    let currentPage = 1;
-    let perPage = 10;
-    let totalPages = 0;
-    let allClients = [];
-
     // Charger les clients
     function loadClients(page = 1, search = '') {
+        currentPage = page;
         const url = `${API_BASE}/ecoulement/clients?page=${page}&perPage=${perPage}&search=${encodeURIComponent(search)}`;
         fetch(url)
             .then(res => res.json())
@@ -123,7 +125,7 @@ function renderTable(clients) {
             window.location.href = `/clients/details/${this.dataset.id}`;
         });
     });
-    
+
     document.querySelectorAll('.edit-btn').forEach(btn => {
         btn.addEventListener('click', function() {
             openEditModal(this.dataset.id);
@@ -242,4 +244,51 @@ function renderTable(clients) {
 
     // Chargement initial
     loadClients(1);
+});
+
+// --- Export ---
+document.querySelector('.export-btn')?.addEventListener('click', function() {
+    document.getElementById('export-modal').classList.remove('hidden');
+    loadExportPreview();
+});
+
+function loadExportPreview() {
+    const tbody = document.getElementById('export-preview-body');
+    tbody.innerHTML = '<tr><td colspan="3" class="text-center py-4">Chargement...</td></tr>';
+    const type = document.getElementById('export-type').value;
+    const page = type === 'current' ? currentPage : 1;
+    const limit = type === 'current' ? perPage : 1000; // ou une grande valeur pour tout
+    fetch(`${API_BASE}/ecoulement/clients/export-preview?page=${page}&limit=${limit}`)
+        .then(res => res.json())
+        .then(data => {
+            tbody.innerHTML = '';
+            if (data.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="3" class="text-center py-4">Aucun client</td></tr>';
+                return;
+            }
+            data.forEach(c => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td class="p-2">${c.nom}</td><td class="p-2">${c.contact || '-'}</td><td class="p-2">${c.adresse || '-'}</td>`;
+                tbody.appendChild(tr);
+            });
+        });
+}
+
+// Mise à jour de l'aperçu quand on change le type d'export
+document.getElementById('export-type').addEventListener('change', loadExportPreview);
+
+// Export CSV
+document.getElementById('export-csv-btn').addEventListener('click', function() {
+    const filename = document.getElementById('export-filename').value || 'clients_export';
+    const type = document.getElementById('export-type').value;
+    const page = type === 'current' ? currentPage : 0; // 0 = all
+    window.location.href = `${API_BASE}/ecoulement/clients/export/csv?filename=${encodeURIComponent(filename)}&type=${type}&page=${page}`;
+});
+
+// Export PDF
+document.getElementById('export-pdf-btn').addEventListener('click', function() {
+    const filename = document.getElementById('export-filename').value || 'clients_export';
+    const type = document.getElementById('export-type').value;
+    const page = type === 'current' ? currentPage : 0;
+    window.location.href = `${API_BASE}/ecoulement/clients/export/pdf?filename=${encodeURIComponent(filename)}&type=${type}&page=${page}`;
 });

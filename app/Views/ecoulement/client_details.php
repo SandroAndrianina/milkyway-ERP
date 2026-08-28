@@ -83,13 +83,15 @@
 
             <!-- Tableau historique -->
             <div class="glass-card rounded-xl overflow-hidden">
-                <div class="p-md border-b border-outline-variant bg-surface-container-lowest flex items-center justify-between">
-                    <h3 class="font-headline-sm text-headline-sm text-on-surface">Historique des achats</h3>
-                    <button class="bg-primary text-on-primary hover:bg-on-primary-fixed-variant transition-colors rounded-lg px-4 h-10 flex items-center gap-2 font-label-md text-label-md shadow-sm ml-auto">
-                        <span class="material-symbols-outlined text-[20px]">download</span>
-                        Exporter
-                    </button>
-                </div>
+                    <div class="p-md border-b border-outline-variant bg-surface-container-lowest flex items-center justify-between">
+                        <h3 class="font-headline-sm text-headline-sm text-on-surface">Historique des achats</h3>
+                        <div class="flex gap-2">
+                            <button id="export-achats-btn" class="bg-primary text-on-primary hover:bg-on-primary-fixed-variant transition-colors rounded-lg px-4 h-10 flex items-center gap-2 font-label-md text-label-md shadow-sm">
+                                <span class="material-symbols-outlined text-[20px]">download</span>
+                                Exporter
+                            </button>
+                        </div>
+                    </div>
                 <div class="overflow-x-auto">
                     <table class="w-full text-left border-collapse">
                         <thead>
@@ -122,6 +124,59 @@
             </div>
         </div>
     </div>
+    <!-- Modal Export Achats -->
+<div class="fixed inset-0 z-50 flex items-center justify-center hidden" id="export-modal-achats">
+    <div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-sm" onclick="document.getElementById('export-modal-achats').classList.add('hidden')"></div>
+    <div class="bg-surface-container-lowest rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col relative z-10">
+        <div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center bg-surface">
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Exporter les achats</h3>
+            <button class="text-on-surface-variant hover:bg-surface-container-high rounded-full w-8 h-8 flex items-center justify-center" onclick="document.getElementById('export-modal-achats').classList.add('hidden')">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="p-6 overflow-y-auto flex-1">
+            <!-- Options -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block font-label-md text-label-md text-on-surface mb-1" for="export-achats-filename">Nom du fichier</label>
+                    <input class="w-full px-4 py-2 border border-outline-variant rounded-lg focus:ring-primary focus:border-primary bg-surface-container-lowest" id="export-achats-filename" type="text" value="achats_client">
+                </div>
+                <div>
+                    <label class="block font-label-md text-label-md text-on-surface mb-1" for="export-achats-type">Exporter</label>
+                    <select class="w-full px-4 py-2 border border-outline-variant rounded-lg focus:ring-primary focus:border-primary bg-surface-container-lowest" id="export-achats-type">
+                        <option value="current">Page actuelle</option>
+                        <option value="all">Toutes les pages</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Aperçu -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse" id="export-achats-preview-table">
+                    <thead>
+                        <tr class="bg-surface-container-low border-b">
+                            <th class="p-2 font-label-md">Date</th>
+                            <th class="p-2 font-label-md">Produit</th>
+                            <th class="p-2 font-label-md text-right">Qté</th>
+                            <th class="p-2 font-label-md text-right">Prix unit.</th>
+                            <th class="p-2 font-label-md text-right">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody id="export-achats-preview-body">
+                        <tr><td colspan="5" class="text-center py-4">Chargement...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-4 flex justify-end gap-3">
+                <button id="export-achats-csv-btn" class="bg-primary text-on-primary px-6 py-2 rounded-lg hover:bg-primary-container transition-colors flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[18px]">download</span> CSV
+                </button>
+                <button id="export-achats-pdf-btn" class="bg-error text-on-error px-6 py-2 rounded-lg hover:bg-error-container transition-colors flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[18px]">picture_as_pdf</span> PDF
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 </main>
 
 <!-- JS spécifique -->

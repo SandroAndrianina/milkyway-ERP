@@ -1,5 +1,11 @@
+// === Variables globales ===
+let currentPage = 1;
+let perPage = 10;
+let total = 0;
+let totalPages = 0;
+let clientId = window.location.pathname.split('/').pop(); // ← Récupéré directement
+
 document.addEventListener('DOMContentLoaded', function() {
-    const clientId = window.location.pathname.split('/').pop();
     const nomEl = document.getElementById('client-nom');
     const contactEl = document.getElementById('client-contact');
     const adresseEl = document.getElementById('client-adresse');
@@ -15,10 +21,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const filterBtn = document.getElementById('filter-date-btn');
     const clearBtn = document.getElementById('clear-date-btn');
 
-    let currentPage = 1;
-    let perPage = 10;
-    let total = 0;
-    let totalPages = 0;
     let currentPeriod = 'month';
     let customDateDebut = '';
     let customDateFin = '';
@@ -36,19 +38,12 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(err => console.error('Erreur chargement client:', err));
     }
 
-    // Charger l'historique des achats
-    function loadHistorique(page = 1, period = currentPeriod, dateDebut = '', dateFin = '') {
+    // Charger l'historique
+    function loadHistorique(page = 1, period = currentPeriod, dateDebutVal = '', dateFinVal = '') {
         let url = `${API_BASE}/ecoulement/clients/${clientId}/achats?page=${page}&perPage=${perPage}`;
-        
-        if (period) {
-            url += `&period=${period}`;
-        }
-        if (dateDebut) {
-            url += `&date_debut=${dateDebut}`;
-        }
-        if (dateFin) {
-            url += `&date_fin=${dateFin}`;
-        }
+        if (period) url += `&period=${period}`;
+        if (dateDebutVal) url += `&date_debut=${dateDebutVal}`;
+        if (dateFinVal) url += `&date_fin=${dateFinVal}`;
 
         fetch(url)
             .then(res => res.json())
@@ -101,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('total-achete').textContent = total.toLocaleString() + ' Ar';
     }
 
-    // Gestion du filtre par dates personnalisé
+    // Filtres personnalisés
     filterBtn.addEventListener('click', function() {
         const debut = dateDebut.value;
         const fin = dateFin.value;
@@ -119,7 +114,6 @@ document.addEventListener('DOMContentLoaded', function() {
         dateFin.value = '';
         currentPeriod = 'month';
         currentPage = 1;
-        // Désactiver tous les boutons période et réactiver "Ce mois"
         document.querySelectorAll('.period-btn').forEach(b => {
             b.classList.remove('bg-primary', 'text-on-primary');
             b.classList.add('border', 'border-outline-variant', 'text-on-surface');
@@ -133,22 +127,17 @@ document.addEventListener('DOMContentLoaded', function() {
         loadHistorique(1, 'month');
     });
 
-    // Événements des filtres de période
+    // Boutons période
     document.querySelectorAll('.period-btn').forEach(btn => {
         btn.addEventListener('click', function() {
-            // Désactiver tous les boutons
             document.querySelectorAll('.period-btn').forEach(b => {
                 b.classList.remove('bg-primary', 'text-on-primary');
                 b.classList.add('border', 'border-outline-variant', 'text-on-surface');
             });
-            // Activer celui-ci
             this.classList.remove('border', 'border-outline-variant', 'text-on-surface');
             this.classList.add('bg-primary', 'text-on-primary');
-
-            // Vider les champs de date
             dateDebut.value = '';
             dateFin.value = '';
-
             currentPeriod = this.dataset.period;
             currentPage = 1;
             loadHistorique(1, currentPeriod);
@@ -165,6 +154,64 @@ document.addEventListener('DOMContentLoaded', function() {
         if (currentPage < totalPages) {
             loadHistorique(currentPage + 1, currentPeriod, dateDebut.value, dateFin.value);
         }
+    });
+
+    // === EXPORT ACHATS ===
+    document.getElementById('export-achats-btn')?.addEventListener('click', function() {
+        document.getElementById('export-modal-achats').classList.remove('hidden');
+        loadExportAchatsPreview();
+    });
+
+    function loadExportAchatsPreview() {
+        const tbody = document.getElementById('export-achats-preview-body');
+        tbody.innerHTML = '<tr><td colspan="5" class="text-center py-4">Chargement...</td></tr>';
+        const type = document.getElementById('export-achats-type').value;
+        const page = type === 'current' ? currentPage : 1;
+        const dateDebutVal = dateDebut.value;
+        const dateFinVal = dateFin.value;
+        let url = `${API_BASE}/ecoulement/clients/${clientId}/achats/export-preview?type=${type}&page=${page}`;
+        if (dateDebutVal) url += `&date_debut=${dateDebutVal}`;
+        if (dateFinVal) url += `&date_fin=${dateFinVal}`;
+        fetch(url)
+            .then(res => res.json())
+            .then(data => {
+                tbody.innerHTML = '';
+                if (data.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5" class="text-center py-4">Aucun achat</td></tr>';
+                    return;
+                }
+                data.forEach(a => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td class="p-2">${a.date}</td><td class="p-2">${a.produit_nom}</td><td class="p-2 text-right">${a.quantite}</td><td class="p-2 text-right">${a.prix_unitaire} Ar</td><td class="p-2 text-right">${a.total} Ar</td>`;
+                    tbody.appendChild(tr);
+                });
+            });
+    }
+
+    document.getElementById('export-achats-type').addEventListener('change', loadExportAchatsPreview);
+
+    document.getElementById('export-achats-csv-btn').addEventListener('click', function() {
+        const filename = document.getElementById('export-achats-filename').value || 'achats_client';
+        const type = document.getElementById('export-achats-type').value;
+        const page = type === 'current' ? currentPage : 0;
+        const dateDebutVal = dateDebut.value;
+        const dateFinVal = dateFin.value;
+        let url = `${API_BASE}/ecoulement/clients/${clientId}/achats/export/csv?filename=${encodeURIComponent(filename)}&type=${type}&page=${page}`;
+        if (dateDebutVal) url += `&date_debut=${dateDebutVal}`;
+        if (dateFinVal) url += `&date_fin=${dateFinVal}`;
+        window.location.href = url;
+    });
+
+    document.getElementById('export-achats-pdf-btn').addEventListener('click', function() {
+        const filename = document.getElementById('export-achats-filename').value || 'achats_client';
+        const type = document.getElementById('export-achats-type').value;
+        const page = type === 'current' ? currentPage : 0;
+        const dateDebutVal = dateDebut.value;
+        const dateFinVal = dateFin.value;
+        let url = `${API_BASE}/ecoulement/clients/${clientId}/achats/export/pdf?filename=${encodeURIComponent(filename)}&type=${type}&page=${page}`;
+        if (dateDebutVal) url += `&date_debut=${dateDebutVal}`;
+        if (dateFinVal) url += `&date_fin=${dateFinVal}`;
+        window.location.href = url;
     });
 
     // Chargement initial

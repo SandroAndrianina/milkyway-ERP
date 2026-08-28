@@ -31,7 +31,14 @@ $routes->group('api', function($routes) {
     $routes->put('ecoulement/clients/(:num)', 'Api\ClientController::update/$1');
     $routes->delete('ecoulement/clients/(:num)', 'Api\ClientController::delete/$1');
     $routes->get('ecoulement/clients/(:num)/achats', 'Api\ClientController::achats/$1');
-
+    //export clients
+    $routes->get('ecoulement/clients/export-preview', 'Api\ClientController::exportPreview');
+    $routes->get('ecoulement/clients/export/csv', 'Api\ClientController::exportCsv');
+    $routes->get('ecoulement/clients/export/pdf', 'Api\ClientController::exportPdf');
+    //export achats clients
+    $routes->get('ecoulement/clients/(:num)/achats/export-preview', 'Api\ClientController::exportAchatsPreview/$1');
+    $routes->get('ecoulement/clients/(:num)/achats/export/csv', 'Api\ClientController::exportAchatsCsv/$1');
+    $routes->get('ecoulement/clients/(:num)/achats/export/pdf', 'Api\ClientController::exportAchatsPdf/$1');
 });
 
 //DLC

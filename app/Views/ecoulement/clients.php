@@ -79,27 +79,78 @@
                         <span class="material-symbols-outlined text-[18px]">filter_list</span>
                         Filtrer
                     </button>
-                    <button class="flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 border border-outline-variant rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors">
+                    <button class="export-btn flex-1 sm:flex-none flex items-center justify-center gap-2 px-4 py-2.5 border border-outline-variant rounded-lg text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-low transition-colors">
                         <span class="material-symbols-outlined text-[18px]">download</span>
                         Exporter
                     </button>
                 </div>
             </div>
 
-            <!-- Table -->
-<table class="w-full min-w-[900px] text-left border-collapse" id="client-table">
-    <thead>
-        <tr class="bg-surface-container-low border-b border-outline-variant">
-            <th class="p-4 font-label-md text-label-md text-on-surface-variant">Nom</th>
-            <th class="p-4 font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Contact</th>
-            <th class="p-4 font-label-md text-label-md text-on-surface-variant">Adresse</th>
-            <th class="p-4 font-label-md text-label-md text-on-surface-variant text-center whitespace-nowrap">Actions</th>
-        </tr>
-    </thead>
-    <tbody class="font-body-md text-body-md text-on-surface divide-y divide-outline-variant" id="client-tbody">
-        <!-- Rempli par JS -->
-    </tbody>
-</table>
+                            <!-- Table -->
+                <table class="w-full min-w-[900px] text-left border-collapse" id="client-table">
+                    <thead>
+                        <tr class="bg-surface-container-low border-b border-outline-variant">
+                            <th class="p-4 font-label-md text-label-md text-on-surface-variant">Nom</th>
+                            <th class="p-4 font-label-md text-label-md text-on-surface-variant whitespace-nowrap">Contact</th>
+                            <th class="p-4 font-label-md text-label-md text-on-surface-variant">Adresse</th>
+                            <th class="p-4 font-label-md text-label-md text-on-surface-variant text-center whitespace-nowrap">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody class="font-body-md text-body-md text-on-surface divide-y divide-outline-variant" id="client-tbody">
+                        <!-- Rempli par JS -->
+                    </tbody>
+                </table>
+<!-- Modal Export -->
+<div class="fixed inset-0 z-50 flex items-center justify-center hidden" id="export-modal">
+    <div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-sm" onclick="document.getElementById('export-modal').classList.add('hidden')"></div>
+    <div class="bg-surface-container-lowest rounded-xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col relative z-10">
+        <div class="px-6 py-4 border-b border-outline-variant flex justify-between items-center bg-surface">
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Exporter les clients</h3>
+            <button class="text-on-surface-variant hover:bg-surface-container-high rounded-full w-8 h-8 flex items-center justify-center" onclick="document.getElementById('export-modal').classList.add('hidden')">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="p-6 overflow-y-auto flex-1">
+            <!-- Options d'export -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block font-label-md text-label-md text-on-surface mb-1" for="export-filename">Nom du fichier</label>
+                    <input class="w-full px-4 py-2 border border-outline-variant rounded-lg focus:ring-primary focus:border-primary bg-surface-container-lowest" id="export-filename" type="text" value="clients_export">
+                </div>
+                <div>
+                    <label class="block font-label-md text-label-md text-on-surface mb-1" for="export-type">Exporter</label>
+                    <select class="w-full px-4 py-2 border border-outline-variant rounded-lg focus:ring-primary focus:border-primary bg-surface-container-lowest" id="export-type">
+                        <option value="current">Page actuelle ({{ currentPage }})</option>
+                        <option value="all">Toutes les pages</option>
+                    </select>
+                </div>
+            </div>
+            <!-- Aperçu -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse" id="export-preview-table">
+                    <thead>
+                        <tr class="bg-surface-container-low border-b">
+                            <th class="p-2 font-label-md">Nom</th>
+                            <th class="p-2 font-label-md">Contact</th>
+                            <th class="p-2 font-label-md">Adresse</th>
+                        </tr>
+                    </thead>
+                    <tbody id="export-preview-body">
+                        <tr><td colspan="3" class="text-center py-4">Chargement...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="mt-4 flex justify-end gap-3">
+                <button id="export-csv-btn" class="bg-primary text-on-primary px-6 py-2 rounded-lg hover:bg-primary-container transition-colors flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[18px]">download</span> CSV
+                </button>
+                <button id="export-pdf-btn" class="bg-error text-on-error px-6 py-2 rounded-lg hover:bg-error-container transition-colors flex items-center gap-2">
+                    <span class="material-symbols-outlined text-[18px]">picture_as_pdf</span> PDF
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
             </div>
 
             <!-- Pagination -->
@@ -152,7 +203,7 @@
                 </div>
                 <div class="bg-surface-container-low border-l-4 border-secondary p-4 rounded-r-lg flex gap-3">
                     <span class="material-symbols-outlined text-secondary mt-0.5">info</span>
-                    <p class="font-body-md text-[14px] text-on-surface-variant">Les informations de facturation seront générées automatiquement à partir de ces données lors de la prochaine vente.</p>
+                    <p class="font-body-md text-[14px] text-on-surface-variant">Ces informations doivent etre precis</p>
                 </div>
                 <div class="flex justify-end gap-3 pt-4 border-t border-outline-variant">
                     <button class="px-5 py-2.5 rounded-lg font-label-md text-label-md text-primary hover:bg-primary/5 transition-colors min-h-[48px]" 
