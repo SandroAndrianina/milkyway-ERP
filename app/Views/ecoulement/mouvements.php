@@ -171,7 +171,7 @@
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block font-label-sm text-on-surface-variant mb-1">Quantité</label>
-                        <input class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-on-surface" type="number" step="0.01" id="modal-quantite" required>
+                        <input class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-on-surface" type="number" step="1" placeholder="0" id="modal-quantite" min="0" required>
                     </div>
                     <div>
                         <label class="block font-label-sm text-on-surface-variant mb-1">Date</label>
@@ -261,7 +261,7 @@
                                 </select>
                             </td>
                             <td class="py-2 px-2">
-                                <input class="row-quantite w-full bg-surface border border-surface-variant focus:border-primary rounded-md px-2 py-1.5 text-sm" type="number" step="0.01" placeholder="0.00">
+                                <input class="row-quantite w-full bg-surface border border-surface-variant focus:border-primary rounded-md px-2 py-1.5 text-sm" type="number" step="1" placeholder="0" min="0" required>
                             </td>
                             <td class="py-2 px-2 text-center">
                                 <button class="text-outline hover:text-error p-1 rounded-full transition-colors remove-row-btn">

@@ -176,15 +176,26 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Soumission formulaire unique
     document.getElementById('formMvmt').addEventListener('submit', function(e) {
-        e.preventDefault();
+        e.preventDefault(); // toujours en premier
+
+        // 1. Validation de la quantité
+        const quantite = parseFloat(document.getElementById('modal-quantite').value);
+        if (isNaN(quantite) || quantite <= 0) {
+            alert('⚠️ La quantité doit être un nombre supérieur à 0.');
+            return;
+        }
+
+        // 2. Construction des données
         const data = {
             produit_id: document.getElementById('modal-produit').value,
-            quantite: document.getElementById('modal-quantite').value,
+            quantite: quantite, // on utilise la valeur validée
             date_mouvement: document.getElementById('modal-date').value,
             type: document.querySelector('input[name="type"]:checked').value,
             cause: document.getElementById('modal-cause').value,
             client_id: document.getElementById('modal-client').value || null
         };
+
+        // 3. Envoi
         fetch(`${API_BASE}/ecoulement/mouvements`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -283,10 +294,22 @@ document.addEventListener('DOMContentLoaded', function() {
         const rows = tbodyMultiple.querySelectorAll('tr');
         const items = [];
         let valid = true;
+
         rows.forEach(row => {
             const produit = row.querySelector('.row-produit').value;
-            const quantite = row.querySelector('.row-quantite').value;
-            if (!produit || !quantite) { valid = false; return; }
+            const quantite = parseFloat(row.querySelector('.row-quantite').value);
+
+            if (!produit) {
+                alert('Veuillez sélectionner un produit pour chaque ligne.');
+                valid = false;
+                return;
+            }
+            if (isNaN(quantite) || quantite <= 0) {
+                alert('La quantité doit être un nombre supérieur à 0.');
+                valid = false;
+                return;
+            }
+
             items.push({
                 produit_id: produit,
                 quantite: quantite,
@@ -296,8 +319,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 client_id: batchClient.value || null
             });
         });
-        if (!valid) { alert('Remplissez tous les champs de chaque ligne.'); return; }
-        if (items.length === 0) { alert('Ajoutez au moins un mouvement.'); return; }
+
+        if (!valid) return;
+        if (items.length === 0) {
+            alert('Ajoutez au moins un mouvement.');
+            return;
+        }
 
         fetch(`${API_BASE}/ecoulement/mouvements/batch`, {
             method: 'POST',
