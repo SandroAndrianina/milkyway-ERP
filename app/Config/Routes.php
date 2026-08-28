@@ -51,6 +51,10 @@ $routes->group('api', function($routes) {
     $routes->get('ecoulement/mouvements/export-preview', 'Api\MouvementController::exportPreview');
     $routes->get('ecoulement/mouvements/export/csv', 'Api\MouvementController::exportCsv');
     $routes->get('ecoulement/mouvements/export/pdf', 'Api\MouvementController::exportPdf');
+
+    //etat de stock
+    $routes->get('ecoulement/stock', 'Api\StockController::index');
+    $routes->post('ecoulement/stock/export-pdf', 'Api\StockController::exportPdf');
 });
 
 //DLC
@@ -62,3 +66,4 @@ $routes->get('produits-ecoulement', 'EcoulementProduit::index');
 $routes->get('clients', 'Clients::index');
 $routes->get('clients/details/(:num)', 'Clients::details/$1');
 $routes->get('mouvements', 'Mouvements::index');
+$routes->get('etat-stock', 'EtatStock::index');

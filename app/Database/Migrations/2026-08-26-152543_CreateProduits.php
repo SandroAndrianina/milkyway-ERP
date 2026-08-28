@@ -12,6 +12,7 @@ class CreateProduits extends Migration
             'id' => ['type' => 'INT', 'unsigned' => true, 'auto_increment' => true],
             'nom' => ['type' => 'VARCHAR', 'constraint' => 100],
             'duree_conservation' => ['type' => 'INT'],
+            'seuil_critique' => ['type' => 'INT'],
             'prix_vente' => ['type' => 'DECIMAL', 'constraint' => '10,2', 'null' => true],
             'created_at' => ['type' => 'DATETIME', 'null' => true],
             'updated_at' => ['type' => 'DATETIME', 'null' => true],

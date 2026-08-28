@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const nom = document.getElementById('nom');
     const duree = document.getElementById('duree');
     const prix = document.getElementById('prix');
+    const seuil = document.getElementById('seuil');
     const modalTitle = document.getElementById('modal-title');
 
     // Charger la liste
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(produits => {
                 tbody.innerHTML = '';
                 if (produits.length === 0) {
-                    tbody.innerHTML = `<tr><td colspan="4" class="py-12 text-center text-on-surface-variant">
+                    tbody.innerHTML = `<tr><td colspan="5" class="py-12 text-center text-on-surface-variant">
                         <span class="material-symbols-outlined text-4xl mb-2 opacity-50">inventory_2</span>
                         <p class="font-body-md">Aucun produit.</p>
                     </td></tr>`;
@@ -28,6 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <td class="py-3 px-6 font-body-md">${prod.nom}</td>
                         <td class="py-3 px-6 font-body-md">${prod.duree_conservation}</td>
                         <td class="py-3 px-6 font-body-md">${prod.prix_vente} Ar</td>
+                        <td class="py-3 px-6 font-body-md">${prod.seuil_critique || 50}</td>
                         <td class="py-3 px-6 text-right">
                             <div class="flex items-center justify-end gap-2">
                                 <button class="edit-btn w-8 h-8 rounded-full hover:bg-primary/10 text-primary transition-colors flex items-center justify-center" data-id="${prod.id}">
@@ -76,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 nom.value = prod.nom;
                 duree.value = prod.duree_conservation;
                 prix.value = prod.prix_vente;
+                seuil.value = prod.seuil_critique || 50;
                 modalTitle.textContent = 'Modifier un produit';
                 modal.classList.remove('hidden');
             })
@@ -88,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function() {
         nom.value = '';
         duree.value = '';
         prix.value = '';
+        seuil.value = '';
         modalTitle.textContent = 'Ajouter un produit';
         modal.classList.remove('hidden');
     };
@@ -98,7 +102,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const data = {
             nom: nom.value,
             duree_conservation: parseInt(duree.value),
-            prix_vente: parseInt(prix.value)
+            prix_vente: parseInt(prix.value),
+            seuil_critique: parseInt(seuil.value) || 50
         };
         const id = productId.value;
         const method = id ? 'PUT' : 'POST';

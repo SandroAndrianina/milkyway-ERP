@@ -25,7 +25,7 @@
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
             <div>
                 <h2 class="font-headline-md text-headline-md text-on-surface">Gestion des Produits</h2>
-                <p class="font-body-md text-body-md text-on-surface-variant mt-1">Gérez le catalogue des produits et leurs durées de conservation.</p>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-1">Gérez le catalogue des produits, leurs durées de conservation et leurs seuils de stock.</p>
             </div>
             <button class="bg-primary text-on-primary font-label-md text-label-md py-2 px-6 rounded-full shadow-sm hover:bg-primary-container transition-colors min-h-[48px] flex items-center gap-2 shrink-0" 
                     onclick="openAddModal()">
@@ -43,6 +43,7 @@
                             <th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">Nom du produit</th>
                             <th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">Durée (jours)</th>
                             <th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">Prix (Ar)</th>
+                            <th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">Seuil critique</th>
                             <th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant text-right w-32">Actions</th>
                         </tr>
                     </thead>
@@ -85,6 +86,13 @@
                     <label class="block font-label-md text-label-md text-on-surface mb-2" for="prix">Prix de vente (Ar)</label>
                     <input class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface focus:ring-2 focus:ring-primary focus:border-primary shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] transition-all font-body-md" 
                            id="prix" placeholder="5000" type="number" min="0" step="100" required>
+                </div>
+                <!-- Nouveau champ : Seuil critique -->
+                <div>
+                    <label class="block font-label-md text-label-md text-on-surface mb-2" for="seuil">Seuil critique (stock minimum)</label>
+                    <input class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface focus:ring-2 focus:ring-primary focus:border-primary shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] transition-all font-body-md" 
+                           id="seuil" placeholder="50" type="number" min="1" required>
+                    <p class="text-[11px] text-on-surface-variant mt-1">En dessous de ce seuil, le produit sera marqué comme "critique".</p>
                 </div>
                 <div class="flex justify-end gap-3 pt-4 border-t border-outline-variant">
                     <button class="px-5 py-2.5 rounded-lg font-label-md text-label-md text-primary hover:bg-primary/5 transition-colors min-h-[48px]" 

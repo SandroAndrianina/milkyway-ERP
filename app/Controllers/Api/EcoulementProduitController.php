@@ -35,9 +35,16 @@ class EcoulementProduitController extends BaseController
     {
         $data = $this->request->getJSON(true);
 
-        if (empty($data['nom']) || empty($data['duree_conservation']) || !isset($data['prix_vente'])) {
+        // Validation des champs obligatoires
+        if (empty($data['nom']) || empty($data['duree_conservation']) || !isset($data['prix_vente']) || !isset($data['seuil_critique'])) {
             return $this->response->setStatusCode(400)
-                ->setJSON(['status' => 'error', 'message' => 'nom, duree_conservation et prix_vente requis']);
+                ->setJSON(['status' => 'error', 'message' => 'nom, duree_conservation, prix_vente et seuil_critique sont requis']);
+        }
+
+        // Validation du seuil (doit être un nombre > 0)
+        if (!is_numeric($data['seuil_critique']) || $data['seuil_critique'] <= 0) {
+            return $this->response->setStatusCode(400)
+                ->setJSON(['status' => 'error', 'message' => 'Le seuil critique doit être un nombre supérieur à 0']);
         }
 
         $id = $this->model->creerProduit($data);
@@ -57,9 +64,16 @@ class EcoulementProduitController extends BaseController
 
         $data = $this->request->getJSON(true);
 
-        if (empty($data['nom']) || empty($data['duree_conservation']) || !isset($data['prix_vente'])) {
+        // Validation des champs obligatoires
+        if (empty($data['nom']) || empty($data['duree_conservation']) || !isset($data['prix_vente']) || !isset($data['seuil_critique'])) {
             return $this->response->setStatusCode(400)
-                ->setJSON(['status' => 'error', 'message' => 'nom, duree_conservation et prix_vente requis']);
+                ->setJSON(['status' => 'error', 'message' => 'nom, duree_conservation, prix_vente et seuil_critique sont requis']);
+        }
+
+        // Validation du seuil
+        if (!is_numeric($data['seuil_critique']) || $data['seuil_critique'] <= 0) {
+            return $this->response->setStatusCode(400)
+                ->setJSON(['status' => 'error', 'message' => 'Le seuil critique doit être un nombre supérieur à 0']);
         }
 
         $this->model->modifierProduitEcoulement($id, $data);

@@ -12,7 +12,7 @@ class ProduitModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nom', 'duree_conservation',  'prix_vente'];
+    protected $allowedFields    = ['nom', 'duree_conservation',  'prix_vente', 'seuil_critique'];
 
     protected bool $allowEmptyInserts = false;
     protected bool $updateOnlyChanged = true;
@@ -51,17 +51,18 @@ class ProduitModel extends Model
             'nom' => $data['nom'],
             'duree_conservation' => $data['duree_conservation'],
             'prix_vente' => $data['prix_vente'],
+            'seuil_critique' => $data['seuil_critique'] ?? 50, // ← ajout
         ]);
         return $this->getInsertID();
     }
 
-    // Utilisé par Écoulement : modif complète
     public function modifierProduitEcoulement(int $id, array $data): bool
     {
         return $this->update($id, [
             'nom' => $data['nom'],
             'duree_conservation' => $data['duree_conservation'],
             'prix_vente' => $data['prix_vente'],
+            'seuil_critique' => $data['seuil_critique'] ?? 50, // ← ajout
         ]);
     }
 
