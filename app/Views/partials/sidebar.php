@@ -6,18 +6,17 @@
     <span class="material-symbols-outlined text-[18px]">chevron_left</span>
 </button>
 
-    <!-- Brand Header -->
-    <div class="px-6 mb-8 flex items-center gap-4">
-        <div class="w-12 h-12 rounded-full bg-surface-container-lowest flex items-center justify-center overflow-hidden flex-shrink-0 border-2 border-on-primary/20">
-            <img class="object-cover w-full h-full" 
-                 src="/assets/images/logo.jpeg"
-                 alt="Milky Way">
-        </div>
-        <div class="transition-opacity duration-200 whitespace-nowrap" id="brand-text">
-            <h1 class="font-headline-md text-headline-md font-bold text-on-primary leading-tight">Milky Way</h1>
-            <p class="font-label-sm text-label-sm text-primary-fixed-dim">Laiterie d'Antsirabe</p>
-        </div>
+<!-- Brand Header -->
+<div class="px-6 mb-8 flex items-center gap-4">
+    <!-- ✅ Logo plus grand (w-16 = 64px) -->
+    <img class="w-16 h-16 object-contain flex-shrink-0" 
+         src="/assets/images/logo-remove.png"
+         alt="Milky Way">
+    <div class="transition-opacity duration-200 whitespace-nowrap" id="brand-text">
+        <h1 class="font-headline-md text-headline-md font-bold text-on-primary leading-tight">Milky Way</h1>
+        <p class="font-label-sm text-label-sm text-primary-fixed-dim">Laiterie d'Antsirabe</p>
     </div>
+</div>
 
     <!-- Navigation Links -->
     <ul class="flex flex-col flex-1 gap-1 overflow-y-auto">
