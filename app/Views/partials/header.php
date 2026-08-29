@@ -3,7 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= $title ?? 'Laiterie DLC' ?></title>
+    <title><?= $title ?? 'Milky Way d\'Antsirabe' ?></title>
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/favicon.ico">
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <!-- Material Symbols -->
@@ -108,6 +114,7 @@
     </script>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body class="flex flex-row min-h-screen text-on-surface font-body-md">
     <!-- Sidebar en premier -->

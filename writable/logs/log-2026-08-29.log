@@ -1,0 +1,104 @@
+ERROR - 2026-08-29 07:37:36 --> Error connecting to the database: mysqli_sql_exception: Connection refused in /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MySQLi/Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'milky_way', 3306, '', 0)
+#1 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/app/Controllers/Api/ProduitController.php(19): CodeIgniter\BaseModel->findAll()
+#7 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CodeIgniter.php(974): App\Controllers\Api\ProduitController->index()
+#8 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\ProduitController))
+#9 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/rewrite.php(44): require_once('/Users/rabarijo...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Connection refused in /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+#4 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/app/Controllers/Api/ProduitController.php(19): CodeIgniter\BaseModel->findAll()
+#6 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CodeIgniter.php(974): App\Controllers\Api\ProduitController->index()
+#7 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\ProduitController))
+#8 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/rewrite.php(44): require_once('/Users/rabarijo...')
+#13 {main}
+CRITICAL - 2026-08-29 07:37:36 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Connection refused
+[Method: GET, Route: api/produits]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `produits`
+WHERE `produits`.`deleted_at` IS NULL', [], false)
+ 3 SYSTEMPATH/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH/Controllers/Api/ProduitController.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\ProduitController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\ProduitController))
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/public/index.php')
+ERROR - 2026-08-29 10:32:55 --> Error connecting to the database: mysqli_sql_exception: Connection refused in /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MySQLi/Connection.php(201): mysqli->real_connect('127.0.0.1', 'root', Object(SensitiveParameterValue), 'milky_way', 3306, '', 0)
+#1 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#6 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/app/Controllers/Api/ProduitController.php(19): CodeIgniter\BaseModel->findAll()
+#7 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CodeIgniter.php(974): App\Controllers\Api\ProduitController->index()
+#8 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\ProduitController))
+#9 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/rewrite.php(44): require_once('/Users/rabarijo...')
+#14 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Connection refused in /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+#4 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+#5 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/app/Controllers/Api/ProduitController.php(19): CodeIgniter\BaseModel->findAll()
+#6 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CodeIgniter.php(974): App\Controllers\Api\ProduitController->index()
+#7 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\ProduitController))
+#8 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 /Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/system/rewrite.php(44): require_once('/Users/rabarijo...')
+#13 {main}
+CRITICAL - 2026-08-29 10:32:55 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: Connection refused
+[Method: GET, Route: api/produits]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `produits`
+WHERE `produits`.`deleted_at` IS NULL', [], false)
+ 3 SYSTEMPATH/Model.php(255): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(676): CodeIgniter\Model->doFindAll(0, 0)
+ 5 APPPATH/Controllers/Api/ProduitController.php(19): CodeIgniter\BaseModel->findAll()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\ProduitController->index()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\ProduitController))
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH/rewrite.php(44): require_once('/Users/rabarijohnsandroandrianina/Documents/GitHub/milkyway-ERP/public/index.php')

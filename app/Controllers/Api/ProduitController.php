@@ -31,20 +31,7 @@ class ProduitController extends BaseController
         return $this->response->setJSON($produit);
     }
 
-    public function create()
-    {
-        $data = $this->request->getJSON(true);
-
-        if (empty($data['nom']) || empty($data['duree_conservation'])) {
-            return $this->response->setStatusCode(400)
-                ->setJSON(['status' => 'error', 'message' => 'nom et duree_conservation requis']);
-        }
-
-        $this->model->insert($data);
-
-        return $this->response->setStatusCode(201)
-            ->setJSON(['status' => 'ok', 'id' => $this->model->getInsertID()]);
-    }
+    // create() supprimé — la création se fait uniquement côté Écoulement
 
     public function update($id)
     {
@@ -56,22 +43,16 @@ class ProduitController extends BaseController
         }
 
         $data = $this->request->getJSON(true);
-        $this->model->update($id, $data);
 
-        return $this->response->setJSON(['status' => 'ok']);
-    }
-
-    public function delete($id)
-    {
-        $produit = $this->model->find($id);
-
-        if (!$produit) {
-            return $this->response->setStatusCode(404)
-                ->setJSON(['status' => 'error', 'message' => 'Produit introuvable']);
+        if (!isset($data['duree_conservation'])) {
+            return $this->response->setStatusCode(400)
+                ->setJSON(['status' => 'error', 'message' => 'duree_conservation requis']);
         }
 
-        $this->model->delete($id); // soft delete grâce à $useSoftDeletes
+        $this->model->modifierDureeDlc($id, (int) $data['duree_conservation']);
 
         return $this->response->setJSON(['status' => 'ok']);
     }
+
+    // delete() supprimé — DLC ne supprime pas de produit
 }

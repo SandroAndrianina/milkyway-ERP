@@ -6,13 +6,73 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 $routes->group('api', function($routes) {
+
+    //DLC
     $routes->get('produits', 'Api\ProduitController::index');
     $routes->get('produits/(:num)', 'Api\ProduitController::show/$1');   // ← AJOUT
     $routes->post('produits', 'Api\ProduitController::create');
     $routes->put('produits/(:num)', 'Api\ProduitController::update/$1');
     $routes->delete('produits/(:num)', 'Api\ProduitController::delete/$1');
     $routes->post('dlc/calculer', 'Api\DlcController::calculer');
+
+    //ECOULEMENT
+
+    //produits
+    $routes->get('ecoulement/produits', 'Api\EcoulementProduitController::index');
+    $routes->get('ecoulement/produits/(:num)', 'Api\EcoulementProduitController::show/$1');
+    $routes->post('ecoulement/produits', 'Api\EcoulementProduitController::create');
+    $routes->put('ecoulement/produits/(:num)', 'Api\EcoulementProduitController::update/$1');
+    $routes->delete('ecoulement/produits/(:num)', 'Api\EcoulementProduitController::delete/$1');
+
+    //Clients
+    $routes->get('ecoulement/clients', 'Api\ClientController::index');
+    $routes->get('ecoulement/clients/(:num)', 'Api\ClientController::show/$1');
+    $routes->post('ecoulement/clients', 'Api\ClientController::create');
+    $routes->put('ecoulement/clients/(:num)', 'Api\ClientController::update/$1');
+    $routes->delete('ecoulement/clients/(:num)', 'Api\ClientController::delete/$1');
+    $routes->get('ecoulement/clients/(:num)/achats', 'Api\ClientController::achats/$1');
+    //export clients
+    $routes->get('ecoulement/clients/export-preview', 'Api\ClientController::exportPreview');
+    $routes->get('ecoulement/clients/export/csv', 'Api\ClientController::exportCsv');
+    $routes->get('ecoulement/clients/export/pdf', 'Api\ClientController::exportPdf');
+    //export achats clients
+    $routes->get('ecoulement/clients/(:num)/achats/export-preview', 'Api\ClientController::exportAchatsPreview/$1');
+    $routes->get('ecoulement/clients/(:num)/achats/export/csv', 'Api\ClientController::exportAchatsCsv/$1');
+    $routes->get('ecoulement/clients/(:num)/achats/export/pdf', 'Api\ClientController::exportAchatsPdf/$1');
+
+    // Mouvements
+    $routes->get('ecoulement/mouvements', 'Api\MouvementController::index');
+    $routes->get('ecoulement/mouvements/chart', 'Api\MouvementController::chart');
+    $routes->post('ecoulement/mouvements', 'Api\MouvementController::create');
+    $routes->post('ecoulement/mouvements/batch', 'Api\MouvementController::createBatch');
+    $routes->get('ecoulement/mouvements/(:num)', 'Api\MouvementController::show/$1');
+
+    // Export mouvements
+    $routes->get('ecoulement/mouvements/export-preview', 'Api\MouvementController::exportPreview');
+    $routes->get('ecoulement/mouvements/export/csv', 'Api\MouvementController::exportCsv');
+    $routes->get('ecoulement/mouvements/export/pdf', 'Api\MouvementController::exportPdf');
+
+    //etat de stock
+    $routes->get('ecoulement/stock', 'Api\StockController::index');
+    $routes->post('ecoulement/stock/export-pdf', 'Api\StockController::exportPdf');
+
+    //recap vente
+    $routes->get('recap/evolution', 'Api\RecapController::evolution');
+    $routes->get('recap/clients', 'Api\RecapController::clients');
+    $routes->get('recap/produits', 'Api\RecapController::produits');
+    //export 
+    $routes->post('recap/export-pdf', 'Api\RecapController::exportPdf');
+    
 });
 
+//DLC
 $routes->get('dlc/catalogue', 'Dlc::catalogue');
 $routes->get('dlc/calculateur', 'Dlc::calculateur');
+
+//ecoulement
+$routes->get('produits-ecoulement', 'EcoulementProduit::index');
+$routes->get('clients', 'Clients::index');
+$routes->get('clients/details/(:num)', 'Clients::details/$1');
+$routes->get('mouvements', 'Mouvements::index');
+$routes->get('etat-stock', 'EtatStock::index');
+$routes->get('recapitulation', 'Recapitulation::index');

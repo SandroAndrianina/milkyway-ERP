@@ -19,3 +19,52 @@ select {
 select {
     padding-right: 2.5rem; /* pour éviter que le texte chevauche l'icône */
 }
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px -1px rgba(8, 67, 101, 0.1), 0 2px 4px -1px rgba(8, 67, 101, 0.06);
+}
+.table-row-hover:hover {
+    background-color: rgba(8, 67, 101, 0.04);
+}
+
+/* Transition pour le collapse */
+#sidebar.collapsed .nav-text {
+    display: none;
+}
+
+/* Cache les textes des liens en mode collapse */
+#sidebar.collapsed .font-body-md {
+    display: none;
+}
+
+#sidebar.collapsed .px-8 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* Ajustement des icônes en mode collapse */
+#sidebar.collapsed .material-symbols-outlined {
+    font-size: 28px !important;
+    margin-right: 0 !important;
+}
+
+#sidebar.collapsed .pl-8 {
+    padding-left: 1.75rem;
+}
+
+/* Le texte "DLC" et "Écoulement" disparaissent aussi */
+#sidebar.collapsed .px-8.pt-4 .text-primary-fixed-dim {
+    display: none;
+}
+
+/* Ces règles sont déjà présentes */
+#sidebar.collapsed .nav-text {
+    display: none;
+}
+
+#sidebar.collapsed .section-label {
+    display: none;
+}
