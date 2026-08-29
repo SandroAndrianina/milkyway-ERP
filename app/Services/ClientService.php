@@ -44,4 +44,18 @@ class ClientService
             'total_achete' => $totalAchete,
         ];
     }
+
+    /**
+     * Retourne les statistiques globales des clients
+     */
+    public function getStats(): array
+    {
+        return [
+            'total'      => $this->clientModel->countAllResults(),
+            'active'     => $this->clientModel->getActiveClientsCount(30),
+            'new_7d'     => $this->clientModel->getNewClientsCount(7),
+            'last_added' => $this->clientModel->getLastAddedClient(),
+        ];
+    }
+
 }

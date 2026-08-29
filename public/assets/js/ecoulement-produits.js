@@ -20,6 +20,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    function formatPrice(value) {
+        return Number(value).toLocaleString('fr-FR') + ' Ar';
+    }
+
     searchInput.addEventListener('input', filterProducts);
 
     // === CHARGEMENT DE LA LISTE ===
@@ -43,10 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         <div>
                             <div class="flex items-start justify-between mb-2">
                                 <h3 class="font-headline-sm text-headline-sm text-on-surface">${prod.nom}</h3>
-                                <span class="text-xs font-label-sm text-on-surface-variant bg-surface-container-low px-2 py-0.5 rounded-full">${prod.duree_conservation}j</span>
+                                <span class="text-xs font-label-sm text-on-surface-variant bg-surface-container-low px-2 py-0.5 rounded-full">${prod.duree_conservation} j</span>
                             </div>
                             <div class="flex items-center gap-3 text-sm text-on-surface-variant mb-3">
-                                <span class="font-label-md text-label-md">${prod.prix_vente} Ar</span>
+                                <span class="font-label-md text-label-md">${formatPrice(prod.prix_vente)}</span>
                                 <span class="w-px h-4 bg-outline-variant"></span>
                                 <span class="font-label-md text-label-md">Seuil : ${prod.seuil_critique || 50}</span>
                             </div>

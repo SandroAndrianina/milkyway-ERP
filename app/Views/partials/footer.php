@@ -3,6 +3,33 @@
     const API_BASE = '/api';
 </script>
 
+<!-- Sidebar Toggle -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sidebar = document.getElementById('sidebar');
+        const toggleBtn = document.getElementById('sidebar-toggle');
+        const brandText = document.getElementById('brand-text');
+        
+        if (toggleBtn) {
+            toggleBtn.addEventListener('click', function() {
+                // Toggle de la largeur
+                const isCollapsed = sidebar.classList.toggle('collapsed');
+                
+                if (isCollapsed) {
+                    sidebar.style.width = '80px';
+                    toggleBtn.querySelector('span').textContent = 'chevron_right';
+                    // Cacher le texte
+                    if (brandText) brandText.style.opacity = '0';
+                } else {
+                    sidebar.style.width = '280px';
+                    toggleBtn.querySelector('span').textContent = 'chevron_left';
+                    if (brandText) brandText.style.opacity = '1';
+                }
+            });
+        }
+    });
+</script>
+
 <?php 
 // Récupère les segments de l'URL
 $segment1 = service('uri')->getSegment(1); // ex: 'dlc', 'clients'

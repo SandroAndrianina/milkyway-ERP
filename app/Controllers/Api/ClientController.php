@@ -42,15 +42,13 @@ class ClientController extends BaseController
                             ->getResultArray();
         }
 
+        // ✅ Statistiques réelles
+        $stats = $this->clientService->getStats();
+
         return $this->response->setJSON([
             'data'  => $data,
             'total' => $total,
-            'stats' => [
-                'total'     => $total,
-                'active'    => $total,
-                'new_7d'    => 0,
-                'last_added' => null,
-            ],
+            'stats' => $stats,
         ]);
     }
 
