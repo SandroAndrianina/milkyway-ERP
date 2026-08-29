@@ -9,21 +9,17 @@
         </div>
         <div>
             <h1 class="font-headline-md text-headline-md font-bold text-on-primary leading-tight">Milky Way</h1>
-            <p class="font-label-sm text-label-sm text-primary-fixed-dim">Gestion Qualité</p>
+            <p class="font-label-sm text-label-sm text-primary-fixed-dim">Laiterie d'Antsirabe</p>
         </div>
     </div>
 
     <!-- Navigation Links -->
     <ul class="flex flex-col flex-1 gap-2">
-        <!-- Tableau de bord -->
-        <li>
-            <a class="flex items-center gap-4 text-primary-fixed-dim opacity-70 hover:opacity-100 px-8 py-3 transition-all hover:bg-primary-container/20 cursor-pointer" href="#">
-                <span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
-                <span class="font-body-md text-body-md">Tableau de bord</span>
-            </a>
-        </li>
 
         <!-- Gestion DLC -->
+        <li class="px-8 pt-4 pb-2">
+            <span class="text-primary-fixed-dim text-xs uppercase tracking-wider opacity-50 font-bold">DLC</span>
+        </li>
         <li>
             <?php 
                 $currentUri = service('uri')->getSegment(1);
@@ -101,13 +97,6 @@
             </a>
         </li>
 
-        <!-- Paramètres (gardé) -->
-        <li class="mt-4">
-            <a class="flex items-center gap-4 text-primary-fixed-dim opacity-70 hover:opacity-100 px-8 py-3 transition-all hover:bg-primary-container/20 cursor-pointer" href="#">
-                <span class="material-symbols-outlined" data-icon="settings">settings</span>
-                <span class="font-body-md text-body-md">Paramètres</span>
-            </a>
-        </li>
     </ul>
 
     <!-- Footer Tab -->

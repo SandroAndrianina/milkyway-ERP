@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const tbody = document.getElementById('product-tbody');
+    const grid = document.getElementById('product-grid');
+    const searchInput = document.getElementById('search-product');
     const modal = document.getElementById('product-modal');
     const form = document.getElementById('product-form');
     const productId = document.getElementById('product-id');
@@ -9,40 +10,59 @@ document.addEventListener('DOMContentLoaded', function() {
     const seuil = document.getElementById('seuil');
     const modalTitle = document.getElementById('modal-title');
 
-    // Charger la liste
+    // === FILTRAGE INSTANTANÉ ===
+    function filterProducts() {
+        const query = searchInput.value.toLowerCase().trim();
+        const cards = grid.querySelectorAll('.card-item');
+        cards.forEach(card => {
+            const nom = card.querySelector('h3')?.textContent?.toLowerCase() || '';
+            card.style.display = nom.includes(query) ? '' : 'none';
+        });
+    }
+
+    searchInput.addEventListener('input', filterProducts);
+
+    // === CHARGEMENT DE LA LISTE ===
     function loadProducts() {
         fetch(`${API_BASE}/ecoulement/produits`)
             .then(res => res.json())
             .then(produits => {
-                tbody.innerHTML = '';
+                grid.innerHTML = '';
                 if (produits.length === 0) {
-                    tbody.innerHTML = `<tr><td colspan="5" class="py-12 text-center text-on-surface-variant">
+                    grid.innerHTML = `<div class="col-span-full text-center py-12 text-on-surface-variant">
                         <span class="material-symbols-outlined text-4xl mb-2 opacity-50">inventory_2</span>
                         <p class="font-body-md">Aucun produit.</p>
-                    </td></tr>`;
+                    </div>`;
                     return;
                 }
                 produits.forEach(prod => {
-                    const tr = document.createElement('tr');
-                    tr.className = 'hover:bg-surface-container-low/50 transition-colors';
-                    tr.innerHTML = `
-                        <td class="py-3 px-6 font-body-md">${prod.nom}</td>
-                        <td class="py-3 px-6 font-body-md">${prod.duree_conservation}</td>
-                        <td class="py-3 px-6 font-body-md">${prod.prix_vente} Ar</td>
-                        <td class="py-3 px-6 font-body-md">${prod.seuil_critique || 50}</td>
-                        <td class="py-3 px-6 text-right">
-                            <div class="flex items-center justify-end gap-2">
-                                <button class="edit-btn w-8 h-8 rounded-full hover:bg-primary/10 text-primary transition-colors flex items-center justify-center" data-id="${prod.id}">
-                                    <span class="material-symbols-outlined text-[20px]">edit</span>
-                                </button>
-                                <button class="delete-btn w-8 h-8 rounded-full hover:bg-error-container text-error transition-colors flex items-center justify-center" data-id="${prod.id}">
-                                    <span class="material-symbols-outlined text-[20px]">delete</span>
-                                </button>
+                    const card = document.createElement('div');
+                    // ✅ Ajout de la classe 'card-item' pour le filtrage
+                    card.className = 'card-item bg-surface-container-lowest rounded-xl p-4 shadow-[0_4px_20px_rgba(8,67,101,0.05)] border border-outline-variant/30 flex flex-col justify-between transition-all hover:shadow-md';
+                    card.innerHTML = `
+                        <div>
+                            <div class="flex items-start justify-between mb-2">
+                                <h3 class="font-headline-sm text-headline-sm text-on-surface">${prod.nom}</h3>
+                                <span class="text-xs font-label-sm text-on-surface-variant bg-surface-container-low px-2 py-0.5 rounded-full">${prod.duree_conservation}j</span>
                             </div>
-                        </td>
+                            <div class="flex items-center gap-3 text-sm text-on-surface-variant mb-3">
+                                <span class="font-label-md text-label-md">${prod.prix_vente} Ar</span>
+                                <span class="w-px h-4 bg-outline-variant"></span>
+                                <span class="font-label-md text-label-md">Seuil : ${prod.seuil_critique || 50}</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-end gap-2 pt-3 border-t border-outline-variant/30">
+                            <button class="edit-btn w-8 h-8 rounded-full hover:bg-primary/10 text-primary transition-colors flex items-center justify-center" data-id="${prod.id}">
+                                <span class="material-symbols-outlined text-[20px]">edit</span>
+                            </button>
+                            <button class="delete-btn w-8 h-8 rounded-full hover:bg-error-container text-error transition-colors flex items-center justify-center" data-id="${prod.id}">
+                                <span class="material-symbols-outlined text-[20px]">delete</span>
+                            </button>
+                        </div>
                     `;
-                    tbody.appendChild(tr);
+                    grid.appendChild(card);
                 });
+
                 // Attacher les événements
                 document.querySelectorAll('.delete-btn').forEach(btn => {
                     btn.addEventListener('click', function() {
@@ -54,11 +74,14 @@ document.addEventListener('DOMContentLoaded', function() {
                         openEditModal(this.dataset.id);
                     });
                 });
+
+                // Réappliquer le filtre
+                filterProducts();
             })
             .catch(err => console.error('Erreur chargement produits:', err));
     }
 
-    // Supprimer
+    // === CRUD ===
     function deleteProduct(id) {
         if (!confirm('Supprimer ce produit ?')) return;
         fetch(`${API_BASE}/ecoulement/produits/${id}`, { method: 'DELETE' })
@@ -69,7 +92,6 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(err => console.error(err));
     }
 
-    // Ouvrir modal pour modification
     function openEditModal(id) {
         fetch(`${API_BASE}/ecoulement/produits/${id}`)
             .then(res => res.json())
@@ -85,7 +107,6 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(err => console.error(err));
     }
 
-    // Fonction globale pour le bouton "Ajouter"
     window.openAddModal = function() {
         productId.value = '';
         nom.value = '';
@@ -96,7 +117,6 @@ document.addEventListener('DOMContentLoaded', function() {
         modal.classList.remove('hidden');
     };
 
-    // Soumission du formulaire
     form.addEventListener('submit', function(e) {
         e.preventDefault();
         const data = {
@@ -125,6 +145,6 @@ document.addEventListener('DOMContentLoaded', function() {
         .catch(err => console.error(err));
     });
 
-    // Chargement initial
+    // === INIT ===
     loadProducts();
 });

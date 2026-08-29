@@ -21,7 +21,7 @@
 
     <!-- Contenu principal -->
     <div class="p-margin-desktop flex-1">
-        <!-- En-tête -->
+                <!-- En-tête -->
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
             <div>
                 <h2 class="font-headline-md text-headline-md text-on-surface">Gestion des Produits</h2>
@@ -34,29 +34,23 @@
             </button>
         </div>
 
-        <!-- Tableau -->
-        <div class="bg-surface-container-lowest rounded-xl shadow-[0_8px_30px_rgba(8,67,101,0.05)] border border-outline-variant/30 overflow-hidden">
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse" id="product-table">
-                    <thead>
-                        <tr class="border-b border-outline-variant bg-surface-container-low/50">
-                            <th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">Nom du produit</th>
-                            <th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">Durée (jours)</th>
-                            <th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">Prix (Ar)</th>
-                            <th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant">Seuil critique</th>
-                            <th class="py-4 px-6 font-label-md text-label-md text-on-surface-variant text-right w-32">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y divide-outline-variant/50" id="product-tbody">
-                        <!-- Rempli par JS -->
-                    </tbody>
-                </table>
+        <!-- Barre de recherche -->
+        <div class="mb-6">
+            <div class="relative max-w-md">
+                <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none">search</span>
+                <input type="text" id="search-product" placeholder="Rechercher un produit..." 
+                       class="w-full pl-10 pr-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg focus:ring-2 focus:ring-primary focus:border-primary transition-all font-body-md">
             </div>
+        </div>
+
+        <!-- Grille de cartes -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="product-grid">
+            <!-- Rempli par JS -->
         </div>
     </div>
 </main>
 
-<!-- Modal Ajouter/Modifier -->
+<!-- Modal Ajouter/Modifier (inchangé) -->
 <div class="fixed inset-0 z-50 flex items-center justify-center hidden" id="product-modal">
     <div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-sm transition-opacity" onclick="document.getElementById('product-modal').classList.add('hidden')"></div>
     <div class="bg-surface-container-lowest rounded-xl shadow-[0_16px_40px_rgba(0,0,0,0.12)] w-full max-w-md relative z-10 overflow-hidden flex flex-col max-h-[90vh]">
@@ -87,7 +81,7 @@
                     <input class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface focus:ring-2 focus:ring-primary focus:border-primary shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] transition-all font-body-md" 
                            id="prix" placeholder="5000" type="number" min="0" step="100" required>
                 </div>
-                <!-- Nouveau champ : Seuil critique -->
+                <!-- Seuil critique -->
                 <div>
                     <label class="block font-label-md text-label-md text-on-surface mb-2" for="seuil">Seuil critique (stock minimum)</label>
                     <input class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface focus:ring-2 focus:ring-primary focus:border-primary shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] transition-all font-body-md" 
