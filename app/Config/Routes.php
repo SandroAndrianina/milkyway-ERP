@@ -55,6 +55,14 @@ $routes->group('api', function($routes) {
     //etat de stock
     $routes->get('ecoulement/stock', 'Api\StockController::index');
     $routes->post('ecoulement/stock/export-pdf', 'Api\StockController::exportPdf');
+
+    //recap vente
+    $routes->get('recap/evolution', 'Api\RecapController::evolution');
+    $routes->get('recap/clients', 'Api\RecapController::clients');
+    $routes->get('recap/produits', 'Api\RecapController::produits');
+    //export 
+    $routes->post('recap/export-pdf', 'Api\RecapController::exportPdf');
+    
 });
 
 //DLC
@@ -67,3 +75,4 @@ $routes->get('clients', 'Clients::index');
 $routes->get('clients/details/(:num)', 'Clients::details/$1');
 $routes->get('mouvements', 'Mouvements::index');
 $routes->get('etat-stock', 'EtatStock::index');
+$routes->get('recapitulation', 'Recapitulation::index');

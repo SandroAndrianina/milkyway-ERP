@@ -23,6 +23,8 @@ if ($segment1 === 'dlc' && $segment2 === 'catalogue') : ?>
     <script src="/assets/js/ecoulement-mouvements.js"></script>
 <?php elseif ($segment1 === 'etat-stock') : ?>
     <script src="/assets/js/ecoulement-stock.js"></script>
+<?php elseif ($segment1 === 'recapitulation') : ?>
+    <script src="/assets/js/ecoulement-recap.js"></script>
 <?php endif; ?>
 </body>
 </html>
