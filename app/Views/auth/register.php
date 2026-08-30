@@ -21,6 +21,7 @@
             <?php endif; ?>
 
             <form action="/auth/doRegister" method="POST">
+                <?= csrf_field() ?>
                 <div style="margin-bottom:1rem;">
                     <label for="nom" class="auth-label">Nom d'utilisateur</label>
                     <input type="text" name="nom" id="nom" class="auth-input" placeholder="Entrez votre nom" required>
@@ -29,10 +30,25 @@
                     <label for="password" class="auth-label">Mot de passe</label>
                     <input type="password" name="password" id="password" class="auth-input" placeholder="Choisissez un mot de passe" required>
                 </div>
-                <div style="margin-bottom:1.5rem;">
+                <div style="margin-bottom:1rem;">
                     <label for="password_confirm" class="auth-label">Confirmer le mot de passe</label>
                     <input type="password" name="password_confirm" id="password_confirm" class="auth-input" placeholder="Retapez le mot de passe" required>
                 </div>
+
+                <!-- Sélection du rôle -->
+                <div style="margin-bottom:1.5rem;">
+                    <label for="role_id" class="auth-label">Rôle souhaité</label>
+                    <select name="role_id" id="role_id" class="auth-input" required>
+                        <option value="">-- Choisissez un rôle --</option>
+                        <?php foreach ($roles as $role): ?>
+                            <option value="<?= $role['id'] ?>"><?= ucfirst($role['nom']) ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                    <p style="font-size:0.75rem; color:#6b7280; margin-top:0.25rem;">
+                        L'administrateur devra valider votre compte avant de pouvoir vous connecter.
+                    </p>
+                </div>
+
                 <button type="submit" class="auth-btn">S'inscrire</button>
             </form>
 

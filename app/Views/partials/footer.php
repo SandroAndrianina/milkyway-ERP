@@ -31,11 +31,9 @@
 </script>
 
 <?php 
-// Récupère les segments de l'URL
-$segment1 = service('uri')->getSegment(1); // ex: 'dlc', 'clients'
-$segment2 = service('uri')->getSegment(2); // ex: 'catalogue', 'details'
+$segment1 = service('uri')->getSegment(1);
+$segment2 = service('uri')->getSegment(2);
 
-// Chargement conditionnel des scripts
 if ($segment1 === 'dlc' && $segment2 === 'catalogue') : ?>
     <script src="/assets/js/catalogue.js"></script>
 <?php elseif ($segment1 === 'dlc' && $segment2 === 'calculateur') : ?>
@@ -46,12 +44,16 @@ if ($segment1 === 'dlc' && $segment2 === 'catalogue') : ?>
     <script src="/assets/js/ecoulement-client-details.js"></script>
 <?php elseif ($segment1 === 'clients' && empty($segment2)) : ?>
     <script src="/assets/js/ecoulement-clients.js"></script>
+<?php elseif ($segment1 === 'ventes') : ?>
+    <script src="/assets/js/ecoulement-ventes.js"></script>
 <?php elseif ($segment1 === 'mouvements') : ?>
     <script src="/assets/js/ecoulement-mouvements.js"></script>
 <?php elseif ($segment1 === 'etat-stock') : ?>
     <script src="/assets/js/ecoulement-stock.js"></script>
 <?php elseif ($segment1 === 'recapitulation') : ?>
     <script src="/assets/js/ecoulement-recap.js"></script>
+<?php elseif ($segment1 === 'stock-gestion') : ?>
+    <script src="/assets/js/ecoulement-stock-gestion.js"></script>
 <?php endif; ?>
 </body>
 </html>

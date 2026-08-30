@@ -185,6 +185,7 @@
         </div>
         <div class="p-6 overflow-y-auto">
             <form id="client-form" class="space-y-4">
+                <?= csrf_field() ?>
                 <input type="hidden" id="client-id" value="">
                 <div>
                     <label class="block font-label-md text-label-md text-on-surface mb-1" for="client-nom">Nom du client / Raison sociale</label>

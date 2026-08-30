@@ -13,4 +13,18 @@ class RoleModel extends Model
     protected $useSoftDeletes   = true;
     protected $allowedFields    = ['nom', 'description'];
     protected $useTimestamps    = true;
+
+    public function getRolesExceptAdmin(): array
+    {
+        return $this->where('nom !=', 'admin')
+                    ->findAll();
+    }
+
+    public function findNonAdminRoleById(int $id)
+    {
+        return $this->where('id', $id)
+                    ->where('nom !=', 'admin')
+                    ->first();
+    }
+
 }

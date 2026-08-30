@@ -65,6 +65,7 @@
         <!-- Formulaire -->
         <div class="p-6 overflow-y-auto">
             <form id="product-form" class="space-y-6">
+                <?= csrf_field() ?>
                 <input type="hidden" id="product-id" value="">
                 <div>
                     <label class="block font-label-md text-label-md text-on-surface mb-2" for="nom">Nom du produit</label>

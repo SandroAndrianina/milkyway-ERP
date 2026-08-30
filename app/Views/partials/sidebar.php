@@ -27,7 +27,7 @@
         <!-- ========================= -->
         <?php if ($role === 'admin'): ?>
             <li class="px-6 pt-2 pb-1">
-                <span class="text-primary-fixed-dim text-xs uppercase tracking-wider opacity-60 font-bold section-label">DLC</span>
+                <span class="text-primary-fixed-dim text-xs uppercase tracking-wider opacity-60 font-bold section-label">Gestion DLC</span>
             </li>
             <li>
                 <?php 
@@ -45,7 +45,7 @@
         <!-- ========================= -->
         <!-- SECTION ÉCOULEMENT       -->
         <!-- ========================= -->
-        <li class="px-6 pt-2 pb-1">
+        <li class="px-6 pt-4 pb-1">
             <span class="text-primary-fixed-dim text-xs uppercase tracking-wider opacity-60 font-bold section-label">Écoulement</span>
         </li>
 
@@ -137,9 +137,29 @@
             </li>
         <?php endif; ?>
 
-        <!-- Gestion utilisateurs (admin only) -->
+        <!-- Gestion de stock (stocks + admin) -->
+    <?php if (in_array($role, ['stocks', 'admin'])): ?>
+        <li>
+            <?php 
+                $currentUri = service('uri')->getSegment(1);
+                $isActive = ($currentUri === 'stock-gestion'); 
+            ?>
+            <a class="nav-link flex items-center gap-4 <?= $isActive ? 'bg-surface-container-lowest text-primary font-bold rounded-l-full ml-4 pl-4 py-3 shadow-sm' : 'text-primary-fixed-dim opacity-70 hover:opacity-100 px-6 py-3 hover:bg-primary-container/20' ?> transition-all cursor-pointer" 
+            href="/stock-gestion">
+                <span class="material-symbols-outlined" data-icon="inventory">inventory</span>
+                <span class="font-body-md text-body-md nav-text <?= $isActive ? 'font-bold' : '' ?>">Gestion de stock</span>
+            </a>
+        </li>
+    <?php endif; ?>
+
+        <!-- ========================= -->
+        <!-- SECTION ADMIN             -->
+        <!-- ========================= -->
         <?php if ($role === 'admin'): ?>
-            <li class="mt-2">
+            <li class="px-6 pt-4 pb-1">
+                <span class="text-primary-fixed-dim text-xs uppercase tracking-wider opacity-60 font-bold section-label">Administration</span>
+            </li>
+            <li>
                 <?php 
                     $currentUri = service('uri')->getSegment(1);
                     $isActive = ($currentUri === 'admin'); 

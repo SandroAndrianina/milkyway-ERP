@@ -34,7 +34,7 @@ class Filters extends BaseFilters
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
-        'role' => \App\Filters\RoleFilter::class,
+        'role'          => \App\Filters\RoleFilter::class,
     ];
 
     /**
@@ -73,8 +73,13 @@ class Filters extends BaseFilters
      */
     public array $globals = [
         'before' => [
+            // ✅ CSRF activé sur toutes les routes sauf l'API
+            'csrf' => [
+                'except' => [
+                    'api/*', // ← L'API est exclue (on gère le token autrement)
+                ],
+            ],
             // 'honeypot',
-            // 'csrf',
             // 'invalidchars',
         ],
         'after' => [

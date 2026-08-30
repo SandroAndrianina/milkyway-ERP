@@ -17,10 +17,10 @@ class StockService
     }
 
     /**
-     * Récupère le stock actuel pour tous les produits (non supprimés)
-     * Retourne un tableau avec : id, nom, prix_vente, quantite, total, statut
+     * Récupère le stock global
+     * @param bool $includeFinance Si false, exclut prix_vente et total
      */
-    public function getStockGlobal(): array
+    public function getStockGlobal(bool $includeFinance = true): array
     {
         $produits = $this->produitModel->where('deleted_at', null)->findAll();
         $result = [];
@@ -28,28 +28,32 @@ class StockService
 
         foreach ($produits as $prod) {
             $quantite = $this->mouvementModel->getStockActuel($prod['id']);
-            $total = $quantite * ($prod['prix_vente'] ?? 0);
+            $prix = $prod['prix_vente'] ?? 0;
+            $total = $quantite * $prix;
             $valeurTotale += $total;
 
-            $result[] = [
-                'id'          => $prod['id'],
-                'nom'         => $prod['nom'],
-                'prix_vente'  => $prod['prix_vente'] ?? 0,
-                'quantite'    => $quantite,
-                'total'       => $total,
-                'statut'      => $this->determinerStatut($quantite, $prod['seuil_critique'] ?? 50)
+            $item = [
+                'id'       => $prod['id'],
+                'nom'      => $prod['nom'],
+                'quantite' => $quantite,
+                'statut'   => $this->determinerStatut($quantite, $prod['seuil_critique'] ?? 50),
             ];
+
+            // ✅ Inclusion conditionnelle des données financières
+            if ($includeFinance) {
+                $item['prix_vente'] = $prix;
+                $item['total'] = $total;
+            }
+
+            $result[] = $item;
         }
 
         return [
             'produits' => $result,
-            'valeur_totale' => $valeurTotale
+            'valeur_totale' => $includeFinance ? $valeurTotale : 0,
         ];
     }
 
-    /**
-     * Détermine le statut en fonction d'un seuil (ex: 50)
-     */
     private function determinerStatut(float $quantite, float $seuil): string
     {
         if ($quantite <= 0) return 'rupture';

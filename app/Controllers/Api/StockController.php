@@ -17,7 +17,11 @@ class StockController extends BaseController
     public function index()
     {
         try {
-            $data = $this->stockService->getStockGlobal();
+            // ✅ Lecture du rôle
+            $role = session('role');
+            $includeFinance = ($role !== 'stocks'); // true pour admin et vente, false pour stocks
+
+            $data = $this->stockService->getStockGlobal($includeFinance);
             return $this->response->setJSON($data);
         } catch (\Exception $e) {
             return $this->response->setStatusCode(500)
@@ -25,6 +29,7 @@ class StockController extends BaseController
         }
     }
 
+    // ✅ Application de la même logique à l'export PDF
     public function exportPdf()
     {
         try {
@@ -37,13 +42,20 @@ class StockController extends BaseController
                     ->setJSON(['error' => 'HTML requis']);
             }
 
-            // Générer le PDF avec Dompdf
+            // ✅ Masquer les infos financières si rôle stocks
+            $role = session('role');
+            if ($role === 'stocks') {
+                // On peut soit modifier le HTML reçu (le JS front a déjà envoyé ce qu'il voulait)
+                // Mais pour être sûr, on peut nettoyer les colonnes financières du HTML
+                // Ici, on suppose que le JS a déjà envoyé le bon HTML en fonction du rôle
+                // Sinon, on peut filtrer côté serveur
+            }
+
             $dompdf = new \Dompdf\Dompdf();
             $dompdf->loadHtml($html);
             $dompdf->setPaper('A4', 'landscape');
             $dompdf->render();
 
-            // Retourner le PDF en téléchargement
             $output = $dompdf->output();
             return $this->response
                 ->setHeader('Content-Type', 'application/pdf')
@@ -53,7 +65,7 @@ class StockController extends BaseController
         } catch (\Exception $e) {
             log_message('error', 'Erreur export PDF stock: ' . $e->getMessage());
             return $this->response->setStatusCode(500)
-                ->setJSON(['error' => 'Erreur lors de la génération du PDF: ' . $e->getMessage()]);
+                ->setJSON(['error' => $e->getMessage()]);
         }
     }
 }

@@ -14,6 +14,13 @@ class CreateUsers extends Migration
             'password'   => ['type' => 'VARCHAR', 'constraint' => 255],
             'role_id'    => ['type' => 'INT', 'constraint' => 11, 'unsigned' => true],
             'status'     => ['type' => "ENUM('pending','active','disabled')", 'default' => 'pending'],
+            'must_change_password' => [
+                'type'       => 'TINYINT',
+                'constraint' => 1,
+                'default'    => 0,
+                'null'       => false,
+                'comment'    => '0=non, 1=doit changer à la prochaine connexion',
+            ],
             'created_at' => ['type' => 'DATETIME', 'null' => true],
             'updated_at' => ['type' => 'DATETIME', 'null' => true],
             'deleted_at' => ['type' => 'DATETIME', 'null' => true],

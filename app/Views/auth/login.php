@@ -21,6 +21,7 @@
             <?php endif; ?>
 
             <form action="/auth/doLogin" method="POST">
+                <?= csrf_field() ?>
                 <div style="margin-bottom:1rem;">
                     <label for="nom" class="auth-label">Nom d'utilisateur</label>
                     <input type="text" name="nom" id="nom" class="auth-input" placeholder="Entrez votre nom" required>

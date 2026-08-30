@@ -5,7 +5,7 @@
     <!-- TopAppBar -->
     <header class="bg-surface dark:bg-surface-dim w-full h-20 sticky top-0 z-40 border-b border-outline-variant flex justify-between items-center px-margin-desktop ml-auto">
         <div class="flex items-center gap-4">
-            <h2 class="font-headline-sm text-headline-sm font-semibold text-primary">Mouvements de stock</h2>
+            <h2 class="font-headline-sm text-headline-sm font-semibold text-primary">Gestion de stock</h2>
         </div>
         <div class="flex items-center gap-6">
             <div class="flex items-center gap-4">
@@ -19,15 +19,15 @@
         </div>
     </header>
 
-    <!-- Contenu -->
     <div class="p-margin-desktop flex-1">
-        <!-- Boutons d'action -->
+        <!-- Bouton d'action -->
+
         <div class="flex justify-end items-center gap-4 mb-6">
-            <button class="bg-surface hover:bg-surface-container-low text-primary border border-primary font-label-md px-4 py-2 rounded-lg shadow-sm transition-all flex items-center gap-2" id="btnMultipleMvmts">
+            <button class="bg-surface hover:bg-surface-container-low text-primary border border-primary font-label-md px-4 py-2 rounded-lg shadow-sm transition-all flex items-center gap-2" id="btnMultipleStock">
                 <span class="material-symbols-outlined text-[20px]">library_add</span>
                 Ajouter plusieurs mouvements
             </button>
-            <button class="bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md px-4 py-2 rounded-lg shadow-sm transition-all flex items-center gap-2" id="btnNewMvmt">
+            <button class="bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md px-4 py-2 rounded-lg shadow-sm transition-all flex items-center gap-2" id="btnNewStock">
                 <span class="material-symbols-outlined text-[20px]">add</span>
                 Ajouter un mouvement
             </button>
@@ -35,7 +35,7 @@
 
         <!-- Filtres -->
         <div class="bg-surface rounded-xl shadow-[0_4px_20px_rgba(8,67,101,0.05)] p-4 mb-6 border border-surface-container">
-            <div class="grid grid-cols-1 md:grid-cols-6 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
                 <div>
                     <label class="block font-label-sm text-on-surface-variant mb-1">Du</label>
                     <input class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-sm text-on-surface" type="date" id="filter-date-debut">
@@ -47,17 +47,9 @@
                 <div>
                     <label class="block font-label-sm text-on-surface-variant mb-1">Type</label>
                     <select class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-sm text-on-surface" id="filter-type">
-                        <option value="tous">Tous</option>
+                        <option value="">Tous</option>
                         <option value="entree">Entrée</option>
                         <option value="sortie">Sortie</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block font-label-sm text-on-surface-variant mb-1">Cause</label>
-                    <select class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-sm text-on-surface" id="filter-cause">
-                        <option value="toutes">Toutes</option>
-                        <option value="vente">Vente</option>
-                        <option value="non_conforme">Non conforme</option>
                     </select>
                 </div>
                 <div>
@@ -66,19 +58,8 @@
                         <option value="">Tous</option>
                     </select>
                 </div>
-                <div>
-                    <label class="block font-label-sm text-on-surface-variant mb-1">Client</label>
-                    <select class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-sm text-on-surface" id="filter-client">
-                        <option value="">Tous</option>
-                    </select>
-                </div>
             </div>
-            
-            <!-- Boutons de période rapide -->
-            <div class="flex flex-wrap items-center gap-3 mt-4 pt-4 border-t border-surface-variant">
-
-                
-                <div class="flex-1"></div>
+            <div class="flex justify-end mt-4">
                 <button class="bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md px-6 py-2 rounded-lg shadow-sm transition-all duration-200 flex items-center gap-2" id="btnFilter">
                     <span class="material-symbols-outlined text-[20px]">filter_list</span>
                     Filtrer
@@ -86,19 +67,10 @@
             </div>
         </div>
 
-        <!-- Graphique -->
-        <div class="bg-surface rounded-xl shadow-[0_4px_20px_rgba(8,67,101,0.05)] p-4 mb-6 border border-surface-container">
-                            <span class="font-label-sm text-on-surface-variant">Période :</span>
-                <button class="period-btn px-4 py-1.5 rounded-full border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container-low transition-colors whitespace-nowrap" data-period="week">Cette semaine</button>
-                <button class="period-btn px-4 py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md shadow-sm transition-colors whitespace-nowrap" data-period="month">Ce mois</button>
-                <button class="period-btn px-4 py-1.5 rounded-full border border-outline-variant text-on-surface font-label-md text-label-md hover:bg-surface-container-low transition-colors whitespace-nowrap" data-period="all">Tout</button>
-            <canvas id="mouvementChart" height="200"></canvas>
-        </div>
-
         <!-- Tableau -->
         <div class="bg-surface rounded-xl shadow-[0_4px_20px_rgba(8,67,101,0.05)] border border-surface-container overflow-hidden">
             <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse" id="mouvement-table">
+                <table class="w-full text-left border-collapse" id="stock-table">
                     <thead>
                         <tr class="bg-surface-container-low border-b border-surface-variant">
                             <th class="py-3 px-4 font-label-md text-on-surface-variant">Date</th>
@@ -106,12 +78,10 @@
                             <th class="py-3 px-4 font-label-md text-on-surface-variant">Produit</th>
                             <th class="py-3 px-4 font-label-md text-on-surface-variant text-right">Quantité</th>
                             <th class="py-3 px-4 font-label-md text-on-surface-variant">Cause</th>
-                            <th class="py-3 px-4 font-label-md text-on-surface-variant">Client</th>
-                            <th class="py-3 px-4 text-right w-24">Actions</th>
                         </tr>
                     </thead>
-                    <tbody id="mouvement-tbody">
-                        <!-- Rempli par JS -->
+                    <tbody id="stock-tbody">
+                        <tr><td colspan="5" class="text-center py-8 text-on-surface-variant">Chargement...</td></tr>
                     </tbody>
                 </table>
             </div>
@@ -136,17 +106,17 @@
 </main>
 
 <!-- === MODAL AJOUT UNIQUE === -->
-<div class="fixed inset-0 z-50 flex items-center justify-center hidden" id="modalMvmt">
+<div class="fixed inset-0 z-50 flex items-center justify-center hidden" id="modalStock">
     <div class="absolute inset-0 bg-on-background/30 backdrop-blur-sm" id="modalBackdrop"></div>
     <div class="relative bg-surface rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] w-full max-w-lg mx-4 flex flex-col max-h-[90vh]">
         <div class="px-6 py-4 border-b border-surface-variant flex justify-between items-center">
-            <h3 class="font-headline-sm text-headline-sm text-on-surface">Enregistrer un mouvement</h3>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Enregistrer un mouvement de stock</h3>
             <button class="text-outline hover:text-on-surface p-1 rounded-full hover:bg-surface-container-low transition-colors" id="closeModal">
                 <span class="material-symbols-outlined">close</span>
             </button>
         </div>
         <div class="p-6 overflow-y-auto">
-            <form id="formMvmt" class="flex flex-col gap-4">
+            <form id="formStock" class="flex flex-col gap-4">
                 <?= csrf_field() ?>
                 <!-- Type -->
                 <div>
@@ -172,29 +142,18 @@
                 <div class="grid grid-cols-2 gap-4">
                     <div>
                         <label class="block font-label-sm text-on-surface-variant mb-1">Quantité</label>
-                        <input class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-on-surface" type="number" step="1" placeholder="0" id="modal-quantite" min="0" required>
+                        <input class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-on-surface" type="number" step="1" placeholder="0" id="modal-quantite" min="1" required>
                     </div>
                     <div>
                         <label class="block font-label-sm text-on-surface-variant mb-1">Date</label>
                         <input class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-on-surface" type="date" id="modal-date" required>
                     </div>
                 </div>
-                <!-- Champs conditionnels pour sortie -->
-                <div class="hidden bg-surface-container-low/50 p-4 rounded-xl border border-surface-container" id="sortieFields">
-                    <div>
-                        <label class="block font-label-sm text-on-surface-variant mb-1">Cause</label>
-                        <select class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-on-surface" id="modal-cause">
-                            <option value="">Sélectionner...</option>
-                            <option value="vente">Vente</option>
-                            <option value="non_conforme">Non conforme</option>
-                        </select>
-                    </div>
-                    <div class="mt-3" id="modal-client-group">
-                        <label class="block font-label-sm text-on-surface-variant mb-1">Client (pour vente)</label>
-                        <select class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-on-surface" id="modal-client">
-                            <option value="">Sélectionner un client...</option>
-                        </select>
-                    </div>
+                <!-- Cause (affichée en info, non modifiable) -->
+                <div class="bg-surface-container-low p-3 rounded-lg border border-surface-variant">
+                    <span class="font-label-sm text-on-surface-variant">Cause automatique :</span>
+                    <span id="cause-label" class="font-label-md text-primary font-medium">Production</span>
+                    <p class="text-xs text-on-surface-variant mt-1">La cause est définie automatiquement selon le type de mouvement.</p>
                 </div>
                 <div class="flex justify-end gap-3 pt-4 border-t border-surface-variant">
                     <button type="button" class="px-4 py-2 font-label-md text-primary hover:bg-primary-container/10 rounded-full transition-colors" id="cancelModal">Annuler</button>
@@ -205,91 +164,12 @@
     </div>
 </div>
 
-<!-- === MODAL AJOUT MULTIPLE === -->
-<div class="fixed inset-0 z-50 flex items-center justify-center hidden" id="modalMultipleMvmts">
-    <div class="absolute inset-0 bg-on-background/30 backdrop-blur-sm" id="modalMultipleBackdrop"></div>
-    <div class="relative bg-surface rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] w-full max-w-4xl mx-4 flex flex-col max-h-[90vh]">
-        <div class="px-6 py-4 border-b border-surface-variant flex justify-between items-center">
-            <h3 class="font-headline-sm text-headline-sm text-on-surface">Ajouter plusieurs mouvements</h3>
-            <button class="text-outline hover:text-on-surface p-1 rounded-full hover:bg-surface-container-low transition-colors" id="closeMultipleModal">
-                <span class="material-symbols-outlined">close</span>
-            </button>
-        </div>
-        <div class="p-6 overflow-y-auto flex-1">
-            <!-- Champs communs -->
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6 p-4 bg-surface-container-low/50 rounded-xl border border-surface-container">
-                <div>
-                    <label class="block font-label-sm text-on-surface-variant mb-1">Type</label>
-                    <select class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-sm" id="batch-type">
-                        <option value="entree">Entrée</option>
-                        <option value="sortie">Sortie</option>
-                    </select>
-                </div>
-                <div>
-                    <label class="block font-label-sm text-on-surface-variant mb-1">Date</label>
-                    <input class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-sm" type="date" id="batch-date">
-                </div>
-                <div id="batch-cause-group">
-                    <label class="block font-label-sm text-on-surface-variant mb-1">Cause</label>
-                    <select class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-sm" id="batch-cause">
-                        <option value="">Sélectionner...</option>
-                        <option value="vente">Vente</option>
-                        <option value="non_conforme">Non conforme</option>
-                    </select>
-                </div>
-                <div id="batch-client-group">
-                    <label class="block font-label-sm text-on-surface-variant mb-1">Client</label>
-                    <select class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-sm" id="batch-client">
-                        <option value="">Sélectionner un client...</option>
-                    </select>
-                </div>
-            </div>
-            <!-- Tableau des lignes -->
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse" id="multipleMvmtsTable">
-                    <thead>
-                        <tr class="bg-surface-container-low border-b border-surface-variant text-sm font-label-md text-on-surface-variant">
-                            <th class="py-2 px-3">Produit</th>
-                            <th class="py-2 px-3 w-40">Quantité</th>
-                            <th class="py-2 px-3 text-center w-16">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody id="multipleMvmtsBody">
-                        <tr class="border-b border-surface-variant">
-                            <td class="py-2 px-2">
-                                <select class="row-produit w-full bg-surface border border-surface-variant focus:border-primary rounded-md px-2 py-1.5 text-sm">
-                                    <option value="">Choisir...</option>
-                                </select>
-                            </td>
-                            <td class="py-2 px-2">
-                                <input class="row-quantite w-full bg-surface border border-surface-variant focus:border-primary rounded-md px-2 py-1.5 text-sm" type="number" step="1" placeholder="0" min="0" required>
-                            </td>
-                            <td class="py-2 px-2 text-center">
-                                <button class="text-outline hover:text-error p-1 rounded-full transition-colors remove-row-btn">
-                                    <span class="material-symbols-outlined text-[20px]">close</span>
-                                </button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <button class="mt-4 flex items-center gap-2 text-primary font-label-md hover:bg-primary-container/10 px-4 py-2 rounded-lg transition-colors" id="addRowBtn">
-                <span class="material-symbols-outlined">add</span> Ajouter une ligne
-            </button>
-        </div>
-        <div class="px-6 py-4 border-t border-surface-variant bg-surface-container-lowest flex justify-end gap-3 rounded-b-2xl">
-            <button class="px-4 py-2 font-label-md text-primary hover:bg-primary-container/10 rounded-full transition-colors" id="cancelMultipleModal">Annuler</button>
-            <button class="bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md px-6 py-2 rounded-full shadow-sm transition-all" id="submitBatch">Enregistrer tout</button>
-        </div>
-    </div>
-</div>
-
 <!-- === MODAL EXPORT === -->
 <div class="fixed inset-0 z-50 flex items-center justify-center hidden" id="export-modal">
     <div class="absolute inset-0 bg-on-background/30 backdrop-blur-sm" onclick="document.getElementById('export-modal').classList.add('hidden')"></div>
     <div class="relative bg-surface rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden flex flex-col">
         <div class="px-6 py-4 border-b border-surface-variant flex justify-between items-center bg-surface">
-            <h3 class="font-headline-sm text-headline-sm text-on-surface">Exporter les mouvements</h3>
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Exporter les mouvements de stock</h3>
             <button class="text-outline hover:text-on-surface p-1 rounded-full hover:bg-surface-container-low transition-colors" onclick="document.getElementById('export-modal').classList.add('hidden')">
                 <span class="material-symbols-outlined">close</span>
             </button>
@@ -298,7 +178,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>
                     <label class="block font-label-sm text-on-surface-variant mb-1">Nom du fichier</label>
-                    <input class="w-full px-4 py-2 border border-outline-variant rounded-lg focus:ring-primary focus:border-primary bg-surface" id="export-filename" type="text" value="mouvements_export">
+                    <input class="w-full px-4 py-2 border border-outline-variant rounded-lg focus:ring-primary focus:border-primary bg-surface" id="export-filename" type="text" value="stock_export">
                 </div>
                 <div>
                     <label class="block font-label-sm text-on-surface-variant mb-1">Exporter</label>
@@ -310,8 +190,8 @@
             </div>
             <div class="overflow-x-auto">
                 <table class="w-full text-left border-collapse" id="export-preview-table">
-                    <thead><tr class="bg-surface-container-low border-b"><th class="p-2 font-label-md">Date</th><th class="p-2 font-label-md">Type</th><th class="p-2 font-label-md">Produit</th><th class="p-2 font-label-md text-right">Qté</th><th class="p-2 font-label-md">Cause</th><th class="p-2 font-label-md">Client</th></tr></thead>
-                    <tbody id="export-preview-body"><tr><td colspan="6" class="text-center py-4">Chargement...</td></tr></tbody>
+                    <thead><tr class="bg-surface-container-low border-b"><th class="p-2 font-label-md">Date</th><th class="p-2 font-label-md">Type</th><th class="p-2 font-label-md">Produit</th><th class="p-2 font-label-md text-right">Qté</th><th class="p-2 font-label-md">Cause</th></tr></thead>
+                    <tbody id="export-preview-body"><tr><td colspan="5" class="text-center py-4">Chargement...</td></tr></tbody>
                 </table>
             </div>
             <div class="mt-4 flex justify-end gap-3">
@@ -322,6 +202,77 @@
                     <span class="material-symbols-outlined text-[18px]">picture_as_pdf</span> PDF
                 </button>
             </div>
+        </div>
+    </div>
+</div>
+
+<!-- === MODAL AJOUT MULTIPLE === -->
+<div class="fixed inset-0 z-50 flex items-center justify-center hidden" id="modalStockMultiple">
+    <div class="absolute inset-0 bg-on-background/30 backdrop-blur-sm" id="modalMultipleBackdrop"></div>
+    <div class="relative bg-surface rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.12)] w-full max-w-4xl mx-4 flex flex-col max-h-[90vh]">
+        <div class="px-6 py-4 border-b border-surface-variant flex justify-between items-center">
+            <h3 class="font-headline-sm text-headline-sm text-on-surface">Ajouter plusieurs mouvements de stock</h3>
+            <button class="text-outline hover:text-on-surface p-1 rounded-full hover:bg-surface-container-low transition-colors" id="closeMultipleModal">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <div class="p-6 overflow-y-auto flex-1">
+            <!-- Champs communs -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 p-4 bg-surface-container-low/50 rounded-xl border border-surface-container">
+                <div>
+                    <label class="block font-label-sm text-on-surface-variant mb-1">Type</label>
+                    <select class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-sm" id="batch-type">
+                        <option value="entree">Entrée</option>
+                        <option value="sortie">Sortie</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-label-sm text-on-surface-variant mb-1">Date (commune)</label>
+                    <input class="w-full bg-surface border-2 border-surface-variant focus:border-primary rounded-lg px-3 py-2 text-sm" type="date" id="batch-date">
+                </div>
+            </div>
+            <!-- Informations sur la cause automatique -->
+            <div class="bg-surface-container-low p-3 rounded-lg border border-surface-variant mb-4">
+                <span class="font-label-sm text-on-surface-variant">Cause automatique :</span>
+                <span id="batch-cause-label" class="font-label-md text-primary font-medium">Production</span>
+                <p class="text-xs text-on-surface-variant mt-1">La cause est définie automatiquement selon le type de mouvement.</p>
+            </div>
+            <!-- Tableau des lignes -->
+            <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse" id="multipleStockTable">
+                    <thead>
+                        <tr class="bg-surface-container-low border-b border-surface-variant text-sm font-label-md text-on-surface-variant">
+                            <th class="py-2 px-3">Produit</th>
+                            <th class="py-2 px-3 w-40">Quantité</th>
+                            <th class="py-2 px-3 text-center w-16">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="multipleStockBody">
+                        <tr class="border-b border-surface-variant">
+                            <td class="py-2 px-2">
+                                <select class="row-produit w-full bg-surface border border-surface-variant focus:border-primary rounded-md px-2 py-1.5 text-sm">
+                                    <option value="">Choisir...</option>
+                                </select>
+                            </td>
+                            <td class="py-2 px-2">
+                                <input class="row-quantite w-full bg-surface border border-surface-variant focus:border-primary rounded-md px-2 py-1.5 text-sm" type="number" step="1" placeholder="0" min="1" required>
+                            </td>
+                            <td class="py-2 px-2 text-center">
+                                <button class="text-outline hover:text-error p-1 rounded-full transition-colors remove-row-btn">
+                                    <span class="material-symbols-outlined text-[20px]">close</span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button class="mt-4 flex items-center gap-2 text-primary font-label-md hover:bg-primary-container/10 px-4 py-2 rounded-lg transition-colors" id="addRowStockBtn">
+                <span class="material-symbols-outlined">add</span> Ajouter une ligne
+            </button>
+        </div>
+        <div class="px-6 py-4 border-t border-surface-variant bg-surface-container-lowest flex justify-end gap-3 rounded-b-2xl">
+            <button class="px-4 py-2 font-label-md text-primary hover:bg-primary-container/10 rounded-full transition-colors" id="cancelMultipleModal">Annuler</button>
+            <button class="bg-primary hover:bg-on-primary-fixed-variant text-on-primary font-label-md px-6 py-2 rounded-full shadow-sm transition-all" id="submitBatchStock">Enregistrer tout</button>
         </div>
     </div>
 </div>

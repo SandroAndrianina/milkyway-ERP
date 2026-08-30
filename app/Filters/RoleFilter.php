@@ -18,7 +18,10 @@ class RoleFilter implements FilterInterface
         // Vérifier le rôle
         $userRole = session()->get('role');
         if (empty($arguments) || !in_array($userRole, $arguments)) {
-            return redirect()->to('/')->with('error', 'Accès non autorisé.');
+            // ✅ Renvoyer une erreur 403 au lieu de rediriger
+            return service('response')
+                ->setStatusCode(403)
+                ->setBody('<h1>Accès interdit</h1><p>Vous n\'avez pas les droits nécessaires pour accéder à cette page.</p>');
         }
     }
 
