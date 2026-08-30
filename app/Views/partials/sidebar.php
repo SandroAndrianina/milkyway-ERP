@@ -107,7 +107,8 @@
 
 <!-- Déconnexion -->
 <li>
-    <a class="nav-link flex items-center gap-4 text-primary-fixed-dim opacity-70 hover:opacity-100 px-6 py-3 transition-all hover:bg-primary-container/20 cursor-pointer" href="#">
+    <a class="nav-link flex items-center gap-4 text-primary-fixed-dim opacity-70 hover:opacity-100 px-6 py-3 transition-all hover:bg-primary-container/20 cursor-pointer" 
+       href="/logout">
         <span class="material-symbols-outlined" data-icon="logout">logout</span>
         <span class="font-body-md text-body-md nav-text">Déconnexion</span>
     </a>

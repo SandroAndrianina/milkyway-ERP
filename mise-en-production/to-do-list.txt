@@ -1,0 +1,69 @@
+Étape 0 – Prérequis (sur ton Mac)
+
+        OK-Installe Docker Desktop.
+
+        Active WSL2 (sur le PC du cousin plus tard).
+
+Étape 1 – Dockeriser (sur ton Mac, en mode DEV)
+
+        Crée Dockerfile + docker-compose.yml avec volumes bind mounts (./src:/var/www/html) pour coder en direct.
+
+        Ajoute les extensions PHP (mysqli, pdo_mysql, intl).
+
+        Configure les variables d'env (.env) pour MySQL (user/mdp) dès maintenant.
+
+        Lance docker compose up -d et vérifie que l'app s'affiche sur http://localhost.
+
+
+Étape 2 – Coder login + rôles + responsive (DANS le container)
+
+    Code la gestion des utilisateurs et la séparation des rôles (admin, commercial, etc.) en tournant sur les containers (modification en direct via le volume bind).
+
+    Sécurise : désactive forcehttps dans Config/Filters.php, assainis les entrées.
+
+    Rend le design responsive (CSS media queries pour tablettes/smartphones).
+
+
+Étape 3 – Finaliser l'image de prod (sur ton Mac)
+
+    Remplace le volume bind par un COPY . /var/www/html dans le Dockerfile.
+
+    Rebuild l'image finale (docker build -t milkyway-prod .).
+
+    Sauvegarde l'image : docker save milkyway-prod > milkyway.tar.
+
+
+Étape 4 – Déployer sur le PC Windows 11 du cousin
+
+    Installe WSL2 + Docker Desktop.
+
+    Copie le fichier milkyway.tar et fais docker load < milkyway.tar.
+
+    Configure l'IP fixe (192.168.1.99 ou similaire) dans le routeur.
+
+    Crée le script .bat et mets-le dans shell:startup (démarrage auto).
+
+    Génère le QR code avec http://IP_FIXE et imprime-le.
+
+
+Étape 5 – Tester avec tablettes/smartphones (réel)
+
+    Lance l'app sur le PC.
+
+    Scanne le QR code avec une tablette Android et un smartphone Android.
+
+    Vérifie le login, les rôles, et l'affichage responsive.
+
+
+Étape 6 – Tester avec les vraies données de ton cousin
+
+    Importe son export CSV/Excel actuel dans la base.
+
+    Fais des saisies réelles (commandes, clients) pour valider le métier.
+
+
+Étape 7 – Mettre en place le backup automatique vers Google Drive
+
+    Configure un script (ou cron via tâche planifiée Windows) qui exporte la base en .sql toutes les nuits et le synchronise avec Google Drive (via rclone ou Backup and Sync).
+
+    TESTE OBLIGATOIREMENT LA RESTAURATION : supprime la base, importe le .sql et vérifie que tout revient.

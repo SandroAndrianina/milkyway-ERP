@@ -1,0 +1,9 @@
+Tu écris ton Dockerfile (la recette).
+
+Tu écris ton docker-compose.yml (l'orchestre) avec le bind mount ./src:/var/www/html.
+
+Tu lances : docker compose up -d.
+
+Tu ouvres ton Mac, tu vas dans le dossier src, tu crées index.php.
+
+Tu ouvres Chrome sur http://localhost:8080 → tu vois ton index.php s'exécuter.
