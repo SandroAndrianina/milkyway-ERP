@@ -1,8 +1,13 @@
 <!-- SideNavBar (Shared) -->
-<nav class="bg-primary dark:bg-surface-container-highest shadow-sm w-[280px] h-screen sticky left-0 top-0 flex flex-col py-lg z-50 transition-all duration-300 ease-in-out" id="sidebar">
-    
-    <!-- Bouton toggle -->
-    <button id="sidebar-toggle" class="absolute -right-3 top-6 w-7 h-7 rounded-full bg-primary text-on-primary border-2 border-surface-container-lowest flex items-center justify-center shadow-md hover:bg-primary-container transition-colors z-50">
+<nav class="bg-primary dark:bg-surface-container-highest shadow-sm w-[280px] h-screen fixed lg:sticky left-0 top-0 flex flex-col py-lg z-50 transition-transform lg:transition-all duration-300 ease-in-out -translate-x-full lg:translate-x-0" id="sidebar">
+
+    <!-- Bouton fermeture (mobile/tablette uniquement) -->
+    <button id="sidebar-mobile-close" class="lg:hidden absolute right-4 top-6 w-9 h-9 rounded-full bg-surface-container-lowest text-primary flex items-center justify-center shadow-md z-50">
+        <span class="material-symbols-outlined text-[20px]">close</span>
+    </button>
+
+    <!-- Bouton toggle (desktop uniquement — collapse en icônes) -->
+    <button id="sidebar-toggle" class="hidden lg:flex absolute -right-3 top-6 w-7 h-7 rounded-full bg-primary text-on-primary border-2 border-surface-container-lowest items-center justify-center shadow-md hover:bg-primary-container transition-colors z-50">
         <span class="material-symbols-outlined text-[18px]">chevron_left</span>
     </button>
 

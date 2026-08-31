@@ -14,6 +14,7 @@ class CreateProduits extends Migration
             'duree_conservation' => ['type' => 'INT'],
             'seuil_critique' => ['type' => 'INT'],
             'prix_vente' => ['type' => 'DECIMAL', 'constraint' => '10,2', 'null' => true],
+            'image' => ['type' => 'VARCHAR', 'constraint' => 255, 'null' => true], // ← nouveau champ
             'created_at' => ['type' => 'DATETIME', 'null' => true],
             'updated_at' => ['type' => 'DATETIME', 'null' => true],
             'deleted_at' => ['type' => 'DATETIME', 'null' => true],

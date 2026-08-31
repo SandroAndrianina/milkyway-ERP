@@ -16,6 +16,11 @@ RUN a2enmod rewrite
 # emplace la directive AllowOverride None par AllowOverride All dans la config Apache, ce qui autorise ton .htaccess à prendre le contrôle du routage
 RUN sed -ri 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
 
+RUN { \
+    echo 'upload_max_filesize = 20M'; \
+    echo 'post_max_size = 20M'; \
+} > /usr/local/etc/php/conf.d/uploads.ini
+
 # Copie du code source DANS l'image (en prod) - MAIS comme on va coder en direct avec le bind mount, cette ligne sera commentée en développement et décommentée en prod.
 # COPY . /var/www/html/
 

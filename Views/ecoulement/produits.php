@@ -3,7 +3,7 @@
 <?= $this->section('content') ?>
 <main class="flex-1 flex flex-col relative w-full overflow-x-hidden">
     <!-- TopAppBar -->
-    <header class="bg-surface dark:bg-surface-dim w-full h-20 sticky top-0 z-40 border-b border-outline-variant flex justify-between items-center px-margin-desktop ml-auto">
+    <header class="bg-surface dark:bg-surface-dim w-full h-20 sticky top-0 z-40 border-b border-outline-variant flex justify-between items-center px-4 md:px-margin-desktop ml-auto">
         <div class="flex items-center gap-4">
             <h2 class="font-headline-sm text-headline-sm font-semibold text-primary">Écoulement - Produits</h2>
         </div>
@@ -20,8 +20,8 @@
     </header>
 
     <!-- Contenu principal -->
-    <div class="p-margin-desktop flex-1">
-        <!-- En-tête -->
+    <div class="p-4 md:p-margin-desktop flex-1">
+                <!-- En-tête -->
         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
             <div>
                 <h2 class="font-headline-md text-headline-md text-on-surface">Gestion des Produits</h2>
@@ -44,13 +44,13 @@
         </div>
 
         <!-- Grille de cartes -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="product-grid">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4" id="product-grid">
             <!-- Rempli par JS -->
         </div>
     </div>
 </main>
 
-<!-- Modal Ajouter/Modifier -->
+<!-- Modal Ajouter/Modifier (inchangé) -->
 <div class="fixed inset-0 z-50 flex items-center justify-center hidden" id="product-modal">
     <div class="absolute inset-0 bg-inverse-surface/40 backdrop-blur-sm transition-opacity" onclick="document.getElementById('product-modal').classList.add('hidden')"></div>
     <div class="bg-surface-container-lowest rounded-xl shadow-[0_16px_40px_rgba(0,0,0,0.12)] w-full max-w-md relative z-10 overflow-hidden flex flex-col max-h-[90vh]">
@@ -64,7 +64,7 @@
         </div>
         <!-- Formulaire -->
         <div class="p-6 overflow-y-auto">
-            <form id="product-form" class="space-y-6" enctype="multipart/form-data">
+            <form id="product-form" class="space-y-6">
                 <?= csrf_field() ?>
                 <input type="hidden" id="product-id" value="">
                 <div>
@@ -82,21 +82,12 @@
                     <input class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface focus:ring-2 focus:ring-primary focus:border-primary shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] transition-all font-body-md" 
                            id="prix" placeholder="5000" type="number" min="0" step="100" required>
                 </div>
+                <!-- Seuil critique -->
                 <div>
                     <label class="block font-label-md text-label-md text-on-surface mb-2" for="seuil">Seuil critique (stock minimum)</label>
                     <input class="w-full px-4 py-3 rounded-lg bg-surface-container-lowest border border-outline-variant text-on-surface focus:ring-2 focus:ring-primary focus:border-primary shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)] transition-all font-body-md" 
                            id="seuil" placeholder="50" type="number" min="1" required>
                     <p class="text-[11px] text-on-surface-variant mt-1">En dessous de ce seuil, le produit sera marqué comme "critique".</p>
-                </div>
-                <!-- Image -->
-                <div>
-                    <label class="block font-label-md text-label-md text-on-surface mb-2" for="image">Image du produit</label>
-                    <input type="file" id="image" name="image" accept="image/jpeg,image/png" class="w-full px-4 py-2 border border-outline-variant rounded-lg bg-surface-container-lowest">
-                    <p class="text-[11px] text-on-surface-variant mt-1">Format JPEG ou PNG, taille max 2 Mo.</p>
-                    <div id="current-image-preview" class="mt-2 hidden">
-                        <img id="current-image" src="" alt="Image actuelle" class="w-20 h-20 object-cover rounded-lg border border-outline-variant">
-                        <p class="text-xs text-on-surface-variant mt-1">Image actuelle</p>
-                    </div>
                 </div>
                 <div class="flex justify-end gap-3 pt-4 border-t border-outline-variant">
                     <button class="px-5 py-2.5 rounded-lg font-label-md text-label-md text-primary hover:bg-primary/5 transition-colors min-h-[48px]" 
