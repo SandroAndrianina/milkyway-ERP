@@ -92,7 +92,7 @@
                 <div>
                     <label class="block font-label-md text-label-md text-on-surface mb-2" for="image">Image du produit</label>
                     <input type="file" id="image" name="image" accept="image/jpeg,image/png" class="w-full px-4 py-2 border border-outline-variant rounded-lg bg-surface-container-lowest">
-                    <p class="text-[11px] text-on-surface-variant mt-1">Format JPEG ou PNG, taille max 2 Mo.</p>
+                    <p class="text-[11px] text-on-surface-variant mt-1">Format JPEG ou PNG, taille max 20 Mo.</p>
                     <div id="current-image-preview" class="mt-2 hidden">
                         <img id="current-image" src="" alt="Image actuelle" class="w-20 h-20 object-cover rounded-lg border border-outline-variant">
                         <p class="text-xs text-on-surface-variant mt-1">Image actuelle</p>

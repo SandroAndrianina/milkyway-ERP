@@ -1,37 +1,33 @@
-version: '3.8'
-
 services:
-  # --- Service Application (PHP + Apache) ---
   app:
     build:
       context: .
       dockerfile: Dockerfile
     container_name: milkyway_app
+    restart: always
     ports:
-      - "8080:80"          # Ton Mac écoutera sur localhost:8080
-    volumes:
-      - .:/var/www/html    # BIND MOUNT : tout le projet est "miré" dans le container
+      - "8080:80"
     depends_on:
       - db
     environment:
-      - MYSQL_HOST=db      # Le nom du service db sera l'hôte MySQL dans ton .env
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=rootpass
+      - CI_ENVIRONMENT=production
+      - MYSQL_HOST=db
+      - MYSQL_USER=milkyway_app
+      - MYSQL_PASSWORD=admin123
       - MYSQL_DATABASE=milky_way
 
-  # --- Service Base de Données (MySQL) ---
   db:
     image: mysql:8.0
     container_name: milkyway_db
+    restart: always
     command: --default-authentication-plugin=mysql_native_password
-    ports:
-      - "3306:3306"        # Optionnel : permet de voir la DB depuis un client SQL sur ton Mac
     environment:
-      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_ROOT_PASSWORD: change_moi_aussi_root
       MYSQL_DATABASE: milky_way
+      MYSQL_USER: milkyway_app
+      MYSQL_PASSWORD: admin123
     volumes:
-      - db_data:/var/lib/mysql   # Persistance des données (ne disparaissent pas si container arrêté)
+      - db_data:/var/lib/mysql
 
-# Volume nommé pour garder les données MySQL
 volumes:
   db_data:
