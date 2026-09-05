@@ -7,10 +7,14 @@ services:
     restart: always
     ports:
       - "8080:80"
+      - "8443:443"
     depends_on:
       - db
+    volumes:
+      - .:/var/www/html
+      - ./ssl:/etc/apache2/ssl
     environment:
-      - CI_ENVIRONMENT=production
+      - CI_ENVIRONMENT=development
       - MYSQL_HOST=db
       - MYSQL_USER=milkyway_app
       - MYSQL_PASSWORD=admin123

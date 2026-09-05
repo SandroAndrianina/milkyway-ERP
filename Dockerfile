@@ -10,7 +10,10 @@ RUN apt-get update && apt-get install -y libicu-dev \
 
 RUN docker-php-ext-install mysqli pdo_mysql intl
 
-RUN a2enmod rewrite
+COPY apache-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+RUN a2ensite default-ssl
+
+RUN a2enmod rewrite ssl
 
 RUN sed -ri 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf
 
