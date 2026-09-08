@@ -35,7 +35,7 @@
 
 ---
 
-## Étape 5 – Middleware de sécurité + endpoints de synchro (côté CI4)
+## OK Étape 5 – Middleware de sécurité + endpoints de synchro (côté CI4)
 - Crée un **middleware** qui vérifie le JWT sur **tous** les endpoints préfixés par `/api/sync/*`.
   - Vérifie la signature, l’expiration, et **le rôle** (ex: un token "vente" ne peut pas appeler un endpoint admin).
 - Endpoint **`POST /api/sync/push`** :
@@ -50,7 +50,7 @@
 
 ---
 
-## Étape 6 – Configurer Supabase (boîte aux lettres pour le mode distant)
+## OK Étape 6 – Configurer Supabase (boîte aux lettres pour le mode distant)
 - Crée un projet Supabase (plan gratuit).
 - Table relais : `id`, `uuid_mouvement`, `role_expediteur`, `payload` (JSON du mouvement), `device_id`, `created_at`, `statut` (par défaut `'pending'`).
 - **Sécurité impérative** :
