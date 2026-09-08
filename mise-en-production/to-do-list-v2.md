@@ -26,7 +26,7 @@
 
 ---
 
-## Étape 4 – API : Authentification et délivrance du JWT (AVANT les endpoints de synchro)
+## OK Étape 4 – API : Authentification et délivrance du JWT (AVANT les endpoints de synchro)
 - Crée l’endpoint **`POST /api/auth/login`**.
   - Reçoit `login` + `mot_de_passe` depuis le mobile.
   - Vérifie en BDD, génère un **JWT** contenant : `user_id`, `role`, `device_id` (si fourni), et `exp` (expiration à 30 jours par exemple).

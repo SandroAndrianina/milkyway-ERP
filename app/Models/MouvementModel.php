@@ -11,7 +11,7 @@ class MouvementModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
-    protected $allowedFields    = ['produit_id', 'client_id', 'type', 'cause', 'quantite', 'date_mouvement'];
+    protected $allowedFields    = ['uuid', 'produit_id', 'client_id', 'type', 'cause', 'quantite', 'date_mouvement'];
     protected $useTimestamps    = true;
     protected $createdField     = 'created_at';
     protected $updatedField     = 'updated_at';

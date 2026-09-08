@@ -10,6 +10,7 @@ class CreateMouvements extends Migration
     {
         $this->forge->addField([
             'id' => ['type' => 'INT', 'unsigned' => true, 'auto_increment' => true],
+            'uuid' => ['type' => 'VARCHAR', 'constraint' => 36, 'unique' => true],
             'produit_id' => ['type' => 'INT', 'unsigned' => true],
             'client_id' => ['type' => 'INT', 'unsigned' => true, 'null' => true],
             'type' => ['type' => 'ENUM', 'constraint' => ['entree', 'sortie']],

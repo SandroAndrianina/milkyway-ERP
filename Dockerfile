@@ -1,5 +1,7 @@
 FROM php:8.2-apache
 
+COPY --from=composer:2 /usr/bin/composer /usr/local/bin/composer
+
 ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
 
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' /etc/apache2/sites-available/*.conf

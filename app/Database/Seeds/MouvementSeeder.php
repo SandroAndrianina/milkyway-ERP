@@ -4,6 +4,7 @@ namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
 use Faker\Factory;
+use Ramsey\Uuid\Uuid;
 
 class MouvementSeeder extends Seeder
 {
@@ -78,8 +79,11 @@ class MouvementSeeder extends Seeder
                     }
                 }
 
+                $uuid = Uuid::uuid4()->toString();
+
                 // Insérer le mouvement
                 $this->db->table('mouvements')->insert([
+                    'uuid' => $uuid,
                     'produit_id'     => $prodId,
                     'client_id'      => $clientId,
                     'type'           => $type,

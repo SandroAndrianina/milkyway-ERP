@@ -18,6 +18,19 @@ $routes->get('change-password', 'Auth::changePassword');
 $routes->post('auth/doChangePassword', 'Auth::doChangePassword');
 
 // ================================
+// API – AUTHENTIFICATION (PUBLIC)
+// ================================
+$routes->post('api/auth/login', 'Api\AuthController::login');
+
+// ================================
+// API – SYNCHRONISATION (mobile) – PROTÉGÉ PAR JWT
+// ================================
+$routes->group('api/sync', ['filter' => 'jwtAuth:vente,stocks,admin'], function($routes) {
+    $routes->post('push', 'Api\SyncController::push');
+    $routes->get('pull', 'Api\SyncController::pull');
+});
+
+// ================================
 // ACCUEIL (protégé)
 // ================================
 $routes->get('/', 'Home::index', ['filter' => 'role:vente,stocks,admin']);

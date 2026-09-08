@@ -1,12 +1,18 @@
 Étape par étape (dev, dans le container) :
+(JSON Web Token is a proposed Internet standard for creating data with optional signature)
 
-## 1. Installe la librairie JWT
+pourquoi :
+c'est une preuve d'identité signée. Le JWT contient des infos (user_id, rôle) signées avec ta clé secrète : 
+le serveur peut vérifier que le token n'a pas été modifié et savoir qui fait la requête, mais son contenu reste lisible par n'importe qui (pas chiffré). 
+Le HTTPS, lui, chiffre le transport — les deux jouent des rôles différents.
+
+## OK 1. Installe la librairie JWT
 ```bash
 docker exec -it milkyway_app composer require firebase/php-jwt
 ```
 *(Comme t'es en bind mount, ça écrit directement dans ton dossier local — pas besoin de rebuild l'image.)*
 
-## 2. Ajoute une clé secrète dans `.env`
+## OK 2. Ajoute une clé secrète dans `.env`
 ```
 JWT_SECRET_KEY=une_longue_chaine_aleatoire_ici_min_32_caracteres
 ```
@@ -15,7 +21,7 @@ Génère-la proprement (pas "azerty123") :
 openssl rand -base64 32
 ```
 
-## 3. Crée le contrôleur `app/Controllers/Api/AuthController.php`
+## OK 3. Crée le contrôleur `app/Controllers/Api/AuthController.php`
 ```php
 <?php
 namespace App\Controllers\Api;
@@ -55,18 +61,19 @@ class AuthController extends BaseController
 }
 ```
 
-## 4. Ajoute la route dans `app/Config/Routes.php`
+## OK 4. Ajoute la route dans `app/Config/Routes.php`
 ```php
 $routes->post('api/auth/login', 'Api\AuthController::login');
 ```
 
-## 5. Vérifie que ton `UserModel` existe avec les bons champs
+## OK 5. Vérifie que ton `UserModel` existe avec les bons champs
 Confirme que la table `users` a bien : `login`, `mot_de_passe` (hashé avec `password_hash()`), `role` (vente/stocks/admin). Si pas encore fait, corrige avant de tester.
 
-## 6. Teste avec curl
+## OK 6. Teste avec curl
 ```bash
 curl -k -X POST https://localhost:8443/api/auth/login \
-  -d "login=admin&mot_de_passe=motdepasse123"
+  -H "Content-Type: application/json" \
+  -d '{"login":"admin","mot_de_passe":"ton_mot_de_passe"}'
 ```
 Tu dois recevoir un JSON `{"token": "eyJ..."}`.
 
