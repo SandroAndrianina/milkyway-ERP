@@ -1,24 +1,24 @@
 # To-Do list – Déploiement Milky Way (v2)
 
-## Étape 0 – Prérequis (sur ton Mac)
+## OK Étape 0 – Prérequis (sur ton Mac)
 - Installe Docker Desktop.
 - Vérifie que WSL2 est bien activé côté PC du cousin (pour Windows 11).
 
 ---
 
-## Étape 1 – Dockeriser (sur ton Mac, en mode DEV)
+## OK Étape 1 – Dockeriser (sur ton Mac, en mode DEV)
 - Dockerfile + `docker-compose.yml` avec volumes persistants MySQL, `restart: unless-stopped`, extensions PHP (curl, mysqli, pdo, zip, openssl), et fichier `.env`.
 
 ---
 
-## Étape 2 – Code utilisateurs + rôles + responsive (DANS le container)
+## OK Étape 2 – Code utilisateurs + rôles + responsive (DANS le container)
 - Gestion utilisateurs avec séparation rôles (vente, stocks, admin).
 - Hash des mots de passe (password_hash) en BDD.
 - **Responsive design (CSS media queries)** pour l’interface admin (consultation occasionnelle sur navigateur mobile/tablette).
 
 ---
 
-## Étape 3 – Activer HTTPS (même en local) – NON NÉGOCIABLE
+## OK Étape 3 – Activer HTTPS (même en local) – NON NÉGOCIABLE
 - Génère un certificat auto-signé avec `mkcert` ou OpenSSL pour l’IP fixe du PC du cousin (ex: `192.168.1.100`).
 - Configure Apache/Nginx dans le container pour écouter en HTTPS.
 - Dans le `.env` CI4 : `CI_ENVIRONMENT = production` et **surtout** `forceHTTPS = true` (ne jamais désactiver).
