@@ -1,0 +1,560 @@
+INFO - 2026-09-09 14:04:54 --> REDIRECTED ROUTE at https://localhost:8443/index.php/
+DEBUG - 2026-09-09 14:08:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 14:08:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 14:09:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 14:09:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-09 14:09:24 --> CSRF token verified.
+DEBUG - 2026-09-09 14:09:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 14:09:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 14:09:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 14:10:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 14:10:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 14:10:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 14:10:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 14:10:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-09 14:15:44 --> CSRF token verified.
+DEBUG - 2026-09-09 14:15:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 14:15:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 14:20:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 14:20:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 14:20:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 14:20:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-09 15:04:03 --> REDIRECTED ROUTE at https://192.168.1.191:8443/index.php/
+DEBUG - 2026-09-09 15:04:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:04:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:04:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-09 15:04:14 --> CSRF token verified.
+DEBUG - 2026-09-09 15:04:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:04:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:04:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:04:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:04:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:04:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:04:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:04:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:04:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:04:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:04:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:04:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:04:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-09-09 15:05:26 --> Unknown column 'mouvements.prix_unitaire' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query('SELECT `clients`.`id` as `client_id`, `clients`.`nom` as `client_nom`, GROUP_CONCAT(DISTINCT produits.nom SEPARATOR \', \') as produits_livres, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` = \'vente\'
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `clients`.`id`
+ORDER BY `montant_total` DESC', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `clients`.`id` as `client_id`, `clients`.`nom` as `client_nom`, GROUP_CONCAT(DISTINCT produits.nom SEPARATOR \', \') as produits_livres, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` = \'vente\'
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `clients`.`id`
+ORDER BY `montant_total` DESC')
+ 3 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `clients`.`id` as `client_id`, `clients`.`nom` as `client_nom`, GROUP_CONCAT(DISTINCT produits.nom SEPARATOR \', \') as produits_livres, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` = \'vente\'
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `clients`.`id`
+ORDER BY `montant_total` DESC')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT `clients`.`id` as `client_id`, `clients`.`nom` as `client_nom`, GROUP_CONCAT(DISTINCT produits.nom SEPARATOR \', \') as produits_livres, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = :mouvements.type:
+AND `mouvements`.`cause` = :mouvements.cause:
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+GROUP BY `clients`.`id`
+ORDER BY `montant_total` DESC', [...], false)
+ 5 APPPATH/Models/MouvementModel.php(197): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Services/RecapService.php(18): App\Models\MouvementModel->getVentesParClient('2026-09-02', '2026-09-09')
+ 7 APPPATH/Controllers/Api/RecapController.php(38): App\Services\RecapService->getVentesParClient('2026-09-02', '2026-09-09')
+ 8 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\RecapController->clients()
+ 9 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\RecapController))
+10 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-09-09 15:05:26 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'mouvements.prix_unitaire' in 'field list'
+[Method: GET, Route: api/recap/clients]
+in SYSTEMPATH/Database/BaseConnection.php on line 863.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT `clients`.`id` as `client_id`, `clients`.`nom` as `client_nom`, GROUP_CONCAT(DISTINCT produits.nom SEPARATOR \', \') as produits_livres, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = :mouvements.type:
+AND `mouvements`.`cause` = :mouvements.cause:
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+GROUP BY `clients`.`id`
+ORDER BY `montant_total` DESC', [...], false)
+ 2 APPPATH/Models/MouvementModel.php(197): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Services/RecapService.php(18): App\Models\MouvementModel->getVentesParClient('2026-09-02', '2026-09-09')
+ 4 APPPATH/Controllers/Api/RecapController.php(38): App\Services\RecapService->getVentesParClient('2026-09-02', '2026-09-09')
+ 5 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\RecapController->clients()
+ 6 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\RecapController))
+ 7 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-09-09 15:05:26 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'mouvements.prix_unitaire' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 310.
+ 1 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `clients`.`id` as `client_id`, `clients`.`nom` as `client_nom`, GROUP_CONCAT(DISTINCT produits.nom SEPARATOR \', \') as produits_livres, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` = \'vente\'
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `clients`.`id`
+ORDER BY `montant_total` DESC')
+ 2 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `clients`.`id` as `client_id`, `clients`.`nom` as `client_nom`, GROUP_CONCAT(DISTINCT produits.nom SEPARATOR \', \') as produits_livres, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` = \'vente\'
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `clients`.`id`
+ORDER BY `montant_total` DESC')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT `clients`.`id` as `client_id`, `clients`.`nom` as `client_nom`, GROUP_CONCAT(DISTINCT produits.nom SEPARATOR \', \') as produits_livres, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = :mouvements.type:
+AND `mouvements`.`cause` = :mouvements.cause:
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+GROUP BY `clients`.`id`
+ORDER BY `montant_total` DESC', [...], false)
+ 4 APPPATH/Models/MouvementModel.php(197): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Services/RecapService.php(18): App\Models\MouvementModel->getVentesParClient('2026-09-02', '2026-09-09')
+ 6 APPPATH/Controllers/Api/RecapController.php(38): App\Services\RecapService->getVentesParClient('2026-09-02', '2026-09-09')
+ 7 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\RecapController->clients()
+ 8 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\RecapController))
+ 9 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-09-09 15:05:26 --> [Caused by] mysqli_sql_exception: Unknown column 'mouvements.prix_unitaire' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query('SELECT `clients`.`id` as `client_id`, `clients`.`nom` as `client_nom`, GROUP_CONCAT(DISTINCT produits.nom SEPARATOR \', \') as produits_livres, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` = \'vente\'
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `clients`.`id`
+ORDER BY `montant_total` DESC', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `clients`.`id` as `client_id`, `clients`.`nom` as `client_nom`, GROUP_CONCAT(DISTINCT produits.nom SEPARATOR \', \') as produits_livres, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` = \'vente\'
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `clients`.`id`
+ORDER BY `montant_total` DESC')
+ 3 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `clients`.`id` as `client_id`, `clients`.`nom` as `client_nom`, GROUP_CONCAT(DISTINCT produits.nom SEPARATOR \', \') as produits_livres, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` = \'vente\'
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `clients`.`id`
+ORDER BY `montant_total` DESC')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT `clients`.`id` as `client_id`, `clients`.`nom` as `client_nom`, GROUP_CONCAT(DISTINCT produits.nom SEPARATOR \', \') as produits_livres, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = :mouvements.type:
+AND `mouvements`.`cause` = :mouvements.cause:
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+GROUP BY `clients`.`id`
+ORDER BY `montant_total` DESC', [...], false)
+ 5 APPPATH/Models/MouvementModel.php(197): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Services/RecapService.php(18): App\Models\MouvementModel->getVentesParClient('2026-09-02', '2026-09-09')
+ 7 APPPATH/Controllers/Api/RecapController.php(38): App\Services\RecapService->getVentesParClient('2026-09-02', '2026-09-09')
+ 8 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\RecapController->clients()
+ 9 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\RecapController))
+10 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-09-09 15:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-09-09 15:05:26 --> Unknown column 'mouvements.prix_unitaire' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query('SELECT DATE_FORMAT(mouvements.date_mouvement, \'%Y-%m-%d\') as periode, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` = \'vente\'
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `periode`
+ORDER BY `periode` ASC', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DATE_FORMAT(mouvements.date_mouvement, \'%Y-%m-%d\') as periode, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` = \'vente\'
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `periode`
+ORDER BY `periode` ASC')
+ 3 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DATE_FORMAT(mouvements.date_mouvement, \'%Y-%m-%d\') as periode, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` = \'vente\'
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `periode`
+ORDER BY `periode` ASC')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT DATE_FORMAT(mouvements.date_mouvement, \'%Y-%m-%d\') as periode, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = :mouvements.type:
+AND `mouvements`.`cause` = :mouvements.cause:
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+GROUP BY `periode`
+ORDER BY `periode` ASC', [...], false)
+ 5 APPPATH/Models/MouvementModel.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Services/RecapService.php(29): App\Models\MouvementModel->getVentesEvolution('2026-09-02', '2026-09-09', 'day')
+ 7 APPPATH/Controllers/Api/RecapController.php(29): App\Services\RecapService->getVentesEvolution('2026-09-02', '2026-09-09', 'day')
+ 8 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\RecapController->evolution()
+ 9 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\RecapController))
+10 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-09-09 15:05:26 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'mouvements.prix_unitaire' in 'field list'
+[Method: GET, Route: api/recap/evolution]
+in SYSTEMPATH/Database/BaseConnection.php on line 863.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT DATE_FORMAT(mouvements.date_mouvement, \'%Y-%m-%d\') as periode, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = :mouvements.type:
+AND `mouvements`.`cause` = :mouvements.cause:
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+GROUP BY `periode`
+ORDER BY `periode` ASC', [...], false)
+ 2 APPPATH/Models/MouvementModel.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Services/RecapService.php(29): App\Models\MouvementModel->getVentesEvolution('2026-09-02', '2026-09-09', 'day')
+ 4 APPPATH/Controllers/Api/RecapController.php(29): App\Services\RecapService->getVentesEvolution('2026-09-02', '2026-09-09', 'day')
+ 5 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\RecapController->evolution()
+ 6 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\RecapController))
+ 7 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-09-09 15:05:26 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'mouvements.prix_unitaire' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 310.
+ 1 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DATE_FORMAT(mouvements.date_mouvement, \'%Y-%m-%d\') as periode, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` = \'vente\'
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `periode`
+ORDER BY `periode` ASC')
+ 2 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DATE_FORMAT(mouvements.date_mouvement, \'%Y-%m-%d\') as periode, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` = \'vente\'
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `periode`
+ORDER BY `periode` ASC')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT DATE_FORMAT(mouvements.date_mouvement, \'%Y-%m-%d\') as periode, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = :mouvements.type:
+AND `mouvements`.`cause` = :mouvements.cause:
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+GROUP BY `periode`
+ORDER BY `periode` ASC', [...], false)
+ 4 APPPATH/Models/MouvementModel.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Services/RecapService.php(29): App\Models\MouvementModel->getVentesEvolution('2026-09-02', '2026-09-09', 'day')
+ 6 APPPATH/Controllers/Api/RecapController.php(29): App\Services\RecapService->getVentesEvolution('2026-09-02', '2026-09-09', 'day')
+ 7 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\RecapController->evolution()
+ 8 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\RecapController))
+ 9 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-09-09 15:05:26 --> [Caused by] mysqli_sql_exception: Unknown column 'mouvements.prix_unitaire' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query('SELECT DATE_FORMAT(mouvements.date_mouvement, \'%Y-%m-%d\') as periode, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` = \'vente\'
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `periode`
+ORDER BY `periode` ASC', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT DATE_FORMAT(mouvements.date_mouvement, \'%Y-%m-%d\') as periode, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` = \'vente\'
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `periode`
+ORDER BY `periode` ASC')
+ 3 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT DATE_FORMAT(mouvements.date_mouvement, \'%Y-%m-%d\') as periode, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` = \'vente\'
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `periode`
+ORDER BY `periode` ASC')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT DATE_FORMAT(mouvements.date_mouvement, \'%Y-%m-%d\') as periode, SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = :mouvements.type:
+AND `mouvements`.`cause` = :mouvements.cause:
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+GROUP BY `periode`
+ORDER BY `periode` ASC', [...], false)
+ 5 APPPATH/Models/MouvementModel.php(253): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Services/RecapService.php(29): App\Models\MouvementModel->getVentesEvolution('2026-09-02', '2026-09-09', 'day')
+ 7 APPPATH/Controllers/Api/RecapController.php(29): App\Services\RecapService->getVentesEvolution('2026-09-02', '2026-09-09', 'day')
+ 8 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\RecapController->evolution()
+ 9 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\RecapController))
+10 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-09-09 15:05:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-09-09 15:05:26 --> Unknown column 'mouvements.prix_unitaire' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query('SELECT `produits`.`id` as `produit_id`, `produits`.`nom` as `produit_nom`, SUM(CASE WHEN mouvements.cause = \'vente\' THEN mouvements.quantite ELSE 0 END) as quantite_vendue, SUM(CASE WHEN mouvements.cause = \'non_conforme\' THEN mouvements.quantite ELSE 0 END) as quantite_perdue, SUM(mouvements.quantite * mouvements.prix_unitaire) as valeur_totale
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` IN (\'vente\',\'non_conforme\')
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `produits`.`id`
+ORDER BY `valeur_totale` DESC', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `produits`.`id` as `produit_id`, `produits`.`nom` as `produit_nom`, SUM(CASE WHEN mouvements.cause = \'vente\' THEN mouvements.quantite ELSE 0 END) as quantite_vendue, SUM(CASE WHEN mouvements.cause = \'non_conforme\' THEN mouvements.quantite ELSE 0 END) as quantite_perdue, SUM(mouvements.quantite * mouvements.prix_unitaire) as valeur_totale
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` IN (\'vente\',\'non_conforme\')
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `produits`.`id`
+ORDER BY `valeur_totale` DESC')
+ 3 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `produits`.`id` as `produit_id`, `produits`.`nom` as `produit_nom`, SUM(CASE WHEN mouvements.cause = \'vente\' THEN mouvements.quantite ELSE 0 END) as quantite_vendue, SUM(CASE WHEN mouvements.cause = \'non_conforme\' THEN mouvements.quantite ELSE 0 END) as quantite_perdue, SUM(mouvements.quantite * mouvements.prix_unitaire) as valeur_totale
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` IN (\'vente\',\'non_conforme\')
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `produits`.`id`
+ORDER BY `valeur_totale` DESC')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT `produits`.`id` as `produit_id`, `produits`.`nom` as `produit_nom`, SUM(CASE WHEN mouvements.cause = \'vente\' THEN mouvements.quantite ELSE 0 END) as quantite_vendue, SUM(CASE WHEN mouvements.cause = \'non_conforme\' THEN mouvements.quantite ELSE 0 END) as quantite_perdue, SUM(mouvements.quantite * mouvements.prix_unitaire) as valeur_totale
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = :mouvements.type:
+AND `mouvements`.`cause` IN :mouvements.cause:
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+GROUP BY `produits`.`id`
+ORDER BY `valeur_totale` DESC', [...], false)
+ 5 APPPATH/Models/MouvementModel.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Services/RecapService.php(23): App\Models\MouvementModel->getVentesParProduit('2026-09-02', '2026-09-09')
+ 7 APPPATH/Controllers/Api/RecapController.php(47): App\Services\RecapService->getVentesParProduit('2026-09-02', '2026-09-09')
+ 8 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\RecapController->produits()
+ 9 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\RecapController))
+10 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-09-09 15:05:26 --> CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'mouvements.prix_unitaire' in 'field list'
+[Method: GET, Route: api/recap/produits]
+in SYSTEMPATH/Database/BaseConnection.php on line 863.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT `produits`.`id` as `produit_id`, `produits`.`nom` as `produit_nom`, SUM(CASE WHEN mouvements.cause = \'vente\' THEN mouvements.quantite ELSE 0 END) as quantite_vendue, SUM(CASE WHEN mouvements.cause = \'non_conforme\' THEN mouvements.quantite ELSE 0 END) as quantite_perdue, SUM(mouvements.quantite * mouvements.prix_unitaire) as valeur_totale
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = :mouvements.type:
+AND `mouvements`.`cause` IN :mouvements.cause:
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+GROUP BY `produits`.`id`
+ORDER BY `valeur_totale` DESC', [...], false)
+ 2 APPPATH/Models/MouvementModel.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Services/RecapService.php(23): App\Models\MouvementModel->getVentesParProduit('2026-09-02', '2026-09-09')
+ 4 APPPATH/Controllers/Api/RecapController.php(47): App\Services\RecapService->getVentesParProduit('2026-09-02', '2026-09-09')
+ 5 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\RecapController->produits()
+ 6 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\RecapController))
+ 7 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-09-09 15:05:26 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Unknown column 'mouvements.prix_unitaire' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 310.
+ 1 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `produits`.`id` as `produit_id`, `produits`.`nom` as `produit_nom`, SUM(CASE WHEN mouvements.cause = \'vente\' THEN mouvements.quantite ELSE 0 END) as quantite_vendue, SUM(CASE WHEN mouvements.cause = \'non_conforme\' THEN mouvements.quantite ELSE 0 END) as quantite_perdue, SUM(mouvements.quantite * mouvements.prix_unitaire) as valeur_totale
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` IN (\'vente\',\'non_conforme\')
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `produits`.`id`
+ORDER BY `valeur_totale` DESC')
+ 2 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `produits`.`id` as `produit_id`, `produits`.`nom` as `produit_nom`, SUM(CASE WHEN mouvements.cause = \'vente\' THEN mouvements.quantite ELSE 0 END) as quantite_vendue, SUM(CASE WHEN mouvements.cause = \'non_conforme\' THEN mouvements.quantite ELSE 0 END) as quantite_perdue, SUM(mouvements.quantite * mouvements.prix_unitaire) as valeur_totale
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` IN (\'vente\',\'non_conforme\')
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `produits`.`id`
+ORDER BY `valeur_totale` DESC')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT `produits`.`id` as `produit_id`, `produits`.`nom` as `produit_nom`, SUM(CASE WHEN mouvements.cause = \'vente\' THEN mouvements.quantite ELSE 0 END) as quantite_vendue, SUM(CASE WHEN mouvements.cause = \'non_conforme\' THEN mouvements.quantite ELSE 0 END) as quantite_perdue, SUM(mouvements.quantite * mouvements.prix_unitaire) as valeur_totale
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = :mouvements.type:
+AND `mouvements`.`cause` IN :mouvements.cause:
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+GROUP BY `produits`.`id`
+ORDER BY `valeur_totale` DESC', [...], false)
+ 4 APPPATH/Models/MouvementModel.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Services/RecapService.php(23): App\Models\MouvementModel->getVentesParProduit('2026-09-02', '2026-09-09')
+ 6 APPPATH/Controllers/Api/RecapController.php(47): App\Services\RecapService->getVentesParProduit('2026-09-02', '2026-09-09')
+ 7 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\RecapController->produits()
+ 8 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\RecapController))
+ 9 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-09-09 15:05:26 --> [Caused by] mysqli_sql_exception: Unknown column 'mouvements.prix_unitaire' in 'field list'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query('SELECT `produits`.`id` as `produit_id`, `produits`.`nom` as `produit_nom`, SUM(CASE WHEN mouvements.cause = \'vente\' THEN mouvements.quantite ELSE 0 END) as quantite_vendue, SUM(CASE WHEN mouvements.cause = \'non_conforme\' THEN mouvements.quantite ELSE 0 END) as quantite_perdue, SUM(mouvements.quantite * mouvements.prix_unitaire) as valeur_totale
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` IN (\'vente\',\'non_conforme\')
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `produits`.`id`
+ORDER BY `valeur_totale` DESC', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `produits`.`id` as `produit_id`, `produits`.`nom` as `produit_nom`, SUM(CASE WHEN mouvements.cause = \'vente\' THEN mouvements.quantite ELSE 0 END) as quantite_vendue, SUM(CASE WHEN mouvements.cause = \'non_conforme\' THEN mouvements.quantite ELSE 0 END) as quantite_perdue, SUM(mouvements.quantite * mouvements.prix_unitaire) as valeur_totale
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` IN (\'vente\',\'non_conforme\')
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `produits`.`id`
+ORDER BY `valeur_totale` DESC')
+ 3 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `produits`.`id` as `produit_id`, `produits`.`nom` as `produit_nom`, SUM(CASE WHEN mouvements.cause = \'vente\' THEN mouvements.quantite ELSE 0 END) as quantite_vendue, SUM(CASE WHEN mouvements.cause = \'non_conforme\' THEN mouvements.quantite ELSE 0 END) as quantite_perdue, SUM(mouvements.quantite * mouvements.prix_unitaire) as valeur_totale
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = \'sortie\'
+AND `mouvements`.`cause` IN (\'vente\',\'non_conforme\')
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-09-02\'
+AND `mouvements`.`date_mouvement` <= \'2026-09-09\'
+GROUP BY `produits`.`id`
+ORDER BY `valeur_totale` DESC')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT `produits`.`id` as `produit_id`, `produits`.`nom` as `produit_nom`, SUM(CASE WHEN mouvements.cause = \'vente\' THEN mouvements.quantite ELSE 0 END) as quantite_vendue, SUM(CASE WHEN mouvements.cause = \'non_conforme\' THEN mouvements.quantite ELSE 0 END) as quantite_perdue, SUM(mouvements.quantite * mouvements.prix_unitaire) as valeur_totale
+FROM `mouvements`
+JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+WHERE `mouvements`.`type` = :mouvements.type:
+AND `mouvements`.`cause` IN :mouvements.cause:
+AND `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+GROUP BY `produits`.`id`
+ORDER BY `valeur_totale` DESC', [...], false)
+ 5 APPPATH/Models/MouvementModel.php(223): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Services/RecapService.php(23): App\Models\MouvementModel->getVentesParProduit('2026-09-02', '2026-09-09')
+ 7 APPPATH/Controllers/Api/RecapController.php(47): App\Services\RecapService->getVentesParProduit('2026-09-02', '2026-09-09')
+ 8 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\RecapController->produits()
+ 9 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\RecapController))
+10 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-09-09 15:05:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:05:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:05:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:05:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:05:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:05:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:05:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-09-09 15:05:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-09-09 17:31:14 --> REDIRECTED ROUTE at https://192.168.1.191:8443/index.php/
+DEBUG - 2026-09-09 17:31:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

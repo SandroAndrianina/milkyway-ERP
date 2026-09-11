@@ -40,6 +40,11 @@ class MouvementService
      */
     public function createMouvement(array $data): int
     {
+        // Validation du prix_unitaire
+        if (empty($data['prix_unitaire']) || !is_numeric($data['prix_unitaire']) || $data['prix_unitaire'] <= 0) {
+            throw new \Exception('prix_unitaire est requis et doit être un nombre positif');
+        }
+
         // Si c'est une sortie, vérifier le stock
         if ($data['type'] === 'sortie') {
             $stock = $this->mouvementModel->getStockActuel((int) $data['produit_id']);
@@ -55,6 +60,13 @@ class MouvementService
      */
     public function createBatchMouvements(array $items): bool
     {
+        // Validation du prix pour chaque élément
+        foreach ($items as $index => $item) {
+            if (empty($item['prix_unitaire']) || !is_numeric($item['prix_unitaire']) || $item['prix_unitaire'] <= 0) {
+                throw new \Exception("prix_unitaire manquant ou invalide à l'index $index (doit être > 0)");
+            }
+        }
+
         // Simuler le stock pour chaque produit
         $stocks = [];
         
@@ -106,5 +118,4 @@ class MouvementService
     {
         return $this->clientModel->where('deleted_at', null)->findAll();
     }
-
 }

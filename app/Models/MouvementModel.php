@@ -11,7 +11,7 @@ class MouvementModel extends Model
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = true;
-    protected $allowedFields    = ['uuid', 'produit_id', 'client_id', 'type', 'cause', 'quantite', 'date_mouvement'];
+    protected $allowedFields    = ['uuid', 'produit_id', 'client_id', 'type', 'cause', 'quantite', 'date_mouvement', 'prix_unitaire'];
     protected $useTimestamps    = true;
     protected $createdField     = 'created_at';
     protected $updatedField     = 'updated_at';
@@ -60,7 +60,6 @@ class MouvementModel extends Model
                 ->orderBy('date', 'ASC');
 
         $results = $builder->get()->getResultArray();
-        // Formater pour Chart.js (labels + datasets)
         $labels = array_column($results, 'date');
         $entrees = array_column($results, 'entree');
         $sorties = array_column($results, 'sortie');
@@ -103,7 +102,7 @@ class MouvementModel extends Model
     public function getAchatsClient(int $clientId, array $filters = [], int $page = 1, int $perPage = 10): array
     {
         $builder = $this->db->table('mouvements')
-            ->select('mouvements.*, produits.nom as produit_nom, produits.prix_vente')
+            ->select('mouvements.*, produits.nom as produit_nom')
             ->join('produits', 'produits.id = mouvements.produit_id')
             ->where('mouvements.client_id', $clientId)
             ->where('mouvements.type', 'sortie')
@@ -128,12 +127,12 @@ class MouvementModel extends Model
 
     /**
      * Calcule le total des achats d'un client sur une période
+     * Utilise le prix stocké dans le mouvement (prix_unitaire)
      */
     public function getTotalAchatsClient(int $clientId, array $filters = []): int
     {
         $builder = $this->db->table('mouvements')
-            ->select('SUM(mouvements.quantite * produits.prix_vente) as total')
-            ->join('produits', 'produits.id = mouvements.produit_id')
+            ->select('SUM(mouvements.quantite * mouvements.prix_unitaire) as total')
             ->where('mouvements.client_id', $clientId)
             ->where('mouvements.type', 'sortie')
             ->where('mouvements.cause', 'vente')
@@ -157,7 +156,6 @@ class MouvementModel extends Model
     {
         $date = $date ?? date('Y-m-d');
         
-        // On prend tous les mouvements jusqu'à cette date (inclus)
         $builder = $this->db->table('mouvements')
             ->select("
                 SUM(CASE WHEN type = 'entree' THEN quantite ELSE 0 END) as total_entree,
@@ -175,6 +173,7 @@ class MouvementModel extends Model
 
     /**
      * Récupère les ventes regroupées par client sur une période
+     * Montant calculé avec prix_unitaire stocké
      */
     public function getVentesParClient(string $dateDebut, string $dateFin): array
     {
@@ -183,7 +182,7 @@ class MouvementModel extends Model
                 clients.id as client_id,
                 clients.nom as client_nom,
                 GROUP_CONCAT(DISTINCT produits.nom SEPARATOR ', ') as produits_livres,
-                SUM(mouvements.quantite * produits.prix_vente) as montant_total
+                SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
             ")
             ->join('clients', 'clients.id = mouvements.client_id')
             ->join('produits', 'produits.id = mouvements.produit_id')
@@ -200,6 +199,7 @@ class MouvementModel extends Model
 
     /**
      * Récupère les ventes regroupées par produit sur une période
+     * Montant calculé avec prix_unitaire stocké
      */
     public function getVentesParProduit(string $dateDebut, string $dateFin): array
     {
@@ -209,7 +209,7 @@ class MouvementModel extends Model
                 produits.nom as produit_nom,
                 SUM(CASE WHEN mouvements.cause = 'vente' THEN mouvements.quantite ELSE 0 END) as quantite_vendue,
                 SUM(CASE WHEN mouvements.cause = 'non_conforme' THEN mouvements.quantite ELSE 0 END) as quantite_perdue,
-                SUM(mouvements.quantite * produits.prix_vente) as valeur_totale
+                SUM(mouvements.quantite * mouvements.prix_unitaire) as valeur_totale
             ")
             ->join('produits', 'produits.id = mouvements.produit_id')
             ->where('mouvements.type', 'sortie')
@@ -225,31 +225,31 @@ class MouvementModel extends Model
 
     /**
      * Récupère l'évolution des ventes (montant total par jour/semaine/mois)
+     * Utilise prix_unitaire stocké
      */
-public function getVentesEvolution(string $dateDebut, string $dateFin, string $granularite = 'day'): array
-{
-    $format = '%Y-%m-%d';
-    if ($granularite === 'week') {
-        $format = '%Y-%u'; // année-semaine (ISO)
-    } elseif ($granularite === 'month') {
-        $format = '%Y-%m';
+    public function getVentesEvolution(string $dateDebut, string $dateFin, string $granularite = 'day'): array
+    {
+        $format = '%Y-%m-%d';
+        if ($granularite === 'week') {
+            $format = '%Y-%u'; // année-semaine (ISO)
+        } elseif ($granularite === 'month') {
+            $format = '%Y-%m';
+        }
+
+        $builder = $this->db->table('mouvements')
+            ->select("
+                DATE_FORMAT(mouvements.date_mouvement, '{$format}') as periode,
+                SUM(mouvements.quantite * mouvements.prix_unitaire) as montant_total
+            ")
+            ->join('produits', 'produits.id = mouvements.produit_id')
+            ->where('mouvements.type', 'sortie')
+            ->where('mouvements.cause', 'vente')
+            ->where('mouvements.deleted_at', null)
+            ->where('mouvements.date_mouvement >=', $dateDebut)
+            ->where('mouvements.date_mouvement <=', $dateFin)
+            ->groupBy('periode')
+            ->orderBy('periode', 'ASC');
+
+        return $builder->get()->getResultArray();
     }
-
-    $builder = $this->db->table('mouvements')
-        ->select("
-            DATE_FORMAT(mouvements.date_mouvement, '{$format}') as periode,
-            SUM(mouvements.quantite * produits.prix_vente) as montant_total
-        ")
-        ->join('produits', 'produits.id = mouvements.produit_id')
-        ->where('mouvements.type', 'sortie')
-        ->where('mouvements.cause', 'vente')
-        ->where('mouvements.deleted_at', null)
-        ->where('mouvements.date_mouvement >=', $dateDebut)
-        ->where('mouvements.date_mouvement <=', $dateFin)
-        ->groupBy('periode')
-        ->orderBy('periode', 'ASC');
-
-    return $builder->get()->getResultArray();
-}
-
 }

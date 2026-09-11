@@ -56,73 +56,77 @@ class VenteApiController extends BaseController
      * Crée un nouveau mouvement (sortie)
      */
     public function create()
-    {
-        $data = $this->request->getJSON(true);
+{
+    $data = $this->request->getJSON(true);
 
-        // Validation des champs obligatoires
-        if (empty($data['produit_id']) || empty($data['quantite']) || empty($data['date_mouvement']) || empty($data['cause'])) {
+    // Validation des champs obligatoires
+    $required = ['produit_id', 'quantite', 'date_mouvement', 'cause'];
+    foreach ($required as $field) {
+        if (empty($data[$field])) {
             return $this->response->setStatusCode(400)
-                ->setJSON(['error' => 'produit_id, quantite, date_mouvement et cause sont requis']);
-        }
-
-        // Vérifier que le produit existe
-        $produit = $this->produitModel->find($data['produit_id']);
-        if (!$produit) {
-            return $this->response->setStatusCode(400)
-                ->setJSON(['error' => 'Produit introuvable']);
-        }
-
-        // Vérifier la quantité > 0
-        if ((float) $data['quantite'] <= 0) {
-            return $this->response->setStatusCode(400)
-                ->setJSON(['error' => 'La quantité doit être supérieure à 0']);
-        }
-
-        // Vérifier la cause
-        if (!in_array($data['cause'], ['vente', 'non_conforme'])) {
-            return $this->response->setStatusCode(400)
-                ->setJSON(['error' => 'Cause invalide. Causes autorisées : vente, non_conforme']);
-        }
-
-        // Si cause = vente, client_id obligatoire
-        if ($data['cause'] === 'vente' && empty($data['client_id'])) {
-            return $this->response->setStatusCode(400)
-                ->setJSON(['error' => 'Le client est obligatoire pour une vente']);
-        }
-
-        // Si cause = non_conforme, client_id forcé à null
-        if ($data['cause'] === 'non_conforme') {
-            $data['client_id'] = null;
-        }
-
-        // Vérifier que le client existe (si fourni)
-        if (!empty($data['client_id'])) {
-            $client = $this->clientModel->find($data['client_id']);
-            if (!$client) {
-                return $this->response->setStatusCode(400)
-                    ->setJSON(['error' => 'Client introuvable']);
-            }
-        }
-
-        // Construire le tableau de données pour le service
-        $mouvementData = [
-            'produit_id'     => (int) $data['produit_id'],
-            'quantite'       => (float) $data['quantite'],
-            'date_mouvement' => $data['date_mouvement'],
-            'type'           => 'sortie',
-            'cause'          => $data['cause'],
-            'client_id'      => $data['client_id'] ?? null,
-        ];
-
-        try {
-            $id = $this->mouvementService->createMouvement($mouvementData);
-            return $this->response->setStatusCode(201)
-                ->setJSON(['status' => 'ok', 'id' => $id, 'message' => 'Mouvement enregistré avec succès']);
-        } catch (\Exception $e) {
-            return $this->response->setStatusCode(400)
-                ->setJSON(['error' => $e->getMessage()]);
+                ->setJSON(['error' => "Le champ '$field' est requis"]);
         }
     }
+
+    // Vérifier que le produit existe
+    $produit = $this->produitModel->find($data['produit_id']);
+    if (!$produit) {
+        return $this->response->setStatusCode(400)
+            ->setJSON(['error' => 'Produit introuvable']);
+    }
+
+    // Vérifier la quantité > 0
+    if ((float) $data['quantite'] <= 0) {
+        return $this->response->setStatusCode(400)
+            ->setJSON(['error' => 'La quantité doit être supérieure à 0']);
+    }
+
+    // Vérifier la cause
+    if (!in_array($data['cause'], ['vente', 'non_conforme'])) {
+        return $this->response->setStatusCode(400)
+            ->setJSON(['error' => 'Cause invalide. Causes autorisées : vente, non_conforme']);
+    }
+
+    // Si cause = vente, client_id obligatoire
+    if ($data['cause'] === 'vente' && empty($data['client_id'])) {
+        return $this->response->setStatusCode(400)
+            ->setJSON(['error' => 'Le client est obligatoire pour une vente']);
+    }
+
+    // Si cause = non_conforme, client_id forcé à null
+    if ($data['cause'] === 'non_conforme') {
+        $data['client_id'] = null;
+    }
+
+    // Vérifier que le client existe (si fourni)
+    if (!empty($data['client_id'])) {
+        $client = $this->clientModel->find($data['client_id']);
+        if (!$client) {
+            return $this->response->setStatusCode(400)
+                ->setJSON(['error' => 'Client introuvable']);
+        }
+    }
+
+    // Construire le tableau de données pour le service
+    $mouvementData = [
+        'produit_id'     => (int) $data['produit_id'],
+        'quantite'       => (float) $data['quantite'],
+        'date_mouvement' => $data['date_mouvement'],
+        'type'           => 'sortie',
+        'cause'          => $data['cause'],
+        'client_id'      => $data['client_id'] ?? null,
+        'prix_unitaire'  => (float) $produit['prix_vente'], // <-- AJOUT : copie du prix actuel
+    ];
+
+    try {
+        $id = $this->mouvementService->createMouvement($mouvementData);
+        return $this->response->setStatusCode(201)
+            ->setJSON(['status' => 'ok', 'id' => $id, 'message' => 'Mouvement enregistré avec succès']);
+    } catch (\Exception $e) {
+        return $this->response->setStatusCode(400)
+            ->setJSON(['error' => $e->getMessage()]);
+    }
+}
 
     /**
      * Récupère les données pour le graphique (optionnel)

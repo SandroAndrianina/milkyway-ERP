@@ -16,6 +16,7 @@ class CreateMouvements extends Migration
             'type' => ['type' => 'ENUM', 'constraint' => ['entree', 'sortie']],
             'cause' => ['type' => 'ENUM', 'constraint' => ['vente', 'non_conforme'], 'null' => true],
             'quantite' => ['type' => 'INT', 'unsigned' => true],
+            'prix_unitaire' => ['type' => 'DECIMAL', 'constraint' => '10,2', 'null' => false],
             'date_mouvement' => ['type' => 'DATE'],
             'created_at' => ['type' => 'DATETIME', 'null' => true],
             'updated_at' => ['type' => 'DATETIME', 'null' => true],

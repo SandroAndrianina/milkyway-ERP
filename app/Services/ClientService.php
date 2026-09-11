@@ -27,7 +27,8 @@ class ClientService
         $totalAchete = $this->mouvementModel->getTotalAchatsClient($clientId, $filters);
 
         $formatted = array_map(function ($mvt) {
-            $prixUnitaire = $mvt['prix_vente'] ?? 0;
+            // CORRECTION : utiliser prix_unitaire stocké dans le mouvement
+            $prixUnitaire = $mvt['prix_unitaire'] ?? 0;
             return [
                 'date'          => date('d M Y', strtotime($mvt['date_mouvement'])),
                 'produit_nom'   => $mvt['produit_nom'] ?? 'Produit inconnu',
@@ -57,5 +58,4 @@ class ClientService
             'last_added' => $this->clientModel->getLastAddedClient(),
         ];
     }
-
 }

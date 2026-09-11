@@ -49,19 +49,28 @@ class MouvementController extends BaseController
         return $this->response->setJSON($mouvement);
     }
 
-    public function create()
+    public function create(): ResponseInterface
     {
         try {
             $data = $this->request->getJSON(true);
             
-            // Validation basique
-            if (empty($data['produit_id']) || empty($data['type']) || empty($data['quantite']) || empty($data['date_mouvement'])) {
-                return $this->response->setStatusCode(400)
-                    ->setJSON(['error' => 'Champs requis manquants']);
+            // 1. Validation des champs requis
+            $required = ['produit_id', 'type', 'quantite', 'date_mouvement', 'prix_unitaire'];
+            foreach ($required as $field) {
+                if (empty($data[$field])) {
+                    return $this->response->setStatusCode(400)
+                        ->setJSON(['error' => "Champ '$field' requis"]);
+                }
             }
 
-            // Si type = sortie et cause = vente, client_id doit être présent
-            if ($data['type'] === 'sortie' && $data['cause'] === 'vente' && empty($data['client_id'])) {
+            // 2. Validation du prix (doit être > 0)
+            if (!is_numeric($data['prix_unitaire']) || $data['prix_unitaire'] <= 0) {
+                return $this->response->setStatusCode(400)
+                    ->setJSON(['error' => 'prix_unitaire doit être un nombre positif']);
+            }
+
+            // 3. Si type = sortie et cause = vente, client_id obligatoire
+            if ($data['type'] === 'sortie' && ($data['cause'] ?? null) === 'vente' && empty($data['client_id'])) {
                 return $this->response->setStatusCode(400)
                     ->setJSON(['error' => 'Client requis pour une vente']);
             }
@@ -72,13 +81,12 @@ class MouvementController extends BaseController
                 ->setJSON(['status' => 'ok', 'id' => $id]);
 
         } catch (\Exception $e) {
-            // Capturer l'erreur de stock insuffisant
             return $this->response->setStatusCode(400)
                 ->setJSON(['error' => $e->getMessage()]);
         }
     }
 
-    public function createBatch()
+   public function createBatch(): ResponseInterface
     {
         try {
             $items = $this->request->getJSON(true);
@@ -88,8 +96,34 @@ class MouvementController extends BaseController
                     ->setJSON(['error' => 'Tableau de mouvements requis']);
             }
 
+            $produitModel = new \App\Models\ProduitModel(); // ou injecté via constructeur
+
+            foreach ($items as $index => &$item) {
+                // 1. Champs obligatoires (sans prix_unitaire)
+                $required = ['produit_id', 'type', 'quantite', 'date_mouvement'];
+                foreach ($required as $field) {
+                    if (empty($item[$field])) {
+                        return $this->response->setStatusCode(400)
+                            ->setJSON(['error' => "Champ '$field' manquant à l'index $index"]);
+                    }
+                }
+
+                // 2. Récupérer le produit et son prix
+                $produit = $produitModel->find($item['produit_id']);
+                if (!$produit) {
+                    return $this->response->setStatusCode(400)
+                        ->setJSON(['error' => "Produit invalide à l'index $index"]);
+                }
+                $item['prix_unitaire'] = (float) $produit['prix_vente'];
+
+                // 3. Validation métier (client obligatoire pour vente)
+                if ($item['type'] === 'sortie' && ($item['cause'] ?? null) === 'vente' && empty($item['client_id'])) {
+                    return $this->response->setStatusCode(400)
+                        ->setJSON(['error' => "Client requis pour une vente à l'index $index"]);
+                }
+            }
+
             $success = $this->mouvementService->createBatchMouvements($items);
-            
             if ($success) {
                 return $this->response->setJSON(['status' => 'ok', 'count' => count($items)]);
             }
@@ -98,7 +132,6 @@ class MouvementController extends BaseController
                 ->setJSON(['error' => 'Erreur lors de l\'insertion en lot']);
 
         } catch (\Exception $e) {
-            // Capturer l'erreur de stock insuffisant
             return $this->response->setStatusCode(400)
                 ->setJSON(['error' => $e->getMessage()]);
         }

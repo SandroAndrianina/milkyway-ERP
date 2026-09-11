@@ -1,0 +1,41 @@
+name: milkyway_mobile
+description: "A new Flutter project."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # UI
+  cupertino_icons: ^1.0.8
+
+  # Réseau
+  http: ^1.2.0
+
+  # Base de données locale
+  sqflite: ^2.3.0
+  path_provider: ^2.1.0
+
+  # Stockage sécurisé
+  flutter_secure_storage: ^9.2.2
+
+  # Génération d'UUID
+  uuid: ^4.5.1
+
+  # Vérification de la connectivité
+  connectivity_plus: ^6.0.0
+
+  # Gestion d'état (optionnel mais recommandé)
+  provider: ^6.1.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
