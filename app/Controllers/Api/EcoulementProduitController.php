@@ -32,7 +32,7 @@ class EcoulementProduitController extends BaseController
     public function create()
     {
         ini_set('upload_max_filesize', '20M');
-ini_set('post_max_size', '20M');
+        ini_set('post_max_size', '20M');
         $data = $this->request->getPost();
         $file = $this->request->getFile('image');
 
@@ -85,53 +85,62 @@ ini_set('post_max_size', '20M');
             ->setJSON(['status' => 'ok', 'id' => $id, 'image' => $imagePath]);
     }
 
-    public function update($id)
-    {
-        ini_set('upload_max_filesize', '20M');
-ini_set('post_max_size', '20M');
-        $produit = $this->model->find($id);
-        if (!$produit) {
-            return $this->response->setStatusCode(404)
-                ->setJSON(['status' => 'error', 'message' => 'Produit introuvable']);
-        }
+   public function update($id)
+{
+    ini_set('upload_max_filesize', '20M');
+    ini_set('post_max_size', '20M');
 
-        $data = $this->request->getPost();
-        $file = $this->request->getFile('image');
-
-        // Validation
-        if (empty($data['nom']) || empty($data['duree_conservation']) || !isset($data['prix_vente']) || !isset($data['seuil_critique'])) {
-            return $this->response->setStatusCode(400)
-                ->setJSON(['status' => 'error', 'message' => 'nom, duree_conservation, prix_vente et seuil_critique requis']);
-        }
-
-        // Gestion de l'image
-        $imagePath = $produit['image'];
-        if ($file && $file->isValid() && !$file->hasMoved()) {
-            // Supprimer l'ancienne image si elle existe
-            if ($imagePath && file_exists(FCPATH . $imagePath)) {
-                unlink(FCPATH . $imagePath);
-            }
-            // Vérifier le type MIME
-            $mimeType = $file->getClientMimeType();
-            if (in_array($mimeType, ['image/jpeg', 'image/png'])) {
-                $uploadPath = FCPATH . 'uploads/produits';
-                if (!is_dir($uploadPath)) {
-                    mkdir($uploadPath, 0755, true);
-                }
-                $newName = $file->getRandomName();
-                $file->move($uploadPath, $newName);
-                $imagePath = 'uploads/produits/' . $newName;
-            } else {
-                return $this->response->setStatusCode(400)
-                    ->setJSON(['status' => 'error', 'message' => 'Format d\'image non supporté (JPEG ou PNG seulement)']);
-            }
-        }
-
-        $data['image'] = $imagePath;
-        $this->model->modifierProduitEcoulement($id, $data);
-
-        return $this->response->setJSON(['status' => 'ok']);
+    $produit = $this->model->find($id);
+    if (!$produit) {
+        return $this->response->setStatusCode(404)
+            ->setJSON(['error' => 'Produit introuvable']);
     }
+
+    // Extract only the fields we care about (avoids _method leaking)
+    $data = [
+        'nom'                => $this->request->getPost('nom'),
+        'duree_conservation' => $this->request->getPost('duree_conservation'),
+        'prix_vente'         => $this->request->getPost('prix_vente'),
+        'seuil_critique'     => $this->request->getPost('seuil_critique'),
+    ];
+
+    // Validation
+    if (empty($data['nom']) || empty($data['duree_conservation'])
+        || !isset($data['prix_vente']) || !isset($data['seuil_critique'])) {
+        return $this->response->setStatusCode(400)
+            ->setJSON(['error' => 'nom, duree_conservation, prix_vente et seuil_critique requis']);
+    }
+
+    // Image handling
+    $file = $this->request->getFile('image');
+    $imagePath = $produit['image'];
+
+    if ($file && $file->isValid() && !$file->hasMoved()) {
+        if ($imagePath && file_exists(FCPATH . $imagePath)) {
+            unlink(FCPATH . $imagePath);
+        }
+
+        $mimeType = $file->getClientMimeType();
+        if (!in_array($mimeType, ['image/jpeg', 'image/png'])) {
+            return $this->response->setStatusCode(400)
+                ->setJSON(['error' => 'Format d\'image non supporté (JPEG ou PNG seulement)']);
+        }
+
+        $uploadPath = FCPATH . 'uploads/produits';
+        if (!is_dir($uploadPath)) {
+            mkdir($uploadPath, 0755, true);
+        }
+
+        $newName = $file->getRandomName();
+        $file->move($uploadPath, $newName);
+        $imagePath = 'uploads/produits/' . $newName;
+    }
+
+    $data['image'] = $imagePath;
+    $this->model->modifierProduitEcoulement($id, $data);
+
+    return $this->response->setJSON(['status' => 'ok']);
+}
 
     public function delete($id)
     {

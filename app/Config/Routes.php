@@ -150,6 +150,7 @@ $routes->group('api', ['filter' => 'role:vente,stocks,admin'], function($routes)
     $routes->post('ecoulement/produits', 'Api\EcoulementProduitController::create');
     $routes->put('ecoulement/produits/(:num)', 'Api\EcoulementProduitController::update/$1');
     $routes->delete('ecoulement/produits/(:num)', 'Api\EcoulementProduitController::delete/$1');
+    $routes->post('ecoulement/produits/(:num)', 'Api\EcoulementProduitController::update/$1'); 
 
     // État des stocks (le contrôleur masque les finances si rôle = stocks)
     $routes->get('ecoulement/stock', 'Api\StockController::index');

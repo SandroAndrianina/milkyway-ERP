@@ -1,0 +1,166 @@
+INFO - 2026-11-05 16:34:44 --> REDIRECTED ROUTE at https://192.168.1.143:8443/index.php/
+INFO - 2026-11-05 16:36:01 --> REDIRECTED ROUTE at https://192.168.1.143:8443/index.php/
+INFO - 2026-11-05 16:36:32 --> REDIRECTED ROUTE at https://localhost:8443/index.php/
+DEBUG - 2026-11-05 16:36:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:36:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-11-05 16:36:43 --> CSRF token verified.
+ERROR - 2026-11-05 16:36:43 --> Error connecting to the database: ErrorException: mysqli::real_connect(): php_network_getaddresses: getaddrinfo for db failed: Name or service not known in /var/www/html/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', '/var/www/html/s...', 201)
+#1 /var/www/html/system/Database/MySQLi/Connection.php(201): mysqli->real_connect('db', 'root', Object(SensitiveParameterValue), 'milky_way', 3306, '', 0)
+#2 /var/www/html/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 /var/www/html/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#4 /var/www/html/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#5 /var/www/html/system/Model.php(297): CodeIgniter\Database\BaseBuilder->get()
+#6 /var/www/html/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#7 /var/www/html/app/Controllers/Auth.php(29): CodeIgniter\BaseModel->first()
+#8 /var/www/html/system/CodeIgniter.php(974): App\Controllers\Auth->doLogin()
+#9 /var/www/html/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#10 /var/www/html/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /var/www/html/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#12 /var/www/html/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /var/www/html/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+
+Next mysqli_sql_exception: php_network_getaddresses: getaddrinfo for db failed: Name or service not known in /var/www/html/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /var/www/html/system/Database/MySQLi/Connection.php(201): mysqli->real_connect('db', 'root', Object(SensitiveParameterValue), 'milky_way', 3306, '', 0)
+#1 /var/www/html/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /var/www/html/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /var/www/html/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /var/www/html/system/Model.php(297): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/html/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /var/www/html/app/Controllers/Auth.php(29): CodeIgniter\BaseModel->first()
+#7 /var/www/html/system/CodeIgniter.php(974): App\Controllers\Auth->doLogin()
+#8 /var/www/html/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#9 /var/www/html/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/html/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/html/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: php_network_getaddresses: getaddrinfo for db failed: Name or service not known in /var/www/html/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /var/www/html/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /var/www/html/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /var/www/html/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /var/www/html/system/Model.php(297): CodeIgniter\Database\BaseBuilder->get()
+#4 /var/www/html/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /var/www/html/app/Controllers/Auth.php(29): CodeIgniter\BaseModel->first()
+#6 /var/www/html/system/CodeIgniter.php(974): App\Controllers\Auth->doLogin()
+#7 /var/www/html/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#8 /var/www/html/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /var/www/html/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2026-11-05 16:36:43 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: php_network_getaddresses: getaddrinfo for db failed: Name or service not known
+[Method: POST, Route: auth/doLogin]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `nom` = :nom:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH/Model.php(297): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Auth.php(29): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Auth->doLogin()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2026-11-05 16:36:49 --> CSRF token verified.
+ERROR - 2026-11-05 16:36:49 --> Error connecting to the database: ErrorException: mysqli::real_connect(): php_network_getaddresses: getaddrinfo for db failed: Name or service not known in /var/www/html/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'mysqli::real_co...', '/var/www/html/s...', 201)
+#1 /var/www/html/system/Database/MySQLi/Connection.php(201): mysqli->real_connect('db', 'root', Object(SensitiveParameterValue), 'milky_way', 3306, '', 0)
+#2 /var/www/html/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#3 /var/www/html/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#4 /var/www/html/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#5 /var/www/html/system/Model.php(297): CodeIgniter\Database\BaseBuilder->get()
+#6 /var/www/html/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#7 /var/www/html/app/Controllers/Auth.php(29): CodeIgniter\BaseModel->first()
+#8 /var/www/html/system/CodeIgniter.php(974): App\Controllers\Auth->doLogin()
+#9 /var/www/html/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#10 /var/www/html/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 /var/www/html/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#12 /var/www/html/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 /var/www/html/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 {main}
+
+Next mysqli_sql_exception: php_network_getaddresses: getaddrinfo for db failed: Name or service not known in /var/www/html/system/Database/MySQLi/Connection.php:201
+Stack trace:
+#0 /var/www/html/system/Database/MySQLi/Connection.php(201): mysqli->real_connect('db', 'root', Object(SensitiveParameterValue), 'milky_way', 3306, '', 0)
+#1 /var/www/html/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#2 /var/www/html/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#3 /var/www/html/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /var/www/html/system/Model.php(297): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/html/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#6 /var/www/html/app/Controllers/Auth.php(29): CodeIgniter\BaseModel->first()
+#7 /var/www/html/system/CodeIgniter.php(974): App\Controllers\Auth->doLogin()
+#8 /var/www/html/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#9 /var/www/html/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /var/www/html/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#11 /var/www/html/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#12 /var/www/html/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#13 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: php_network_getaddresses: getaddrinfo for db failed: Name or service not known in /var/www/html/system/Database/MySQLi/Connection.php:231
+Stack trace:
+#0 /var/www/html/system/Database/BaseConnection.php(555): CodeIgniter\Database\MySQLi\Connection->connect(false)
+#1 /var/www/html/system/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+#2 /var/www/html/system/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#3 /var/www/html/system/Model.php(297): CodeIgniter\Database\BaseBuilder->get()
+#4 /var/www/html/system/BaseModel.php(714): CodeIgniter\Model->doFirst()
+#5 /var/www/html/app/Controllers/Auth.php(29): CodeIgniter\BaseModel->first()
+#6 /var/www/html/system/CodeIgniter.php(974): App\Controllers\Auth->doLogin()
+#7 /var/www/html/system/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+#8 /var/www/html/system/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/system/Boot.php(417): CodeIgniter\CodeIgniter->run()
+#10 /var/www/html/system/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#11 /var/www/html/public/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#12 {main}
+CRITICAL - 2026-11-05 16:36:49 --> CodeIgniter\Database\Exceptions\DatabaseException: Unable to connect to the database.
+Main connection [MySQLi]: php_network_getaddresses: getaddrinfo for db failed: Name or service not known
+[Method: POST, Route: auth/doLogin]
+in SYSTEMPATH/Database/BaseConnection.php on line 606.
+ 1 SYSTEMPATH/Database/BaseConnection.php(795): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `nom` = :nom:
+ LIMIT 1', [...], false)
+ 3 SYSTEMPATH/Model.php(297): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(714): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/Auth.php(29): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Auth->doLogin()
+ 7 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Auth))
+ 8 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+INFO - 2026-11-05 16:48:49 --> REDIRECTED ROUTE at https://localhost:8443/index.php/
+DEBUG - 2026-11-05 16:48:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:48:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-11-05 16:48:55 --> CSRF token verified.
+DEBUG - 2026-11-05 16:48:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:48:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-05 16:49:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.

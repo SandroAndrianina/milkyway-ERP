@@ -14,23 +14,24 @@ dependencies:
   cupertino_icons: ^1.0.8
 
   # Réseau
-  http: ^1.2.0
+  http: ^1.6.0
 
   # Base de données locale
-  sqflite: ^2.3.0
+  sqflite: ^2.4.5
   path_provider: ^2.1.0
 
   # Stockage sécurisé
-  flutter_secure_storage: ^9.2.2
+  flutter_secure_storage: ^11.2.0
 
   # Génération d'UUID
-  uuid: ^4.5.1
+  uuid: ^4.6.0
 
   # Vérification de la connectivité
   connectivity_plus: ^6.0.0
 
   # Gestion d'état (optionnel mais recommandé)
   provider: ^6.1.1
+  path: ^1.9.1
 
 dev_dependencies:
   flutter_test:

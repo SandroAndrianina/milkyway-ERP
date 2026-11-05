@@ -10,12 +10,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const seuil = document.getElementById('seuil');
     const modalTitle = document.getElementById('modal-title');
 
-    // === FORMATAGE PRIX ===
     function formatPrice(value) {
         return Number(value).toLocaleString('fr-FR') + ' Ar';
     }
 
-    // === FILTRAGE INSTANTANÉ ===
     function filterProducts() {
         const query = searchInput.value.toLowerCase().trim();
         const cards = grid.querySelectorAll('.card-item');
@@ -27,7 +25,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     searchInput.addEventListener('input', filterProducts);
 
-    // === CHARGEMENT DE LA LISTE ===
     function loadProducts() {
         fetch(`${API_BASE}/ecoulement/produits`)
             .then(res => res.json())
@@ -43,15 +40,14 @@ document.addEventListener('DOMContentLoaded', function() {
                 produits.forEach(prod => {
                     const card = document.createElement('div');
                     card.className = 'card-item bg-surface-container-lowest rounded-2xl p-6 shadow-sm border border-surface-variant/30 flex flex-col justify-between transition-all hover:shadow-md hover:-translate-y-0.5 duration-200';
-                    
-                    // === GÉNÉRATION DE L'IMAGE (ou placeholder) ===
+
                     let imageHtml = '';
                     if (prod.image) {
                         imageHtml = `<img src="/${prod.image}" alt="${prod.nom}" class="w-full h-32 object-cover rounded-t-lg mb-3">`;
                     } else {
                         imageHtml = `<div class="w-full h-32 bg-surface-container-low rounded-t-lg flex items-center justify-center text-on-surface-variant mb-3"><span class="material-symbols-outlined text-4xl">image</span></div>`;
                     }
-                    
+
                     card.innerHTML = `
                         <div>
                             ${imageHtml}
@@ -76,7 +72,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     grid.appendChild(card);
                 });
 
-                // Attacher événements
                 document.querySelectorAll('.delete-btn').forEach(btn => {
                     btn.addEventListener('click', function() {
                         deleteProduct(this.dataset.id);
@@ -93,7 +88,6 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(err => console.error('Erreur chargement produits:', err));
     }
 
-    // === SUPPRIMER ===
     function deleteProduct(id) {
         if (!confirm('Supprimer ce produit ?')) return;
         fetch(`${API_BASE}/ecoulement/produits/${id}`, { method: 'DELETE' })
@@ -104,7 +98,6 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(err => console.error(err));
     }
 
-    // === MODIFICATION (charger les données dans le modal) ===
     function openEditModal(id) {
         fetch(`${API_BASE}/ecoulement/produits/${id}`)
             .then(res => res.json())
@@ -115,7 +108,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 prix.value = prod.prix_vente;
                 seuil.value = prod.seuil_critique || 50;
 
-                // Afficher l'image existante
                 const preview = document.getElementById('current-image-preview');
                 const img = document.getElementById('current-image');
                 if (prod.image) {
@@ -124,7 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 } else {
                     preview.classList.add('hidden');
                 }
-                document.getElementById('image').value = ''; // réinitialiser le champ file
+                document.getElementById('image').value = '';
 
                 modalTitle.textContent = 'Modifier un produit';
                 modal.classList.remove('hidden');
@@ -132,7 +124,6 @@ document.addEventListener('DOMContentLoaded', function() {
             .catch(err => console.error(err));
     }
 
-    // === AJOUT (réinitialiser le formulaire) ===
     window.openAddModal = function() {
         productId.value = '';
         nom.value = '';
@@ -152,7 +143,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const formData = new FormData();
         formData.append('nom', nom.value);
         formData.append('duree_conservation', parseInt(duree.value));
-        formData.append('prix_vente', parseInt(prix.value));
+        formData.append('prix_vente', parseFloat(prix.value));
         formData.append('seuil_critique', parseInt(seuil.value) || 50);
 
         const fileInput = document.getElementById('image');
@@ -161,24 +152,35 @@ document.addEventListener('DOMContentLoaded', function() {
         }
 
         const id = productId.value;
-        const method = id ? 'PUT' : 'POST';
-        const url = id ? `${API_BASE}/ecoulement/produits/${id}` : `${API_BASE}/ecoulement/produits`;
+        let url, method;
+
+        if (id) {
+            // ⚠️ FIX: PUT + FormData n'est pas parsé par PHP → on utilise POST + _method
+            formData.append('_method', 'PUT');
+            url = `${API_BASE}/ecoulement/produits/${id}`;
+            method = 'POST';
+        } else {
+            url = `${API_BASE}/ecoulement/produits`;
+            method = 'POST';
+        }
 
         fetch(url, {
             method: method,
-            body: formData, // pas de Content-Type car FormData le gère
+            body: formData, // ne JAMAIS mettre Content-Type manuellement
         })
         .then(res => {
             if (res.ok) {
                 modal.classList.add('hidden');
                 loadProducts();
             } else {
-                return res.json().then(err => { throw new Error(err.message || 'Erreur inconnue'); });
+                return res.json().then(err => {
+                    // ⚠️ FIX: le controller renvoie {error: "..."} pas {message: "..."}
+                    throw new Error(err.error || err.message || 'Erreur inconnue');
+                });
             }
         })
         .catch(err => alert('❌ ' + err.message));
     });
 
-    // === CHARGEMENT INITIAL ===
     loadProducts();
 });
