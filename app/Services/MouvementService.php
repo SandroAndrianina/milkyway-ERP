@@ -19,6 +19,14 @@ class MouvementService
         $this->clientModel    = new ClientModel();
     }
 
+    private function generateUuid(): string
+    {
+        return sprintf('%04x%04x-%04x-%04x-%04x-%04x%04x%04x',
+            random_int(0, 0xffff), random_int(0, 0xffff), random_int(0, 0xffff),
+            random_int(0, 0x0fff) | 0x4000, random_int(0, 0x3fff) | 0x8000,
+            random_int(0, 0xffff), random_int(0, 0xffff), random_int(0, 0xffff));
+    }
+
     /**
      * Récupère la liste paginée avec filtres
      */
@@ -40,10 +48,20 @@ class MouvementService
      */
     public function createMouvement(array $data): int
     {
-        // Validation du prix_unitaire
-        if (empty($data['prix_unitaire']) || !is_numeric($data['prix_unitaire']) || $data['prix_unitaire'] <= 0) {
-            throw new \Exception('prix_unitaire est requis et doit être un nombre positif');
+        $produit = $this->produitModel->find($data['produit_id'] ?? 0);
+        if (!$produit) {
+            throw new \Exception('Produit introuvable');
         }
+
+        // Take the product price unless a valid one is provided
+        if (empty($data['prix_unitaire']) || !is_numeric($data['prix_unitaire'])) {
+            $data['prix_unitaire'] = (float) ($produit['prix_vente'] ?? 0);
+        }
+        if ($data['prix_unitaire'] <= 0) {
+            throw new \Exception("Le produit '{$produit['nom']}' n'a pas de prix de vente");
+        }
+
+        $data['uuid'] ??= $this->generateUuid();
 
         // Si c'est une sortie, vérifier le stock
         if ($data['type'] === 'sortie') {
@@ -69,15 +87,15 @@ class MouvementService
 
         // Simuler le stock pour chaque produit
         $stocks = [];
-        
+
         foreach ($items as $item) {
             $produitId = (int) $item['produit_id'];
-            
+
             // Initialiser le stock du produit s'il n'est pas encore en mémoire
             if (!isset($stocks[$produitId])) {
                 $stocks[$produitId] = $this->mouvementModel->getStockActuel($produitId);
             }
-            
+
             if ($item['type'] === 'sortie') {
                 if ($stocks[$produitId] < $item['quantite']) {
                     throw new \Exception("Stock insuffisant pour le produit ID $produitId. Stock actuel : {$stocks[$produitId]}, demandé : {$item['quantite']}");
@@ -89,10 +107,15 @@ class MouvementService
                 $stocks[$produitId] += $item['quantite'];
             }
         }
-        
-        // Si tout est validé, insérer en lot
-        $db = \Config\Database::connect();
-        return $db->table('mouvements')->insertBatch($items);
+
+        // Ajouter un uuid à chaque élément
+        foreach ($items as &$item) {
+            $item['uuid'] ??= $this->generateUuid();
+        }
+        unset($item);
+
+        // Si tout est validé, insérer en lot (remplit created_at / updated_at)
+        return $this->mouvementModel->insertBatch($items) !== false;
     }
 
     /**

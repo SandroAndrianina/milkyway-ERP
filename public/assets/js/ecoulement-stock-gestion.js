@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('formStock').addEventListener('submit', function(e) {
         e.preventDefault();
 
-        const quantite = parseFloat(document.getElementById('modal-quantite').value);
+        const quantite = parseInt(document.getElementById('modal-quantite').value);
         if (isNaN(quantite) || quantite <= 0) {
             alert('⚠️ La quantité doit être un nombre supérieur à 0.');
             return;
@@ -172,7 +172,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         rows.forEach(row => {
             const produit = row.querySelector('.row-produit').value;
-            const quantite = parseFloat(row.querySelector('.row-quantite').value);
+            const quantite = parseInt(row.querySelector('.row-quantite').value);
 
             if (!produit) {
                 alert('Veuillez sélectionner un produit pour chaque ligne.');
@@ -334,8 +334,17 @@ document.addEventListener('DOMContentLoaded', function() {
         const type = document.getElementById('export-type').value;
         const page = type === 'current' ? currentPage : 0;
         const filters = getFilters();
-        const params = new URLSearchParams({ filename, type, page, ...filters });
+        const params = new URLSearchParams({ filename, typeExport: type, page, ...filters });
         window.location.href = `${API_BASE}/stock-gestion/export/csv?${params}`;
+    });
+
+    document.getElementById('export-pdf-btn').addEventListener('click', function() {
+        const filename = document.getElementById('export-filename').value || 'stock_export';
+        const type = document.getElementById('export-type').value;
+        const page = type === 'current' ? currentPage : 0;
+        const filters = getFilters();
+        const params = new URLSearchParams({ filename, typeExport: type, page, ...filters });
+        window.location.href = `${API_BASE}/stock-gestion/export/pdf?${params}`;
     });
 
     // ==========================================

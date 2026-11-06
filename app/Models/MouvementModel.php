@@ -22,6 +22,7 @@ class MouvementModel extends Model
      */
     public function getMouvements(array $filters = [], int $page = 1, int $perPage = 10): array
     {
+        $page = max(1, $page);
         $builder = $this->db->table('mouvements')
             ->select('mouvements.*, produits.nom as produit_nom, clients.nom as client_nom')
             ->join('produits', 'produits.id = mouvements.produit_id', 'left')

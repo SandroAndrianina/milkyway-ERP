@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Api;
 
+use CodeIgniter\HTTP\ResponseInterface;
 use App\Controllers\BaseController;
 use App\Services\MouvementService;
 use App\Services\ExportService;
@@ -55,7 +56,7 @@ class MouvementController extends BaseController
             $data = $this->request->getJSON(true);
             
             // 1. Validation des champs requis
-            $required = ['produit_id', 'type', 'quantite', 'date_mouvement', 'prix_unitaire'];
+            $required = ['produit_id', 'type', 'quantite', 'date_mouvement'];
             foreach ($required as $field) {
                 if (empty($data[$field])) {
                     return $this->response->setStatusCode(400)

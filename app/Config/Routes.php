@@ -125,17 +125,14 @@ $routes->group('api', ['filter' => 'role:vente,admin'], function($routes) {
 
 // API Stocks – stocks ou admin
 $routes->group('api', ['filter' => 'role:stocks,admin'], function($routes) {
-    // Gestion de stock (nouvel écran)
     $routes->post('stock-gestion', 'Api\StockGestionController::create');
     $routes->get('stock-gestion/historique', 'Api\StockGestionController::historique');
     $routes->get('stock-gestion/export-preview', 'Api\StockGestionController::exportPreview');
     $routes->get('stock-gestion/export/csv', 'Api\StockGestionController::exportCsv');
+    $routes->get('stock-gestion/export/pdf', 'Api\StockGestionController::exportPdf');
 
-    // Mouvements (historique global)
     $routes->get('ecoulement/mouvements', 'Api\MouvementController::index');
     $routes->get('ecoulement/mouvements/chart', 'Api\MouvementController::chart');
-    $routes->post('ecoulement/mouvements', 'Api\MouvementController::create');
-    $routes->post('ecoulement/mouvements/batch', 'Api\MouvementController::createBatch');
     $routes->get('ecoulement/mouvements/(:num)', 'Api\MouvementController::show/$1');
     $routes->get('ecoulement/mouvements/export-preview', 'Api\MouvementController::exportPreview');
     $routes->get('ecoulement/mouvements/export/csv', 'Api\MouvementController::exportCsv');
@@ -151,6 +148,8 @@ $routes->group('api', ['filter' => 'role:vente,stocks,admin'], function($routes)
     $routes->put('ecoulement/produits/(:num)', 'Api\EcoulementProduitController::update/$1');
     $routes->delete('ecoulement/produits/(:num)', 'Api\EcoulementProduitController::delete/$1');
     $routes->post('ecoulement/produits/(:num)', 'Api\EcoulementProduitController::update/$1'); 
+    $routes->post('ecoulement/mouvements', 'Api\MouvementController::create');
+    $routes->post('ecoulement/mouvements/batch', 'Api\MouvementController::createBatch');
 
     // État des stocks (le contrôleur masque les finances si rôle = stocks)
     $routes->get('ecoulement/stock', 'Api\StockController::index');

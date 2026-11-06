@@ -110,7 +110,7 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('formVente').addEventListener('submit', function(e) {
         e.preventDefault();
 
-        const quantite = parseFloat(document.getElementById('modal-quantite').value);
+        const quantite = parseInt(document.getElementById('modal-quantite').value);
         if (isNaN(quantite) || quantite <= 0) {
             alert('⚠️ La quantité doit être un nombre entier supérieur à 0.');
             return;

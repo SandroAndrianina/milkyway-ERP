@@ -1,0 +1,604 @@
+INFO - 2026-11-06 01:58:29 --> REDIRECTED ROUTE at https://localhost:8443/index.php/
+DEBUG - 2026-11-06 01:58:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 01:58:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+INFO - 2026-11-06 01:58:39 --> CSRF token verified.
+DEBUG - 2026-11-06 01:58:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 01:58:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 01:58:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 01:58:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 01:58:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 01:58:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 01:58:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:31 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:35:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:37:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:37:27 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:37:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:37:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:37:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:37:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:37:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:29 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:38:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:39:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:39:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:39:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:39:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:39:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:39:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:39:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:39:13 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:39:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:39:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:39:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:39:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:39:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:39:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:40:28 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:40:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:40:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:40:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:40:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:40:45 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:40:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:40:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:40:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:40:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:40:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:40:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:40:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:41:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:41:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:41:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:41:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:41:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:41:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:41:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:41:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:41:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:41:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:41:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:41 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:42:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:21 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:22 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:43:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:44:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:44:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:44:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:44:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:44:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:44:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:44:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:44:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:44:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:44:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:44:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:44:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-11-06 02:45:43 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 9
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-10-31\'
+AND `mouvements`.`date_mouvement` <= \'2026-11-06\'
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-10-31\'
+AND `mouvements`.`date_mouvement` <= \'2026-11-06\'
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10')
+ 3 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-10-31\'
+AND `mouvements`.`date_mouvement` <= \'2026-11-06\'
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10', [...], false)
+ 5 APPPATH/Models/MouvementModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Services/MouvementService.php(35): App\Models\MouvementModel->getMouvements([...], 0, 10)
+ 7 APPPATH/Controllers/Api/StockGestionController.php(115): App\Services\MouvementService->getMouvements([...], 0, 10)
+ 8 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\StockGestionController->exportCsv()
+ 9 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\StockGestionController))
+10 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-11-06 02:45:43 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 9
+[Method: GET, Route: api/stock-gestion/export/csv]
+in SYSTEMPATH/Database/BaseConnection.php on line 863.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10', [...], false)
+ 2 APPPATH/Models/MouvementModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Services/MouvementService.php(35): App\Models\MouvementModel->getMouvements([...], 0, 10)
+ 4 APPPATH/Controllers/Api/StockGestionController.php(115): App\Services\MouvementService->getMouvements([...], 0, 10)
+ 5 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\StockGestionController->exportCsv()
+ 6 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\StockGestionController))
+ 7 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-11-06 02:45:43 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 9
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 310.
+ 1 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-10-31\'
+AND `mouvements`.`date_mouvement` <= \'2026-11-06\'
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10')
+ 2 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-10-31\'
+AND `mouvements`.`date_mouvement` <= \'2026-11-06\'
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10', [...], false)
+ 4 APPPATH/Models/MouvementModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Services/MouvementService.php(35): App\Models\MouvementModel->getMouvements([...], 0, 10)
+ 6 APPPATH/Controllers/Api/StockGestionController.php(115): App\Services\MouvementService->getMouvements([...], 0, 10)
+ 7 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\StockGestionController->exportCsv()
+ 8 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\StockGestionController))
+ 9 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-11-06 02:45:43 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 9
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-10-31\'
+AND `mouvements`.`date_mouvement` <= \'2026-11-06\'
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-10-31\'
+AND `mouvements`.`date_mouvement` <= \'2026-11-06\'
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10')
+ 3 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-10-31\'
+AND `mouvements`.`date_mouvement` <= \'2026-11-06\'
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10', [...], false)
+ 5 APPPATH/Models/MouvementModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Services/MouvementService.php(35): App\Models\MouvementModel->getMouvements([...], 0, 10)
+ 7 APPPATH/Controllers/Api/StockGestionController.php(115): App\Services\MouvementService->getMouvements([...], 0, 10)
+ 8 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\StockGestionController->exportCsv()
+ 9 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\StockGestionController))
+10 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-11-06 02:45:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:45:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:46:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:46:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:46:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:47:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:47:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:47:20 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+ERROR - 2026-11-06 02:47:20 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 9
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-10-31\'
+AND `mouvements`.`date_mouvement` <= \'2026-11-06\'
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-10-31\'
+AND `mouvements`.`date_mouvement` <= \'2026-11-06\'
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10')
+ 3 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-10-31\'
+AND `mouvements`.`date_mouvement` <= \'2026-11-06\'
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10', [...], false)
+ 5 APPPATH/Models/MouvementModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Services/MouvementService.php(35): App\Models\MouvementModel->getMouvements([...], 0, 10)
+ 7 APPPATH/Controllers/Api/StockGestionController.php(115): App\Services\MouvementService->getMouvements([...], 0, 10)
+ 8 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\StockGestionController->exportCsv()
+ 9 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\StockGestionController))
+10 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-11-06 02:47:20 --> CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 9
+[Method: GET, Route: api/stock-gestion/export/csv]
+in SYSTEMPATH/Database/BaseConnection.php on line 863.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10', [...], false)
+ 2 APPPATH/Models/MouvementModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 3 APPPATH/Services/MouvementService.php(35): App\Models\MouvementModel->getMouvements([...], 0, 10)
+ 4 APPPATH/Controllers/Api/StockGestionController.php(115): App\Services\MouvementService->getMouvements([...], 0, 10)
+ 5 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\StockGestionController->exportCsv()
+ 6 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\StockGestionController))
+ 7 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+ 9 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+10 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-11-06 02:47:20 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 9
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 310.
+ 1 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-10-31\'
+AND `mouvements`.`date_mouvement` <= \'2026-11-06\'
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10')
+ 2 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-10-31\'
+AND `mouvements`.`date_mouvement` <= \'2026-11-06\'
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10')
+ 3 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10', [...], false)
+ 4 APPPATH/Models/MouvementModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 5 APPPATH/Services/MouvementService.php(35): App\Models\MouvementModel->getMouvements([...], 0, 10)
+ 6 APPPATH/Controllers/Api/StockGestionController.php(115): App\Services\MouvementService->getMouvements([...], 0, 10)
+ 7 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\StockGestionController->exportCsv()
+ 8 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\StockGestionController))
+ 9 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+12 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+CRITICAL - 2026-11-06 02:47:20 --> [Caused by] mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '-10, 10' at line 9
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 300.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(300): mysqli->query('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-10-31\'
+AND `mouvements`.`date_mouvement` <= \'2026-11-06\'
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(908): CodeIgniter\Database\MySQLi\Connection->execute('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-10-31\'
+AND `mouvements`.`date_mouvement` <= \'2026-11-06\'
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10')
+ 3 SYSTEMPATH/Database/BaseConnection.php(825): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= \'2026-10-31\'
+AND `mouvements`.`date_mouvement` <= \'2026-11-06\'
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1659): CodeIgniter\Database\BaseConnection->query('SELECT `mouvements`.*, `produits`.`nom` as `produit_nom`, `clients`.`nom` as `client_nom`
+FROM `mouvements`
+LEFT JOIN `produits` ON `produits`.`id` = `mouvements`.`produit_id`
+LEFT JOIN `clients` ON `clients`.`id` = `mouvements`.`client_id`
+WHERE `mouvements`.`deleted_at` IS NULL
+AND `mouvements`.`date_mouvement` >= :mouvements.date_mouvement:
+AND `mouvements`.`date_mouvement` <= :mouvements.date_mouvement.1:
+ORDER BY `mouvements`.`date_mouvement` DESC, `mouvements`.`id` DESC
+ LIMIT -10, 10', [...], false)
+ 5 APPPATH/Models/MouvementModel.php(38): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Services/MouvementService.php(35): App\Models\MouvementModel->getMouvements([...], 0, 10)
+ 7 APPPATH/Controllers/Api/StockGestionController.php(115): App\Services\MouvementService->getMouvements([...], 0, 10)
+ 8 SYSTEMPATH/CodeIgniter.php(974): App\Controllers\Api\StockGestionController->exportCsv()
+ 9 SYSTEMPATH/CodeIgniter.php(520): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\StockGestionController))
+10 SYSTEMPATH/CodeIgniter.php(363): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH/Boot.php(417): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH/index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+DEBUG - 2026-11-06 02:47:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:47:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:47:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:47:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:47:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:47:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:51:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:51:53 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:51:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:51:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:51:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:51:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:52:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:52:00 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:52:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:52:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:52:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:52:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:52:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:52:19 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:58:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:58:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:58:57 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:59:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:59:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:59:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 02:59:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:04:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:04:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:04:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:04:37 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:04:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:04:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:04:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:04:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:04:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:05:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:05:11 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:05:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:05:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:05:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:05:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:05:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:05:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:05:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:05:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:05:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:06:09 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:06:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:06:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:06:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:06:12 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:06:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:06:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:08:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:08:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:08:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:08:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:08:43 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:08:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:08:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:08:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:08:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:09:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:09:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:09:04 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:09:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:09:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:09:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:09:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:09:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:09:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:09:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:09:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+DEBUG - 2026-11-06 03:09:35 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
